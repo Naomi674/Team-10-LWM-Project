@@ -14,17 +14,84 @@
                     <div class="label">Categories</div>
                     <aside class="menu">
                         <ul class="menu-list">
-                            <li><a class="is-active">Main service</a></li>
-                            <li><a>Requests</a></li>
-                            <li><a>Issues</a></li>
-                            <li><a>Feedback</a></li>
+                            <li><a href="#" class="is-active">Main service</a></li>
+                            <li><a href="#">Requests</a></li>
+                            <li><a href="#">Issues</a></li>
+                            <li><a href="#">Feedback</a></li>
                         </ul>
                     </aside>
                 </div>
             </div>
             <!-- Right Side -->
-            <div class="column is-three-quarters">
-                <div class="table">Ehre</div>
+            <div class="column">
+                <div class="title">Main service</div>
+                <div class="box">
+                    <div class="columns">
+                        <!-- Title -->
+                        <div class="column is-one-fifths">
+                            Book a meeting room
+                        </div>
+                        <!-- Excerpt -->
+                        <div class="column is-three-fifths">
+                            Make a Room Reservation with optional services.
+                        </div>
+                        <!-- Link Button -->
+                        <div class="column is-one-fifth">
+                            <a class="button is-link is-pulled-right">🠖</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="columns">
+                        <!-- Title -->
+                        <div class="column is-one-fifths">
+                            Cleaning
+                        </div>
+                        <!-- Excerpt -->
+                        <div class="column is-three-fifths">
+                            Order cleaning service
+                        </div>
+                        <!-- Link Button -->
+                        <div class="column is-one-fifth">
+                            <a class="button is-link is-pulled-right">🠖</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="columns">
+                        <!-- Title -->
+                        <div class="column is-one-fifths">
+                            Furniture
+                        </div>
+                        <!-- Excerpt -->
+                        <div class="column is-three-fifths">
+                            Order furniture for your workplace
+                        </div>
+                        <!-- Link Button -->
+                        <div class="column is-one-fifth">
+                            <a class="button is-link is-pulled-right">🠖</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="columns">
+                        <!-- Title -->
+                        <div class="column is-one-fifths">
+                            Handyman
+                        </div>
+                        <!-- Excerpt -->
+                        <div class="column is-three-fifths">
+                            Order handyman servicex
+                        </div>
+                        <!-- Link Button -->
+                        <div class="column is-one-fifth">
+                            <a class="button is-link is-pulled-right">🠖</a>
+                        </div>
+                    </div>
+                </div>
+{{--                @foreach(item)--}}
+{{--                show box for every entry--}}
+{{--                @endforeach--}}
             </div>
         </div>
     </div>
