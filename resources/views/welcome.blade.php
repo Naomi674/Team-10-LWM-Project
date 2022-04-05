@@ -1,6 +1,5 @@
-@extends('layout')
+@extends('Components.layout')
 
 @section('content')
         
 @endsection
-
