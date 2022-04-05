@@ -96,7 +96,7 @@
 
     <div class="container">
         <footer class="my-4">
-            <p class="text-center text-muted" id="copyright">Copyright © 2021 Lamb Weston. All rights reserved.</p>
+            <p class="text-center text-muted" id="copyright">Copyright © 2022 Lamb Weston. All rights reserved.</p>
         </footer>
     </div>
 
