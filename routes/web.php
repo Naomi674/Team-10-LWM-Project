@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FacilitiesController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KnowledgeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('/knowledge', KnowledgeController::class);
 
 Route::resource('/catalog/facilities', FacilitiesController::class);
