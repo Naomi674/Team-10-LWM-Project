@@ -11,6 +11,6 @@ class KnowledgeController extends Controller
 {
     public function index()
     {
-        return view('pages.knowledge');
+        return view('knowledge');
     }
 }
