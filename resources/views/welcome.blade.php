@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('Components.layout')
 
 @section('content')
     <div class="notification is-danger ml-6 mr-6 mt-4">
@@ -42,4 +42,3 @@
         </div>
     </section>
 @endsection
-
