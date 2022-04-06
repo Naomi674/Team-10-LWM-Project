@@ -56,6 +56,9 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
+                    <a class="button is-primary">
+                        <strong>My account</strong>
+                    </a>
                     <a class="button is-light">
                         Logout
                     </a>

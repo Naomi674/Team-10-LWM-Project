@@ -16,7 +16,7 @@ use App\Http\Controllers\KnowledgeController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/welcome');
 });
 
 Route::resource('/knowledge', KnowledgeController::class);
