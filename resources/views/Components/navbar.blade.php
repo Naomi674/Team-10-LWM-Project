@@ -13,40 +13,39 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-            <div class="field">
+            <div class="field navbar-divider">
                 <div class="control">
                     <input class="input" type="text" placeholder="Search">
                 </div>
             </div>
-
-            <a class="navbar-item">
+            <a class="navbar-item {{ Request::route()->getName() === 'welcome.index' ? "is-active" : "" }}" href="/">
                 Home
             </a>
 
-            <a class="navbar-item" href="../knowledge">
-                Knowledge Base
+            <a class="navbar-item {{ Request::route()->getName() === 'knowledge.index' ? "is-active" : "" }}" href="{{ route('knowledge.index') }}">
+                Knowledge
             </a>
 
-            <a class="navbar-item">
-                FAQ
+            <a class="navbar-item {{ Request::route()->getName() === 'foo.index' ? "is-active" : "" }}">
+                Foo
             </a>
 
             <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">
+                <a class="navbar-link {{ Request::route()->getName() === 'hr.index' || 'it.index' || 'facilities.index' || 'financial.index' ? "is-active" : "" }}">
                     Catalog
                 </a>
 
                 <div class="navbar-dropdown">
-                    <a class="navbar-item">
+                    <a class="navbar-item {{ Request::route()->getName() === 'hr.index' ? "is-active" : "" }}">
                         HR
                     </a>
-                    <a class="navbar-item">
+                    <a class="navbar-item {{ Request::route()->getName() === 'it.index' ? "is-active" : "" }}">
                         IT
                     </a>
-                    <a class="navbar-item" href="/catalog/facilities/">
+                    <a class="navbar-item {{ Request::route()->getName() === 'facilities.index' ? "is-active" : "" }}" href="{{ route('facilities.index') }}">
                         Facilities
                     </a>
-                    <a class="navbar-item">
+                    <a class="navbar-item {{ Request::route()->getName() === 'financial.index' ? "is-active" : "" }}">
                         Financial
                     </a>
                 </div>
