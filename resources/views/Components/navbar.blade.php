@@ -43,7 +43,7 @@
                     <a class="navbar-item">
                         IT
                     </a>
-                    <a class="navbar-item">
+                    <a class="navbar-item" href="/catalog/facilities/">
                         Facilities
                     </a>
                     <a class="navbar-item">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FacilitiesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KnowledgeController;
 
@@ -19,3 +20,5 @@ Route::get('/', function () {
 });
 
 Route::resource('/knowledge', KnowledgeController::class);
+
+Route::resource('/catalog/facilities', FacilitiesController::class);
