@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('/home/welcome');
+    return view('/welcome');
 });
 
 Route::resource('/catalog/facilities', FacilitiesController::class);
