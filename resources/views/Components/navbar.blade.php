@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            <a class="navbar-item">
+            <a class="navbar-item" href="/">
                 Home
             </a>
 
