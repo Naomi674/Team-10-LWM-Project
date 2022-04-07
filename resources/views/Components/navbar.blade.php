@@ -33,6 +33,10 @@
                 My Tickets
             </a>
 
+            <a class="navbar-item" href="../status">
+                System Status
+            </a>
+
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link has-text-white">
                     Catalog
