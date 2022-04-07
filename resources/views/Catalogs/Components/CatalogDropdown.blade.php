@@ -13,7 +13,7 @@
             <a href="#" class="dropdown-item">
                 Buisness Support
             </a>
-            <a href="/catalog/facilities" class="dropdown-item is-active">
+            <a href="/catalog/facilities" class="dropdown-item has-background-primary has-text-white">
                 Facilities
             </a>
             <a href="#" class="dropdown-item">

@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\SystemController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KnowledgeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/welcome');
 });
 
 Route::resource('/catalog/facilities', FacilitiesController::class);
 Route::resource('/ticket', TicketController::class);
+Route::resource('/index', SystemController::class);
+Route::resource('/knowledge', KnowledgeController::class);
+

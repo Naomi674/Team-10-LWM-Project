@@ -23,12 +23,16 @@
                 Home
             </a>
 
-            <a class="navbar-item">
+            <a class="navbar-item" href="../knowledge">
                 Knowledge Base
             </a>
 
             <a class="navbar-item">
                 FAQ
+            </a>
+
+            <a class="navbar-item" href="/index">
+                System Status
             </a>
 
             <div class="navbar-item has-dropdown is-hoverable">
@@ -56,6 +60,9 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
+                    <a class="button is-primary">
+                        <strong>My account</strong>
+                    </a>
                     <a class="button is-light">
                         Logout
                     </a>
