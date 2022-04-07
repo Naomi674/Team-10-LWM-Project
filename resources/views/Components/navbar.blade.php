@@ -29,11 +29,11 @@
                 Knowledge
             </a>
 
-            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'foo.index' ? "is-active" : "" }}" href="{{ route('ticket.index') }}">
+            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'ticket.index' ? "is-active" : "" }}" href="{{ route('ticket.index') }}">
                 My Tickets
             </a>
 
-            <a class="navbar-item" href="../status">
+            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'status.index' ? "is-active" : "" }}" href="{{ route('status.index') }}">
                 System Status
             </a>
 
