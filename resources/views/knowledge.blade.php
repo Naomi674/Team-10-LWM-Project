@@ -23,7 +23,7 @@
                                 </span>
                         </a>
                     </header>
-                    <div id="collapsible-card" class="is-collapsible is-active">
+                    <div id="collapsible-card" class="is-collapsible">
                         <div class="card-content">
                             <p class="content is-5">
                                 Does everybody know that pig named Lorem Ipsum? She's a disgusting pig, right? Despite the constant negative ipsum covfefe. Lorem Ipsum is a choke artist. It chokes! We are going to make placeholder text great again. Greater than ever before.
@@ -50,7 +50,7 @@
                                 </span>
                         </a>
                     </header>
-                    <div id="collapsible-card" class="is-collapsible is-active">
+                    <div id="collapsible-card" class="is-collapsible">
                         <div class="card-content">
                             <p class="content is-5">
                                 Does everybody know that pig named Lorem Ipsum? She's a disgusting pig, right? Despite the constant negative ipsum covfefe. Lorem Ipsum is a choke artist. <a href="#"><u>It chokes!</u></a> We are going to make placeholder text great again. Greater than ever before.
@@ -87,7 +87,7 @@
                                 </span>
                             </a>
                         </header>
-                        <div id="collapsible-card" class="is-collapsible is-active">
+                        <div id="collapsible-card" class="is-collapsible">
                             <div class="card-content">
                                 <p class="content is-5">
                                     Does everybody know that pig named Lorem Ipsum? She's a disgusting pig, right? Despite the constant negative ipsum covfefe. Lorem Ipsum is a choke artist. It chokes! We are going to make placeholder text great again. Greater than ever before.
@@ -117,7 +117,7 @@
                                 </span>
                         </a>
                     </header>
-                    <div id="collapsible-card" class="is-collapsible is-active">
+                    <div id="collapsible-card" class="is-collapsible">
                         <div class="card-content">
                             <p class="content is-5">
                                 Does everybody know that pig named Lorem Ipsum? She's a <b>disgusting pig</b>, right? Despite the constant negative ipsum covfefe. Lorem Ipsum is a choke artist. It chokes! We are going to make placeholder text great again. Greater than ever before.
