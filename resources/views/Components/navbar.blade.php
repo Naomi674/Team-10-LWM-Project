@@ -1,7 +1,7 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar mb-4" style="background-color: #00385a" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="/">
-            <img src="https://s24.q4cdn.com/466475068/files/images/logos/Full-color.png" width="112" height="28">
+            <img src="https://lwmdev.service-now.com/f1580754dbf8b700a797298a48961940.iix" width="112" height="28">
         </a>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -13,22 +13,24 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-            <div class="field">
-                <div class="control">
-                    <input class="input" type="text" placeholder="Search">
+            <div class="field has-icons-right">
+                <div class="field navbar-divider mr-3 ml-3" style="background-color: #00385a">
+                    <p class="control is-expanded has-icons-right">
+                        <input class="input" type="search" placeholder="Search..."/>
+                        <span class="icon is-small is-right"><i class="fas fa-search"></i></span>
+                    </p>
                 </div>
             </div>
-
-            <a class="navbar-item" href="/">
+            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'welcome.index' ? "is-active" : "" }}" href="/">
                 Home
             </a>
 
-            <a class="navbar-item" href="../knowledge">
-                Knowledge Base
+            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'knowledge.index' ? "is-active" : "" }}" href="{{ route('knowledge.index') }}">
+                Knowledge
             </a>
 
-            <a class="navbar-item">
-                FAQ
+            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'foo.index' ? "is-active" : "" }}" href="{{ route('ticket.index') }}">
+                My Tickets
             </a>
 
             <a class="navbar-item" href="../status">
@@ -36,21 +38,21 @@
             </a>
 
             <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">
+                <a class="navbar-link has-text-white">
                     Catalog
                 </a>
 
                 <div class="navbar-dropdown">
-                    <a class="navbar-item">
+                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'hr.index' ? "is-active" : "" }}">
                         HR
                     </a>
-                    <a class="navbar-item">
+                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'it.index' ? "is-active" : "" }}">
                         IT
                     </a>
-                    <a class="navbar-item" href="/catalog/facilities/">
+                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'facilities.index' ? "is-active" : "" }}" href="{{ route('facilities.index') }}">
                         Facilities
                     </a>
-                    <a class="navbar-item">
+                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'financial.index' ? "is-active" : "" }}">
                         Financial
                     </a>
                 </div>
