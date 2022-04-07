@@ -1,4 +1,4 @@
-<nav class="navbar" style="background-color: #00385a" role="navigation" aria-label="main navigation">
+<nav class="navbar mb-4" style="background-color: #00385a" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="/">
             <img src="https://lwmdev.service-now.com/f1580754dbf8b700a797298a48961940.iix" width="112" height="28">
@@ -13,8 +13,8 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-            <div class="field navbar-divider has-icons-right">
-                <div class="field" style="background-color: #00385a">
+            <div class="field has-icons-right">
+                <div class="field navbar-divider mr-3 ml-3" style="background-color: #00385a">
                     <p class="control is-expanded has-icons-right">
                         <input class="input" type="search" placeholder="Search..."/>
                         <span class="icon is-small is-right"><i class="fas fa-search"></i></span>
@@ -29,8 +29,8 @@
                 Knowledge
             </a>
 
-            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'foo.index' ? "is-active" : "" }}">
-                Foo
+            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'foo.index' ? "is-active" : "" }}" href="{{ route('ticket.index') }}">
+                My Tickets
             </a>
 
             <div class="navbar-item has-dropdown is-hoverable">
