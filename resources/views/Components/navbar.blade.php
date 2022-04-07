@@ -31,7 +31,7 @@
                 FAQ
             </a>
 
-            <a class="navbar-item" href="/index">
+            <a class="navbar-item" href="../status">
                 System Status
             </a>
 

@@ -23,6 +23,6 @@ Route::get('/', function () {
 
 Route::resource('/catalog/facilities', FacilitiesController::class);
 Route::resource('/ticket', TicketController::class);
-Route::resource('/index', SystemController::class);
+Route::resource('/status', SystemController::class);
 Route::resource('/knowledge', KnowledgeController::class);
 

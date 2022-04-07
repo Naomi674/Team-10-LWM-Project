@@ -11,7 +11,7 @@ class SystemController extends Controller
      */
     public function index()
     {
-        return view('index');
+        return view('status');
     }
 
     public function show()
