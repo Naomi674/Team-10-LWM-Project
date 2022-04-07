@@ -23,7 +23,7 @@
                 Home
             </a>
 
-            <a class="navbar-item">
+            <a class="navbar-item" href="../knowledge">
                 Knowledge Base
             </a>
 
@@ -60,6 +60,9 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
+                    <a class="button is-primary">
+                        <strong>My account</strong>
+                    </a>
                     <a class="button is-light">
                         Logout
                     </a>

@@ -14,7 +14,7 @@
                     <div class="label">Categories</div>
                     <aside class="menu">
                         <ul class="menu-list">
-                            <li><a href="#" class="is-active" style="background-color: #e35205">Main service</a></li>
+                            <li><a href="#" class="has-background-primary has-text-white">Main service</a></li>
                             <li><a href="#">Requests</a></li>
                             <li><a href="#">Issues</a></li>
                             <li><a href="#">Feedback</a></li>
