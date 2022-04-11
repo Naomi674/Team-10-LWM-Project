@@ -21,36 +21,36 @@
                         <li class="title is-5 p-2" style="background: #e35205">Legend</li>
                         <li>
                             <span class="icon">
-                      <i class="fas fa-email"></i>
+                      <i class="fa-solid fa-circle-check"></i>
                     </span>
                             No issues
                         </li>
                         <li>
                             <span class="icon">
-                      <i class="fas fa-email"></i>
+                      <i class="fa-solid fa-circle-info"></i>
                     </span>
                             Planned maintenance
                         </li>
                         <li><span class="icon">
-                      <i class="fas fa-email"></i>
+                      <i class="fa-solid fa-circle-minus"></i>
                     </span>
                             Service degradation
                         </li>
                         <li><span class="icon">
-                      <i class="fas fa-email"></i>
+                     <i class="fa-solid fa-circle-exclamation"></i>
                     </span>
                             Outage
                         </li>
                         <li>
                             <span class="icon">
-                      <i class="fas fa-email"></i>
+                     <i class="fa-solid fa-circle-plus"></i>
                     </span>
                             Multiple issues
                         </li>
                     </ul>
             </div></div>
             <div class="column is-four-fifths">
-                <table class="table is-narrow ml-auto mr-auto ">
+                <table class="table is-hoverable is-fullwidth ml-auto mr-auto ">
                     <thead>
                     <tr>
                         <th>Status history</th>
@@ -66,44 +66,58 @@
                     <tbody>
                     <tr>
                         <th>Business Service</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>
+                            <i class="fa-solid fa-envelope"></i>
+                        </th>
+                        <th>
+                            <i class="fa-solid fa-circle-check"></i>
+                        </th>
+                        <th>
+                            <i class="fa-solid fa-circle-check"></i>
+                        </th>
+                        <th>
+                            <i class="fa-solid fa-circle-check"></i>
+                        </th>
+                        <th>
+                            <i class="fa-solid fa-circle-check"></i>
+                        </th>
+                        <th>
+                            <i class="fa-solid fa-circle-check"></i>
+                        </th>
+                        <th>
+                            Operational
+                        </th>
                     </tr>
                     <tr>
                         <th>Digital Workplace</th>
                         <th>
                             <span class="icon">
-                              <i class="fas fa-email"></i>
+                              <i class="fa-solid fa-envelope"></i>
                             </span>
                         </th>
                         <th>
                             <span class="icon">
-                              <i class="fas fa-email"></i>
+                              <i class="fa-solid fa-circle-check"></i>
                             </span>
                         </th>
                         <th>
                             <span class="icon">
-                              <i class="fas fa-email"></i>
+                              <i class="fa-solid fa-circle-check"></i>
                             </span>
                         </th>
                         <th>
                 <span class="icon">
-                  <i class="fas fa-email"></i>
+                  <i class="fa-solid fa-circle-check"></i>
                 </span>
                         </th>
                         <th>
                 <span class="icon">
-                  <i class="fas fa-email"></i>
+                  <i class="fa-solid fa-circle-check"></i>
                 </span>
                         </th>
                         <th>
                 <span class="icon">
-                  <i class="fas fa-email"></i>
+                  <i class="fa-solid fa-circle-check"></i>
                 </span>
                         </th>
                         <th>Operational</th>
@@ -111,32 +125,32 @@
                     <th>E-Commerce</th>
                     <th>
                 <span class="icon">
-                  <i class="fas fa-email"></i>
+                  <i class="fa-solid fa-envelope"></i>
                 </span>
                     </th>
                     <th>
                 <span class="icon">
-                  <i class="fas fa-email"></i>
+                 <i class="fa-solid fa-circle-check"></i>
                 </span>
                     </th>
                     <th>
                 <span class="icon">
-                  <i class="fas fa-email"></i>
+                 <i class="fa-solid fa-circle-check"></i>
                 </span>
                     </th>
                     <th>
                 <span class="icon">
-                  <i class="fas fa-email"></i>
+                  <i class="fa-solid fa-circle-check"></i>
                 </span>
                     </th>
                     <th>
                 <span class="icon">
-                  <i class="fas fa-email"></i>
+                  <i class="fa-solid fa-circle-check"></i>
                 </span>
                     </th>
                     <th>
                 <span class="icon">
-                  <i class="fas fa-email"></i>
+                  <i class="fa-solid fa-circle-check"></i>
                 </span>
                     </th>
                     <th>Operational</th>
@@ -146,32 +160,32 @@
                         <th>Files & Folders</th>
                         <th>
                 <span class="icon">
-                  <i class="fas fa-email"></i>
+                  <i class="fa-solid fa-envelope"></i>
                 </span>
                         </th>
                         <th>
                 <span class="icon">
-                  <i class="fas fa-email"></i>
+                  <i class="fa-solid fa-circle-check"></i>
                 </span>
                         </th>
                         <th>
                 <span class="icon">
-                  <i class="fas fa-email"></i>
+                  <i class="fa-solid fa-circle-check"></i>
                 </span>
                         </th>
                         <th>
                 <span class="icon">
-                  <i class="fas fa-email"></i>
+                  <i class="fa-solid fa-circle-check"></i>
                 </span>
                         </th>
                         <th>
                 <span class="icon">
-                  <i class="fas fa-email"></i>
+                  <i class="fa-solid fa-circle-check"></i>
                 </span>
                         </th>
                         <th>
                 <span class="icon">
-                  <i class="fas fa-email"></i>
+                 <i class="fa-solid fa-circle-check"></i>
                 </span>
                         </th>
                         <th>Operational</th>
