@@ -13,7 +13,8 @@
                     <div class="label">Categories</div>
                     <aside class="menu">
                         <ul class="menu-list">
-                            <li><a href="#" class="has-background-primary has-text-white">IT Knowledge</a></li>
+                            <li><a href="#" class="has-background-primary has-text-white">FAQs</a></li>
+                            <li><a href="#">IT Knowledge</a></li>
                             <li><a href="#">Onboarding</a></li>
                             <li><a href="#">ServiceNow Portal</a></li>
                             <li><a href="#">Facilities</a></li>
@@ -120,6 +121,9 @@
                         </div>
                     </div>
                 </div>
+                <p class="content is-5 pt-3" align="right">
+                    <a href="#">View all FAQs</a>
+                </p>
             </div>
         </div>
     </div>
