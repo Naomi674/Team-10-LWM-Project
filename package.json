@@ -7,15 +7,20 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "css-build": "node-sass --omit-source-map-url /sass/mystyles.scss /css/mystyles.css",
+        "css-watch": "npm run css-build -- --watch",
+        "start": "npm run css-watch"
     },
     "devDependencies": {
         "axios": "^0.25",
+        "bulma": "^0.9.3",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14"
-    },
-    "dependencies": {
-        "bulma": "^0.9.3"
+        "node-sass": "^7.0.1",
+        "postcss": "^8.1.14",
+        "resolve-url-loader": "^5.0.0",
+        "sass": "^1.49.11",
+        "sass-loader": "^12.6.0"
     }
 }

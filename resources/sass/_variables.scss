@@ -1,0 +1,25 @@
+/*
+ * Customize the looks of the app.
+ *
+ * See for examples: https://versions.bulma.io/0.7.0/documentation/overview/customize/
+ */
+// Import the initial variables
+@import "~bulma/sass/utilities/initial-variables";
+@import "~bulma/sass/utilities/functions";
+
+// Define project theme colors
+$lwm-primary: #e35205;
+
+// Define Bulma Colors, using standard and/or project theme colors
+$primary: $lwm-primary;
+$primary-invert: white;
+$custom-colors: $lwm-primary;
+$dropdown-content-background-color: #00385a;
+
+// Typography. You can use any font here, but for demonstration purposes, we use some nice Google font
+// (check https://fonts.google.com/ for fonts)
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+$family-primary: 'Roboto', sans-serif;
+
+// Finally import the rest of the derived variables
+@import "~bulma/sass/utilities/derived-variables";
