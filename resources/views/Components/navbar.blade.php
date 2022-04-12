@@ -21,10 +21,10 @@
                     </p>
                 </div>
             </div>
-            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'welcome.index' ? "is-active" : "" }}" href="/">
+            <a class="navbar-item has-text-white {{ Request::route()->getName() === null ? "is-active" : "" }}" href="/">
                 Home
             </a>
-
+            
             <a class="navbar-item has-text-white {{ Request::route()->getName() === 'knowledge.index' ? "is-active" : "" }}" href="{{ route('knowledge.index') }}">
                 Knowledge
             </a>
