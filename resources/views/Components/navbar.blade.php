@@ -65,9 +65,12 @@
                     <a class="button is-primary">
                         <strong>My account</strong>
                     </a>
-                    <a class="button is-light">
-                        Logout
-                    </a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="button is-light">
+                            Logout
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

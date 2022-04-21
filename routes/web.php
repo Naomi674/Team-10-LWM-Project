@@ -19,10 +19,10 @@ use App\Http\Controllers\KnowledgeController;
 
 Route::get('/', function () {
     return view('/welcome');
-});
+})->middleware('auth');
 
-Route::resource('/catalog/facilities', FacilitiesController::class);
-Route::resource('/ticket', TicketController::class);
-Route::resource('/status', SystemController::class);
-Route::resource('/knowledge', KnowledgeController::class);
+Route::resource('/catalog/facilities', FacilitiesController::class)->middleware('auth');
+Route::resource('/ticket', TicketController::class)->middleware('auth');
+Route::resource('/status', SystemController::class)->middleware('auth');
+Route::resource('/knowledge', KnowledgeController::class)->middleware('auth');
 
