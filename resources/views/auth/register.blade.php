@@ -19,12 +19,12 @@
             <div class="field">
                 <label class="label">Name</label>
                 <div class="control">
-                    <input class="input" type="text" placeholder="e.g Alex Smith">
+                    <input class="input" type="text" name="name" placeholder="e.g Alex Smith">
                 </div>
             </div>
             <div class="field">
                 <p class="control has-icons-left has-icons-right">
-                    <input class="input" type="email" placeholder="Email">
+                    <input class="input" type="email" name="email" placeholder="Email">
                     <span class="icon is-small is-left">
               <i class="fas fa-envelope"></i>
             </span>
@@ -35,7 +35,15 @@
             </div>
             <div class="field">
                 <p class="control has-icons-left">
-                    <input class="input" type="password" placeholder="Password">
+                    <input class="input" type="password" name="password" placeholder="Password">
+                    <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+                </p>
+            </div>
+            <div class="field">
+                <p class="control has-icons-left">
+                    <input class="input" type="password" name="password_confirmation" placeholder="Confirm Password">
                     <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
             </span>
