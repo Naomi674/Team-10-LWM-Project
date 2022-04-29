@@ -12,38 +12,44 @@
     <script src="https://kit.fontawesome.com/200185356f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="columns">
-        <div class="column is-two-fifths">
-            <form method="POST" action="{{ route('login') }}">
-                @csrf
-                <div class="field">
-                    <p class="control has-icons-left has-icons-right">
-                        <input class="input" type="email" name="email" placeholder="Email">
-                        <span class="icon is-small is-left">
-                  <i class="fas fa-envelope"></i>
-                </span>
-                        <span class="icon is-small is-right">
-                  <i class="fas fa-check"></i>
-                </span>
-                    </p>
+    <section class="hero is-primary is-fullheight">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+                        <form method="POST" action="{{ route('login') }}" class="box">
+                    @csrf
+                    <div class="field">
+                        <p class="control has-icons-left has-icons-right">
+                            <input class="input" type="email" name="email" placeholder="Email">
+                            <span class="icon is-small is-left">
+                      <i class="fas fa-envelope"></i>
+                    </span>
+                            <span class="icon is-small is-right">
+                      <i class="fas fa-check"></i>
+                    </span>
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="control has-icons-left">
+                            <input class="input" type="password" name="password" placeholder="Password">
+                            <span class="icon is-small is-left">
+                      <i class="fas fa-lock"></i>
+                    </span>
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="control">
+                            <button type="submit" class="button is-success">
+                                Login
+                            </button>
+                        </p>
+                    </div>
+                </form>
+                    </div>
                 </div>
-                <div class="field">
-                    <p class="control has-icons-left">
-                        <input class="input" type="password" name="password" placeholder="Password">
-                        <span class="icon is-small is-left">
-                  <i class="fas fa-lock"></i>
-                </span>
-                    </p>
-                </div>
-                <div class="field">
-                    <p class="control">
-                        <button type="submit" class="button is-success">
-                            Login
-                        </button>
-                    </p>
-                </div>
-            </form>
+            </div>
         </div>
-    </div>
+    </section>
 </body>
 </html>
