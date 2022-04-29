@@ -1,4 +1,4 @@
-<nav class="navbar mb-4" style="background-color: #00385a" role="navigation" aria-label="main navigation">
+<nav class="navbar mb-4" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="/">
             <img src="https://lwmdev.service-now.com/f1580754dbf8b700a797298a48961940.iix" width="112" height="28">
