@@ -5,6 +5,7 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\SystemController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KnowledgeController;
+use App\Http\Controllers\CatalogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +26,5 @@ Route::resource('/catalog/facilities', FacilitiesController::class);
 Route::resource('/ticket', TicketController::class);
 Route::resource('/status', SystemController::class);
 Route::resource('/knowledge', KnowledgeController::class);
+Route::resource('/catalog', CatalogController::class);
 
