@@ -12,7 +12,7 @@
     <script src="https://kit.fontawesome.com/200185356f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <section class="hero is-primary is-fullheight">
+    <section class="hero has-background-secondary is-fullheight">
         <div class="hero-body">
             <div class="container">
                 <div class="columns is-centered">
@@ -21,22 +21,29 @@
                     @csrf
                     <div class="field">
                         <p class="control has-icons-left has-icons-right">
-                            <input class="input" type="email" name="email" placeholder="Email">
+                            <input id="email" type="email" placeholder="E-mail" class="input @error('email') is-danger @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                             <span class="icon is-small is-left">
-                      <i class="fas fa-envelope"></i>
-                    </span>
-                            <span class="icon is-small is-right">
-                      <i class="fas fa-check"></i>
-                    </span>
+                              <i class="fas fa-envelope"></i>
+                            </span>
                         </p>
+                        @error('email')
+                            <p class="help is-danger" role="alert">
+                                {{ $message }}
+                            </p>
+                        @enderror
                     </div>
                     <div class="field">
                         <p class="control has-icons-left">
-                            <input class="input" type="password" name="password" placeholder="Password">
+                            <input id="password" type="password" placeholder="Password" class="input @error('password') is-danger @enderror" name="password" required autocomplete="current-password">
                             <span class="icon is-small is-left">
-                      <i class="fas fa-lock"></i>
-                    </span>
+                              <i class="fas fa-lock"></i>
+                            </span>
                         </p>
+                        @error('password')
+                            <p class="help is-danger" role="alert">
+                                {{ $message }}
+                            </p>
+                        @enderror
                     </div>
                     <div class="field">
                         <p class="control">

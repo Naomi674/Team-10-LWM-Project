@@ -10,6 +10,7 @@
 // Define project theme colors
 $lwm-primary: #e35205;
 $secondary: #00385a;
+$secondary-invert: #00385a;
 
 // Define Bulma Colors, using standard and/or project theme colors
 $primary: $lwm-primary;
@@ -23,7 +24,11 @@ $family-primary: 'Roboto', sans-serif;
 
 // Finally import the rest of the derived variables
 @import "~bulma/sass/utilities/derived-variables";
-//$navbar-item-hover-color: #ffad06;s
+$addColors: (
+        "secondary":($secondary, $secondary-invert),
+);
+$colors: map-merge($colors, $addColors);
+
 $navbar-background-color: $secondary;
 $navbar-item-active-color: $primary;
 $navbar-item-active-background-color: $primary;
