@@ -20,8 +20,12 @@ use App\Http\Controllers\CatalogController;
 
 Route::get('/', function () {
     return view('/welcome');
-});
+})->middleware('auth');
 
+Route::resource('/catalog/facilities', FacilitiesController::class)->middleware('auth');
+Route::resource('/ticket', TicketController::class)->middleware('auth');
+Route::resource('/status', SystemController::class)->middleware('auth');
+Route::resource('/knowledge', KnowledgeController::class)->middleware('auth');
 Route::resource('/catalog/facilities', FacilitiesController::class);
 Route::resource('/ticket', TicketController::class);
 Route::resource('/status', SystemController::class);
