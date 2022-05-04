@@ -37,8 +37,8 @@
                 System Status
             </a>
 
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link has-text-white">
+            <div class="navbar-item has-dropdown is-hoverable has-text-white">
+                <a class="navbar-link has-text-white {{ Request::route()->getName() === 'catalogs.index' ? "is-active" : "" }}" href="{{ route('catalog.index') }}">
                     Catalog
                 </a>
 
