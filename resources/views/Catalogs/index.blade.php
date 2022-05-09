@@ -3,7 +3,7 @@
 @section ('content')
 <div class="columns is-flex is-multiline pl-3 pr-3">
     <div class="column is-one-third mb-2">
-        <div class="box is-one-third"></div>
+        <div class="box is-one-third">
             <p class="bd-notification is-primary pb-2">
                 <a href="#"><strong><u>HR</u></strong></a>
             </p>
