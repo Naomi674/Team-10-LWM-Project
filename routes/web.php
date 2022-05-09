@@ -26,9 +26,5 @@ Route::resource('/catalog/facilities', FacilitiesController::class)->middleware(
 Route::resource('/ticket', TicketController::class)->middleware('auth');
 Route::resource('/status', SystemController::class)->middleware('auth');
 Route::resource('/knowledge', KnowledgeController::class)->middleware('auth');
-Route::resource('/catalog/facilities', FacilitiesController::class);
-Route::resource('/ticket', TicketController::class);
-Route::resource('/status', SystemController::class);
-Route::resource('/knowledge', KnowledgeController::class);
-Route::resource('/catalog', CatalogController::class);
+Route::resource('/catalog', CatalogController::class)->middleware('auth');
 

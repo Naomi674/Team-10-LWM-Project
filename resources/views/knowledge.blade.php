@@ -129,7 +129,6 @@
     </div>
 @endsection
 
-
 <script>
     let dropdown = document.querySelector('.columns');
     dropdown.addEventListener('click', function(event) {
