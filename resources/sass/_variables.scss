@@ -9,13 +9,12 @@
 
 // Define project theme colors
 $lwm-primary: #e35205;
-$secondary: #00385a;
-$secondary-invert: #00385a;
 
 // Define Bulma Colors, using standard and/or project theme colors
 $primary: $lwm-primary;
 $primary-invert: white;
 $custom-colors: $lwm-primary;
+$dropdown-content-background-color: #00385a;
 
 // Typography. You can use any font here, but for demonstration purposes, we use some nice Google font
 // (check https://fonts.google.com/ for fonts)
@@ -24,17 +23,3 @@ $family-primary: 'Roboto', sans-serif;
 
 // Finally import the rest of the derived variables
 @import "~bulma/sass/utilities/derived-variables";
-$addColors: (
-        "secondary":($secondary, $secondary-invert),
-);
-$colors: map-merge($colors, $addColors);
-
-$navbar-background-color: $secondary;
-$navbar-item-active-color: $primary;
-$navbar-item-active-background-color: $primary;
-$navbar-tab-hover-background-color: $primary;
-$navbar-item-hover-background-color: $primary;
-$navbar-dropdown-background-color: $secondary;
-$navbar-dropdown-item-active-background-color: $primary;
-$navbar-dropdown-item-active-color: $primary;
-$navbar-dropdown-item-hover-background-color: $primary;
