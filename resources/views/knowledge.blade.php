@@ -8,7 +8,6 @@
         <div class="columns">
             <!-- Left side -->
             <div class="column is-one-quarter">
-
                 <div class="pt-6">
                     <div class="label">Categories</div>
                     <aside class="menu">
@@ -128,25 +127,3 @@
         </div>
     </div>
 @endsection
-
-<script>
-    let dropdown = document.querySelector('.columns');
-    dropdown.addEventListener('click', function(event) {
-        event.stopPropagation();
-        dropdown.classList.toggle('is-collapsible');
-    })
-    // let acc = document.getElementsByClassName("card");
-    // let i;
-    //
-    // for (i = 0; i < acc.length; i++) {
-    //     acc[i].addEventListener("click", function() {
-    //         this.classList.toggle("active");
-    //         let panel = this.nextElementSibling;
-    //         if (panel.style.display === "block") {
-    //             panel.style.display = "none";
-    //         } else {
-    //             panel.style.display = "block";
-    //         }
-    //     });
-    // }
-</script>
