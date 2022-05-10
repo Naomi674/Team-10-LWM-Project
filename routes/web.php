@@ -6,6 +6,7 @@ use App\Http\Controllers\SystemController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KnowledgeController;
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\ChatsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +29,6 @@ Route::resource('/status', SystemController::class)->middleware('auth');
 Route::resource('/knowledge', KnowledgeController::class)->middleware('auth');
 Route::resource('/catalog', CatalogController::class)->middleware('auth');
 
-Route::get('/chat', 'ChatsController@index')->middleware('auth');
-Route::get('messages', 'ChatsController@fetchMessages')->middleware('auth');
-Route::post('messages', 'ChatsController@sendMessage')->middleware('auth');
-
+Route::get('/chat', [ChatsController::class, 'index']);
+Route::get('messages', [ChatsController::class, 'fetchMessages']);
+Route::post('messages', [ChatsController::class, 'sendMessages']);
