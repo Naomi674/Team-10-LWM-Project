@@ -28,3 +28,7 @@ Route::resource('/status', SystemController::class)->middleware('auth');
 Route::resource('/knowledge', KnowledgeController::class)->middleware('auth');
 Route::resource('/catalog', CatalogController::class)->middleware('auth');
 
+Route::get('/chat', 'ChatsController@index')->middleware('auth');
+Route::get('messages', 'ChatsController@fetchMessages')->middleware('auth');
+Route::post('messages', 'ChatsController@sendMessage')->middleware('auth');
+
