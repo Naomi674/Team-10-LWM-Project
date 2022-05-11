@@ -57,6 +57,12 @@
                     </a>
                 </div>
             </div>
+
+            @if(auth()->user()->role_id == 1)
+                <a class="navbar-item has-text-white {{ Request::route()->getName() === 'admin.index' ? "is-active" : "" }}" href="{{ route('admin.admin.index') }}">
+                    Admin
+                </a>
+            @endif
         </div>
 
         <div class="navbar-end">

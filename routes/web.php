@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\SystemController;
@@ -28,3 +29,8 @@ Route::resource('/status', SystemController::class)->middleware('auth');
 Route::resource('/knowledge', KnowledgeController::class)->middleware('auth');
 Route::resource('/catalog', CatalogController::class)->middleware('auth');
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' => 'role:admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+       Route::resource('admin', AdminController::class);
+    });
+});
