@@ -1,28 +1,21 @@
 @extends('Components.layout')
 
 @section('head')
-    <script src="https://js.pusher.com/7.0.3/pusher.min.js"></script>
+    <!-- 1. Addchat css -->
+    <link href="<?php echo asset('assets/addchat/css/addchat.min.css') ?>" rel="stylesheet">
+
+    <!-- 3. AddChat JS -->
+    <!-- Modern browsers -->
+    <script type="module" src="<?php echo asset('assets/addchat/js/addchat.min.js') ?>"></script>
+    <!-- Fallback support for Older browsers -->
+    <script nomodule src="<?php echo asset('assets/addchat/js/addchat-legacy.min.js') ?>"></script>
 @endsection
 
 @section('content')
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Chats</div>
-
-                    <div class="panel-body">
-                        <chat-messages :messages="messages"></chat-messages>
-                    </div>
-                    <div class="panel-footer">
-                        <chat-form
-                                v-on:messagesent="addMessage"
-                                :user="{{ Auth::user() }}"
-                        ></chat-form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- 2. AddChat widget -->
+    <div id="addchat_app"
+         data-baseurl="<?php echo url('') ?>"
+         data-csrfname="<?php echo 'X-CSRF-Token' ?>"
+         data-csrftoken="<?php echo csrf_token() ?>"
+    ></div>
 @endsection

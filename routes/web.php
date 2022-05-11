@@ -32,3 +32,10 @@ Route::resource('/catalog', CatalogController::class)->middleware('auth');
 Route::get('/chat', [ChatsController::class, 'index']);
 Route::get('messages', [ChatsController::class, 'fetchMessages']);
 Route::post('messages', [ChatsController::class, 'sendMessages']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Addchat::routes();

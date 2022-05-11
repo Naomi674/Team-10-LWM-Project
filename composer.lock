@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "256d98cdcfe05a85f6316f6b66345054",
+    "content-hash": "e1259b432399e58c65a61df2881f39c7",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -175,6 +175,57 @@
                 }
             ],
             "time": "2021-08-05T08:55:48+00:00"
+        },
+        {
+            "name": "classiebit/addchat-laravel",
+            "version": "1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/classiebit/addchat-laravel.git",
+                "reference": "5288f205285f0377855e0b6f329235967a519462"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/classiebit/addchat-laravel/zipball/5288f205285f0377855e0b6f329235967a519462",
+                "reference": "5288f205285f0377855e0b6f329235967a519462",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Classiebit\\Addchat\\AddchatServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Classiebit\\Addchat\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Classiebit",
+                    "email": "info@classiebit.com"
+                }
+            ],
+            "description": "Live chat widget for Laravel that also includes multi-user chat, group permissions, customer support chat & more.",
+            "homepage": "https://classiebit.com/addchat-laravel",
+            "keywords": [
+                "laravel",
+                "laravel chat package",
+                "laravel-package",
+                "vuejs"
+            ],
+            "support": {
+                "issues": "https://github.com/classiebit/addchat-laravel/issues",
+                "source": "https://github.com/classiebit/addchat-laravel"
+            },
+            "time": "2021-04-02T13:29:24+00:00"
         },
         {
             "name": "dasprid/enum",
@@ -7895,6 +7946,67 @@
                 "source": "https://github.com/laravel/sail"
             },
             "time": "2022-03-11T14:11:15+00:00"
+        },
+        {
+            "name": "laravel/ui",
+            "version": "v3.4.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/ui.git",
+                "reference": "f11d295de1508c5bb56206a620b00b6616de414c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/f11d295de1508c5bb56206a620b00b6616de414c",
+                "reference": "f11d295de1508c5bb56206a620b00b6616de414c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^8.42|^9.0",
+                "illuminate/filesystem": "^8.42|^9.0",
+                "illuminate/support": "^8.82|^9.0",
+                "illuminate/validation": "^8.42|^9.0",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.23|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Ui\\UiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Ui\\": "src/",
+                    "Illuminate\\Foundation\\Auth\\": "auth-backend/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel UI utilities and presets.",
+            "keywords": [
+                "laravel",
+                "ui"
+            ],
+            "support": {
+                "source": "https://github.com/laravel/ui/tree/v3.4.5"
+            },
+            "time": "2022-02-21T14:59:16+00:00"
         },
         {
             "name": "mockery/mockery",
