@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="section">
-        <table class="table is-fullwidth">
+        <table class="table is-hoverable is-fullwidth">
             <tr>
                 <th>ID</th>
                 <th>Name</th>
