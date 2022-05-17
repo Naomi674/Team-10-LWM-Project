@@ -4,12 +4,14 @@
     <div class="container mt-5">
         <div class="columns is-centered">
             <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-                <form method="POST" action="{{ route('login') }}" class="box">
+                <form method="POST" action="{{ route('user-profile-information.update') }}" class="box">
                     @csrf
+                    @method('PUT')
+
                     <div class="field">
                         <label class="label" for="name">Name</label>
                         <div class="control has-icons-left">
-                            <input class="input" type="text" name="name" value="{{ auth()->user()->name }}">
+                            <input class="input" id="name" type="text" name="name" value="{{ auth()->user()->name }}">
                             <span class="icon is-small is-left">
                                 <i class="fa-solid fa-id-card"></i>
                             </span>
@@ -18,7 +20,7 @@
                     <div class="field">
                         <label class="label">Email</label>
                             <div class="control has-icons-left">
-                                <input class="input" type="email" value="{{ auth()->user()->email }}">
+                                <input class="input" type="email" name="email" value="{{ auth()->user()->email }}">
                                 <span class="icon is-small is-left">
                                     <i class="fa-solid fa-envelope"></i>
                                 </span>
@@ -49,6 +51,13 @@
                                 </span>
                             </div>
                         </label>
+                    </div>
+                    <div class="control">
+                        <p class="field">
+                            <button type="submit" class="button is-success">
+                                Save
+                            </button>
+                        </p>
                     </div>
                 </form>
             </div>
