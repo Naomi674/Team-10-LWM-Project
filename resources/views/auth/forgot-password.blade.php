@@ -1,6 +1,7 @@
 @extends('auth.Components.auth-layout')
 
 @section('content')
+
     @if (session('status'))
         <div class="notification is-success" role="alert">
             {{ session('status') }}
@@ -9,7 +10,11 @@
 
     <form method="POST" action="{{ route('password.email') }}" class="box">
         @csrf
-        <label class="label">Forgot your password?</label>
+
+        <h1 class="is-size-4">Forgot Your Password?</h1>
+
+        <hr>
+
         <div class="field">
             <p class="control has-icons-left has-icons-right">
                 <input id="email" type="email" placeholder="E-mail" class="input @error('email') is-danger @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>

@@ -30,6 +30,9 @@ Route::resource('/status', SystemController::class)->middleware('auth');
 Route::resource('/knowledge', KnowledgeController::class)->middleware('auth');
 Route::resource('/catalog', CatalogController::class)->middleware('auth');
 Route::resource('/account', AccountController::class)->middleware('auth');
+Route::get('/update-password', function () {
+    return view('auth.update-password');
+})->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => 'role:admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {

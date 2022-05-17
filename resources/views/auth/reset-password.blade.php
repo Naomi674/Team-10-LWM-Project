@@ -6,6 +6,10 @@
 
         <input type="hidden" name="token" value="{{ request()->token }}">
 
+        <h1 class="is-size-4">Reset Password</h1>
+
+        <hr>
+
         <div class="field">
             <label class="label" for="email">{{ __('E-Mail Address') }}</label>
             <div class="control">

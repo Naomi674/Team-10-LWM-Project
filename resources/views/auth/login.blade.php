@@ -3,6 +3,11 @@
 @section('content')
     <form method="POST" action="{{ route('login') }}" class="box">
         @csrf
+
+        <h1 class="is-size-4">Login</h1>
+
+        <hr>
+
         <div class="field">
             <p class="control has-icons-left has-icons-right">
                 <input id="email" type="email" placeholder="E-mail" class="input @error('email') is-danger @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>

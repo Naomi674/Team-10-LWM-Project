@@ -8,6 +8,10 @@
                     @csrf
                     @method('PUT')
 
+                    <h1 class="is-size-4">My Account</h1>
+
+                    <hr>
+
                     <div class="field">
                         <label class="label" for="name">Name</label>
                         <div class="control has-icons-left">
@@ -19,24 +23,32 @@
                     </div>
                     <div class="field">
                         <label class="label">Email</label>
-                            <div class="control has-icons-left">
-                                <input class="input" type="email" name="email" value="{{ auth()->user()->email }}">
-                                <span class="icon is-small is-left">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </span>
-                            </div>
+                        <div class="control has-icons-left">
+                            <input class="input" type="email" name="email" value="{{ auth()->user()->email }}">
+                            <span class="icon is-small is-left">
+                                <i class="fa-solid fa-envelope"></i>
+                            </span>
+                        </div>
                     </div>
-                    <div class="field">
-                        <label>
-                            <p class="label">Password</p>
+                    <div class="container">
+                        <label class="label">Password</label>
+                        <div class="field has-addons">
                             <div class="control has-icons-left">
-                                <p class="input">***********</p>
-                                <span class="icon is-small is-left">
+                                <input class="input" value="***********" readonly>
+                                <span class="icon is-medium is-left">
                                     <i class="fa-solid fa-lock"></i>
                                 </span>
                             </div>
-                        </label>
+                            <div class="control">
+                                <a class="button" href="/update-password">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="field">
                         <label>
                             <p class="label">Role</p>
@@ -52,6 +64,9 @@
                             </div>
                         </label>
                     </div>
+
+                    <hr>
+
                     <div class="control">
                         <p class="field">
                             <button type="submit" class="button is-success">
