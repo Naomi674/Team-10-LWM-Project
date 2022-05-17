@@ -50,6 +50,10 @@
                             <button type="submit" class="button is-success">
                                 Login
                             </button>
+
+                            <a class="is-link is-hoverable" href="{{ route('password.request') }}">
+                                {{ __('Forgot Your Password?') }}
+                            </a>
                         </p>
                     </div>
                 </form>
