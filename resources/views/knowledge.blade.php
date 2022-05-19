@@ -1,7 +1,11 @@
 @extends('Components.layout')
 
 @section('head')
-    <script src="assets/js/knowledge.js"></script>
+    <script src="/js/knowledge.js"></script>
+@endsection
+
+@section('body')
+    onload="removeOldHTML('FAQ')"
 @endsection
 
 @section('content')
@@ -15,54 +19,48 @@
                 <div class="pt-6">
                     <div class="label">Categories</div>
                     <aside class="menu">
-                        <ul class="menu-list">
-                            <li><a onclick="loadCategory('FAQ')" class="has-background-primary has-text-white">FAQs</a></li>
-                            <li><a href="#">IT Knowledge</a></li>
-                            <li><a href="#">Onboarding</a></li>
-                            <li><a href="#">ServiceNow Portal</a></li>
-                            <li><a href="#">Facilities</a></li>
-                            <li><a href="#">HR</a></li>
-                            <li><a href="#">Financial services</a></li>
+                        <ul id="categoryMenu" class="menu-list">
+                            <li><a onclick="handleClick(this)" class="is-active">FAQ</a></li>
+                            <li><a onclick="handleClick(this)">IT Knowledge</a></li>
+                            <li><a onclick="handleClick(this)">Onboarding</a></li>
+                            <li><a onclick="handleClick(this)">ServiceNow Portal</a></li>
+                            <li><a onclick="handleClick(this)">Facilities</a></li>
+                            <li><a onclick="handleClick(this)">HR</a></li>
+                            <li><a onclick="handleClick(this)">Financial services</a></li>
                         </ul>
                     </aside>
                 </div>
             </div>
             <!-- Right Side -->
-            <div class="column">
-                <div class="title">FAQs</div>
-                <div id="content">
-                    <!-- Title -->
-                    <div class="card is-collapsible mt-3">
-                        <div class="card-header">
-                            <p id="testTitle" class="card-header-title">
-                                How do I extend my Microsoft Office subscription?
-                            </p>
-                            <a href="#" data-action="collapse" class="card-header-icon is-hidden-fullscreen" aria-label="more options">
-                                <span class="icon">
-                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                </span>
-                            </a>
-                        </div>
-                        <div id="collapsible-card" class="is-collapsible">
-                            <div class="card-content">
-                                <p class="content is-5">
-                                    Does everybody know that pig named Lorem Ipsum? She's a disgusting pig, right? Despite the constant negative ipsum covfefe. Lorem Ipsum is a choke artist. <a href="#"><u>It chokes!</u></a> We are going to make placeholder text great again. Greater than ever before.
-                                </p>
-                                <p class="content is-5">
-                                    The concept of Lorem Ipsum was created by and for the Chinese in order to make U.S. design jobs non-competitive. I'm speaking with myself, number one, because I have a very good brain and I've said a lot of things. It’s about making placeholder text great again. That’s what people want, they want placeholder text to be great again. Lorem Ipsum best not make any more threats to your website. It will be met with fire and fury like the world has never seen.
-                                </p>
-                                <p class="subtitle is-6">
-                                    <i>Jane Doe</i>
-                                </p>
+            <div id="content" class="column">
+                <div id="titleCategory" class="title"></div>
+                <template id="template">
+                    <div id="card">
+                        <div class="card mt-3">
+                            <div class="card-header" onclick="collapsibleElement(this.offsetParent.children[1])">
+                                <p id="title" class="card-header-title">No Title</p>
+                                <a data-action="collapse" class="card-header-icon is-hidden-fullscreen" aria-label="more options">
+                                    <span class="icon">
+                                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                    </span>
+                                </a>
                             </div>
-                            <div class="card-footer">
-                                <p class="card-footer-item">
-                                    <a href="#">Read more...</a>
-                                </p>
+                            <div id="collapsible-card" class="is-collapsible" style="display: none">
+                                <div class="card-content">
+                                    <p id="body" class="content is-5">No Body</p>
+                                    <p class="subtitle is-6">
+                                        <i id="author">No Author</i>
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <p class="card-footer-item">
+                                        <a onclick="console.log('function not defined yet')">Read more...</a>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </template>
             </div>
         </div>
     </div>

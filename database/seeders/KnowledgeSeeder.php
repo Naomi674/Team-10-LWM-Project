@@ -15,13 +15,6 @@ class KnowledgeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('knowledge')->insert([
-            'title' => 'Who to read the time?',
-            'body' => 'Some body lol',
-            'author' => 'Lars',
-            'category' => 'FAQ',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+        \App\Models\Knowledge::factory(100)->create();
     }
 }
