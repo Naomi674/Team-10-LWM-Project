@@ -4320,8 +4320,8 @@ button.dropdown-item.is-active {
   color: hsl(0deg, 0%, 21%);
 }
 .menu-list a.is-active {
-  background-color: hsl(229deg, 53%, 53%);
-  color: #fff;
+  background-color: #e35205;
+  color: white;
 }
 .menu-list li ul {
   border-left: 1px solid hsl(0deg, 0%, 86%);
