@@ -12,6 +12,9 @@
                 <th>Role</th>
                 <th></th>
             </tr>
+            {{--Edit User Pop up--}}
+            <x-modal title="Test" content="test content lul"></x-modal>
+            {{--Show Users in table--}}
             @foreach($users as $user)
                 <tr class="has-icons-right">
                     <td>{{ $user->id }}</td>
