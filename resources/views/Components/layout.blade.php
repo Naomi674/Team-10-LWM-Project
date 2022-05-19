@@ -25,7 +25,7 @@
         </style>
     </head>
 
-    <body>
+    <body @yield('body')>
         <div>
             @include('Components.navbar')
 
