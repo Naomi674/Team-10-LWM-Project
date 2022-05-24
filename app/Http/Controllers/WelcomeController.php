@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class WelcomeController extends Controller
 {
@@ -14,8 +15,10 @@ class WelcomeController extends Controller
     public function index()
     {
         $user = auth()->user();
+        $systems = DB::table('systems')->get();
         return view('welcome', [
-            'user' => $user
+            'user' => $user,
+            'systems' => $systems
         ]);
     }
 
