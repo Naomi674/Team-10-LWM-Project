@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreFacilitiesRequest;
 use App\Http\Requests\UpdateFacilitiesRequest;
 use App\Models\Facilities;
+use App\Models\FacilitiesServices;
 use GuzzleHttp\Psr7\Uri;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 
 class FacilitiesController extends Controller
@@ -14,11 +16,12 @@ class FacilitiesController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        return view('Catalogs.facilities');
+        $facilitiesServices = FacilitiesServices::get();
+        return view('Catalogs.facilities', compact('facilitiesServices'));
     }
 
     /**
@@ -86,4 +89,14 @@ class FacilitiesController extends Controller
     {
         //
     }
+
+    public function ajax(Request $request)
+    {
+        $category = $request->category;
+
+        $entry = DB::table('facilities_services')->where('category', $category)->get();
+
+        echo $entry;
+    }
+
 }
