@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +15,7 @@ class UserManagement extends Controller
      */
     public function index()
     {
-        $users = DB::table('users')->get();
+        $users = User::all();
 
         return view('admin.userManagement', compact('users'));
     }
@@ -66,12 +67,14 @@ class UserManagement extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+         $user = User::find($id);
+         $user->update($request->all());
+
+        return redirect(route('admin.userManagement.index'));
     }
 
     /**
@@ -83,5 +86,14 @@ class UserManagement extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function validateUser($request)
+    {
+        return $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'role_id' => 'required',
+        ]);
     }
 }
