@@ -3,7 +3,8 @@
 @section('content')
     <script>
         /**
-         * Opens the modal html
+         * Opens a model by it's id
+         * @param id the id of the modal that should be opened
          */
         function openModal(id) {
             const element = document.querySelector('#modal' + id);
@@ -19,7 +20,13 @@
         }
     </script>
 
+    <x-register-modal />
+
     <section class="section">
+        <div class="level-right">
+            <a onclick="openModal('Register')" class="button is-success">New User</a>
+        </div>
+
         <table class="table is-hoverable is-fullwidth">
             <tr>
                 <th>ID</th>
@@ -49,6 +56,7 @@
                     </td>
                 </tr>
 
+                {{-- Edit User Modal --}}
                 <div id="modal{{ $user->id }}" class="modal">
                     <div class="modal-background"></div>
                     <div class="modal-card">
@@ -66,8 +74,8 @@
                                     <div class="control has-icons-left">
                                         <input class="input" id="name" type="text" name="name" value="{{ $user->name }}">
                                         <span class="icon is-small is-left">
-                                <i class="fa-solid fa-id-card"></i>
-                            </span>
+                                            <i class="fa-solid fa-id-card"></i>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="field">
@@ -75,9 +83,18 @@
                                     <div class="control has-icons-left">
                                         <input class="input" type="email" name="email" value="{{ $user->email }}">
                                         <span class="icon is-small is-left">
-                                <i class="fa-solid fa-envelope"></i>
-                            </span>
+                                            <i class="fa-solid fa-envelope"></i>
+                                        </span>
                                     </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label">Password</label>
+                                    <p class="control has-icons-left">
+                                        <input class="input" type="password" name="password" placeholder="{{ $user->password }}">
+                                        <span class="icon is-small is-left">
+                                          <i class="fas fa-lock"></i>
+                                        </span>
+                                    </p>
                                 </div>
                                 <div class="field">
                                     <label>
@@ -91,8 +108,17 @@
                                     </label>
                                 </div>
                                 <hr>
-                                <button type="submit" class="button is-success">Save Changes</button>
-                                <a type="cancel" onclick="closeModal()" class="button">Cancel</a>
+                                <div class="level">
+                                    <div class="level-left">
+                                        <button type="submit" class="button is-success mr-3">Save Changes</button>
+                                        <a type="cancel" onclick="closeModal()" class="button">Cancel</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <form method="POST" action="{{ route('admin.userManagement.destroy', $user) }}" class="level-right">
+                                @csrf
+                                @method('DELETE')
+                                <button class="button is-danger">Delete User</button>
                             </form>
                         </section>
                     </div>

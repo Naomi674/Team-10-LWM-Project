@@ -43,3 +43,5 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::get('/foo', [KnowledgeController::class, 'ajax'])->middleware('auth');
+
+Route::post('/userManagement/createUser', [UserManagement::class, 'createUser'])->name('userManagement.createUser');

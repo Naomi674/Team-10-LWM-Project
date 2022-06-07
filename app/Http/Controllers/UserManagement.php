@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class UserManagement extends Controller
 {
@@ -53,17 +56,6 @@ class UserManagement extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -72,7 +64,11 @@ class UserManagement extends Controller
     public function update(Request $request, $id)
     {
          $user = User::find($id);
-         $user->update($request->all());
+         $user->name = $request->name;
+         $user->email = $request->email;
+         $user->role_id = $request->role_id;
+         $user->password = Hash::make($request->password);
+         $user->update();
 
         return redirect(route('admin.userManagement.index'));
     }
@@ -85,7 +81,10 @@ class UserManagement extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+
+        return redirect(route('admin.userManagement.index'));
     }
 
     public function validateUser($request)
@@ -95,5 +94,16 @@ class UserManagement extends Controller
             'email' => 'required',
             'role_id' => 'required',
         ]);
+    }
+
+    public function createUser(Request $request) {
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role_id' => $request->role_id,
+        ]);
+
+        return redirect(route('admin.userManagement.index'));
     }
 }
