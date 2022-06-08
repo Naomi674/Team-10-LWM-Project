@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\SystemController;
+use App\Http\Controllers\UserManagement;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KnowledgeController;
 use App\Http\Controllers\CatalogController;
@@ -37,7 +38,10 @@ Route::get('/update-password', function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => 'role:admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
        Route::resource('admin', AdminController::class);
+       Route::resource('userManagement', UserManagement::class);
     });
 });
 
 Route::get('/foo', [KnowledgeController::class, 'ajax'])->middleware('auth');
+
+Route::post('/userManagement/createUser', [UserManagement::class, 'createUser'])->name('userManagement.createUser');
