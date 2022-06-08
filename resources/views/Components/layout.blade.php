@@ -22,47 +22,10 @@
             body {
                 font-family: 'Nunito', sans-serif;
             }
-
-            .is-active {
-                background-color: #e35205; !important;
-            }
-
-            a.navbar-item.is-active, .navbar-link.is-active {
-                background-color: #e35205;
-            }
-
-            a.navbar-item.is-active:not(:focus):not(:hover), .navbar-link.is-active:not(:focus):not(:hover) {
-                background-color: #e35205;
-            }
-
-            .navbar-item.has-dropdown:focus .navbar-link, .navbar-item.has-dropdown:hover .navbar-link, .navbar-item.has-dropdown.is-active .navbar-link {
-                background-color: #e35205;
-            }
-
-            .navbar-dropdown a.navbar-item:focus, .navbar-dropdown a.navbar-item:hover {
-                background-color: #e35205;
-            }
-
-            .navbar-dropdown {
-                background-color: #00385a;
-            }
-
-            .navbar-item {
-                background-color: #00385a;
-                color: white;
-            }
-
-            a.has-text-white:hover, a.has-text-white:focus {
-                background-color: #e35205;
-            }
-
-            a.has-text-white:hover, a.has-text-white:focus {
-                color: #e35205;
-            }
         </style>
     </head>
 
-    <body>
+    <body @yield('body')>
         <div>
             @include('Components.navbar')
 

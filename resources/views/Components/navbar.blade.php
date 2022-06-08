@@ -1,4 +1,4 @@
-<nav class="navbar mb-4" style="background-color: #00385a" role="navigation" aria-label="main navigation">
+<nav class="navbar mb-4" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="/">
             <img src="https://lwmdev.service-now.com/f1580754dbf8b700a797298a48961940.iix" width="112" height="28">
@@ -37,8 +37,8 @@
                 System Status
             </a>
 
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link has-text-white">
+            <div class="navbar-item has-dropdown is-hoverable has-text-white">
+                <a class="navbar-link has-text-white {{ Request::route()->getName() === 'catalogs.index' ? "is-active" : "" }}" href="{{ route('catalog.index') }}">
                     Catalog
                 </a>
 
@@ -57,17 +57,26 @@
                     </a>
                 </div>
             </div>
+
+            @if(auth()->user()->role_id == 1)
+                <a class="navbar-item has-text-white {{ Request::route()->getName() === 'admin.admin.index' ? "is-active" : "" }}" href="{{ route('admin.admin.index') }}">
+                    Admin
+                </a>
+            @endif
         </div>
 
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a class="button is-primary">
+                    <a class="button is-primary" href="{{ route('account.index') }}">
                         <strong>My account</strong>
                     </a>
-                    <a class="button is-light">
-                        Logout
-                    </a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="button is-light">
+                            Logout
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

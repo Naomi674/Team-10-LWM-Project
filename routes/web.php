@@ -1,10 +1,14 @@
 <?php
 
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\SystemController;
+use App\Http\Controllers\UserManagement;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KnowledgeController;
+use App\Http\Controllers\CatalogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +23,25 @@ use App\Http\Controllers\KnowledgeController;
 
 Route::get('/', function () {
     return view('/welcome');
+})->middleware('auth');
+
+Route::resource('/catalog/facilities', FacilitiesController::class)->middleware('auth');
+Route::resource('/ticket', TicketController::class)->middleware('auth');
+Route::resource('/status', SystemController::class)->middleware('auth');
+Route::resource('/knowledge', KnowledgeController::class)->middleware('auth');
+Route::resource('/catalog', CatalogController::class)->middleware('auth');
+Route::resource('/account', AccountController::class)->middleware('auth');
+Route::get('/update-password', function () {
+    return view('auth.update-password');
+})->middleware('auth');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' => 'role:admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+       Route::resource('admin', AdminController::class);
+       Route::resource('userManagement', UserManagement::class);
+    });
 });
 
-Route::resource('/catalog/facilities', FacilitiesController::class);
-Route::resource('/ticket', TicketController::class);
-Route::resource('/status', SystemController::class);
-Route::resource('/knowledge', KnowledgeController::class);
+Route::get('/foo', [KnowledgeController::class, 'ajax'])->middleware('auth');
 
+Route::post('/userManagement/createUser', [UserManagement::class, 'createUser'])->name('userManagement.createUser');
