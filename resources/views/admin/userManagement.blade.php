@@ -115,6 +115,7 @@
                                     </div>
                                 </div>
                             </form>
+                            <hr>
                             <form method="POST" action="{{ route('admin.userManagement.destroy', $user) }}" class="level-right">
                                 @csrf
                                 @method('DELETE')
