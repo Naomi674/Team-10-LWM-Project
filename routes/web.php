@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\BusinessSupportServicesController;
 use App\Http\Controllers\FacilitiesController;
+use App\Http\Controllers\FinanceServicesController;
+use App\Http\Controllers\HRServicesController;
+use App\Http\Controllers\ITServicesController;
+use App\Http\Controllers\MasterdataServicesController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\SystemController;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +28,11 @@ Route::get('/', function () {
 })->middleware('auth');
 
 Route::resource('/catalog/facilities', FacilitiesController::class)->middleware('auth');
+Route::resource('/catalog/hr', HRServicesController::class)->middleware('auth');
+Route::resource('/catalog/it', ITServicesController::class)->middleware('auth');
+Route::resource('/catalog/finance', FinanceServicesController::class)->middleware('auth');
+Route::resource('/catalog/masterdata', MasterdataServicesController::class)->middleware('auth');
+Route::resource('/catalog/business_support', BusinessSupportServicesController::class)->middleware('auth');
 //Route::get('/main-service/facilities', [FacilitiesController::class, 'filter']);
 Route::resource('/ticket', TicketController::class)->middleware('auth');
 Route::resource('/status', SystemController::class)->middleware('auth');
