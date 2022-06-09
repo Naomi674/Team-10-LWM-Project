@@ -12,6 +12,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+
+
     /**
      * The attributes that are mass assignable.
      *
@@ -23,6 +25,22 @@ class User extends Authenticatable
         'password',
         'role_id',
     ];
+
+    /**
+     * Get the tickets authored by this user.
+     */
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class, 'author_id');
+    }
+
+    /**
+     * Get the tickets assigned to this user.
+     */
+    public function assignedTickets()
+    {
+        return $this->hasMany(Ticket::class, 'assignee_id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use function Symfony\Component\String\s;
 
-class TicketSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,6 @@ class TicketSeeder extends Seeder
      */
     public function run()
     {
-
-        $ticket = \App\Models\Ticket::factory(2)->create();
+        \App\Models\User::factory(1)->create();
     }
 }
