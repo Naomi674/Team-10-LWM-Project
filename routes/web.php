@@ -9,6 +9,7 @@ use App\Http\Controllers\UserManagement;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KnowledgeController;
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +22,7 @@ use App\Http\Controllers\CatalogController;
 |
 */
 
-Route::get('/', function () {
-    return view('/welcome');
-})->middleware('auth');
-
+Route::resource('/', WelcomeController::class)->middleware('auth');
 Route::resource('/catalog/facilities', FacilitiesController::class)->middleware('auth');
 Route::resource('/ticket', TicketController::class)->middleware('auth');
 Route::resource('/status', SystemController::class)->middleware('auth');

@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Ticket>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class TicketFactory extends Factory
+class SystemsFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +18,7 @@ class TicketFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'open' => $this->faker->boolean,
+            'down' => $this->faker->boolean,
         ];
     }
 }

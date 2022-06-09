@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class TicketSeeder extends Seeder
+class SystemsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,9 @@ class TicketSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Ticket::factory(5)->create();
-
+        DB::table('systems')->insert([
+            'name' => 'System 1',
+            'down' => true,
+        ]);
     }
 }
