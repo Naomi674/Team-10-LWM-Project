@@ -19,16 +19,6 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call(KnowledgeSeeder::class);
         $this->call(RoleSeeder::class);
-//        $this->call(TicketSeeder::class);
         $this->call(UserSeeder::class);
-        $ticket = Ticket::factory(3)->create();
-
-        User::factory(1)->create()->each(function($user) use ($ticket) {
-            $user->tickets()->saveMany($ticket);
-        });
-
-        User::factory(1)->create()->each(function($user) use ($ticket) {
-            $user->assignedTickets()->saveMany($ticket);
-        });
     }
 }

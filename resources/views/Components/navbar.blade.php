@@ -21,10 +21,10 @@
                     </p>
                 </div>
             </div>
-            <a class="navbar-item has-text-white {{ Request::route()->getName() === null ? "is-active" : "" }}" href="/">
+            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'index' ? "is-active" : "" }}" href="/">
                 Home
             </a>
-            
+
             <a class="navbar-item has-text-white {{ Request::route()->getName() === 'knowledge.index' ? "is-active" : "" }}" href="{{ route('knowledge.index') }}">
                 Knowledge
             </a>
@@ -59,7 +59,7 @@
             </div>
 
             @if(auth()->user()->role_id == 1)
-                <a class="navbar-item has-text-white {{ Request::route()->getName() === 'admin.index' ? "is-active" : "" }}" href="{{ route('admin.admin.index') }}">
+                <a class="navbar-item has-text-white {{ Request::route()->getName() === 'admin.admin.index' ? "is-active" : "" }}" href="{{ route('admin.admin.index') }}">
                     Admin
                 </a>
             @endif

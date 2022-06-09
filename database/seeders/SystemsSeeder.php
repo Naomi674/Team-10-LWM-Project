@@ -2,12 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class UserSeeder extends Seeder
+class SystemsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,6 +15,9 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(1)->create();
+        DB::table('systems')->insert([
+            'name' => 'System 1',
+            'down' => true,
+        ]);
     }
 }
