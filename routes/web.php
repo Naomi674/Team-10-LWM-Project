@@ -32,7 +32,7 @@ Route::resource('/catalog/hr', HRServicesController::class)->middleware('auth');
 Route::resource('/catalog/it', ITServicesController::class)->middleware('auth');
 Route::resource('/catalog/finance', FinanceServicesController::class)->middleware('auth');
 Route::resource('/catalog/masterdata', MasterdataServicesController::class)->middleware('auth');
-Route::resource('/catalog/business_support', BusinessSupportServicesController::class)->middleware('auth');
+Route::resource('/catalog/businesssupport', BusinessSupportServicesController::class)->middleware('auth');
 //Route::get('/main-service/facilities', [FacilitiesController::class, 'filter']);
 Route::resource('/ticket', TicketController::class)->middleware('auth');
 Route::resource('/status', SystemController::class)->middleware('auth');

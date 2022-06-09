@@ -24,7 +24,7 @@
             <a class="navbar-item has-text-white {{ Request::route()->getName() === null ? "is-active" : "" }}" href="/">
                 Home
             </a>
-            
+
             <a class="navbar-item has-text-white {{ Request::route()->getName() === 'knowledge.index' ? "is-active" : "" }}" href="{{ route('knowledge.index') }}">
                 Knowledge
             </a>
@@ -43,17 +43,23 @@
                 </a>
 
                 <div class="navbar-dropdown">
-                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'hr.index' ? "is-active" : "" }}">
+                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'hr.index' ? "is-active" : "" }}" href="{{ route('hr.index') }}">
                         HR
                     </a>
-                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'it.index' ? "is-active" : "" }}">
+                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'it.index' ? "is-active" : "" }}" href="{{ route('it.index') }}">
                         IT
                     </a>
                     <a class="navbar-item has-text-white {{ Request::route()->getName() === 'facilities.index' ? "is-active" : "" }}" href="{{ route('facilities.index') }}">
                         Facilities
                     </a>
-                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'financial.index' ? "is-active" : "" }}">
-                        Financial
+                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'finance.index' ? "is-active" : "" }}" href="{{ route('finance.index') }}">
+                        Finance
+                    </a>
+                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'masterdata.index' ? "is-active" : "" }}" href="{{ route('masterdata.index') }}">
+                        Masterdata
+                    </a>
+                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'businesssupport.index' ? "is-active" : "" }}" href="{{ route('businesssupport.index') }}">
+                        Business Support
                     </a>
                 </div>
             </div>
