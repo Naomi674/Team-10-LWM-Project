@@ -15,7 +15,16 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('description');
+            $table->smallInteger('time');
             $table->timestamps();
+            $table->unsignedBigInteger('author_id')->nullable();
+            $table->unsignedBigInteger('assignee_id')->nullable();
+            $table->foreign('author_id')->references('id')->on('users')
+                ->onDelete('cascade');
+            $table->foreign('assignee_id')->references('id')->on('users')
+                ->onDelete('cascade');
         });
     }
 

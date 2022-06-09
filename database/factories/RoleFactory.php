@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
+use App\Models\Role;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Ticket>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Role>
  */
-class TicketFactory extends Factory
+class RoleFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,9 +18,8 @@ class TicketFactory extends Factory
     public function definition()
     {
         return [
-            'title'=> $this->faker->title,
-            'description' => $this->faker->text,
-            'time' => $this->faker->numerify('##'),
+            'id'=> Role::CLIENT_ROLE_ID,
+            'name' => 'client',
             'created_at' => now(),
             'updated_at' => now(),
         ];

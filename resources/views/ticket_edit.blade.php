@@ -119,37 +119,54 @@
 {{--                </div>--}}
 {{--            </div>--}}
 {{--        </div>--}}
+//
+{{--        <div class="column">--}}
+{{--        @foreach($tickets as $ticket)--}}
+{{--            <div class="box">--}}
+{{--                <div class="columns">--}}
+{{--                    <div class="column is-five-fifth">--}}
+{{--                        <p>--}}
+{{--                            <strong>Title:</strong> {{$ticket->title}}<br>--}}
+{{--                            <strong>Description:</strong> {{$ticket->description}} <br>--}}
+{{--                            <strong>Time:</strong> {{number_format($ticket->time, 2)}} <br>--}}
+{{--                            <strong>Location:</strong> Meeting room 5 <br>--}}
+{{--                            <strong>Opened By:</strong> {{$ticket->author()->first()->name}} <br>--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+{{--                    <div class="column is-one-fifth">--}}
+{{--                        <div class="buttons">--}}
+{{--                            <button class="button is-danger">High</button>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        @endforeach--}}
+{{--        </div>--}}
 
-        <div class="column">
-            <div class="box">
+        <body>
+        <div style="width: 900px;" class="container max-w-full mx-auto pt-4">
+            <form method="POST" action="{{ route('ticket.edit',$ticket->id) }}">
+                @csrf
 
-                <div class="column is-one-fifth">
-                    <div class="buttons">
-                        <a class="btn btn-primary" href="{{ route('ticket.create') }}">Link</a>
-                    </div>
+                <div class="mb-4">
+                    <label class="font-bold text-gray-800" for="title">Title: </label>
+                    <input class="h-10 bg-white border border-gray-300 rounded py-4 px-3 mr-4 w-full text-gray-600 text-sm focus:outline-none focus:border-gray-400 focus:ring-0" id="title" name="title">
                 </div>
-            </div>
-        @foreach($tickets as $ticket)
-            <div class="box">
-                <div class="columns">
-                    <div class="column is-five-fifth">
-                        <p>
-                            <strong>Title:</strong> {{$ticket->title}}<br>
-                            <strong>Description:</strong> {{$ticket->description}} <br>
-                            <strong>Time:</strong> {{number_format($ticket->time, 2)}} <br>
-                            <strong>Location:</strong> Meeting room 5 <br>
-                            <strong>Opened By:</strong> {{$ticket->author()->first()->name}} <br>
-                        </p>
-                    </div>
-                    <div class="column is-one-fifth">
-                        <div class="buttons">
-                            <button class="button is-danger"><a class="btn btn-primary" href="ticket/{{ $ticket->id }}/destroy">Delete</a></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endforeach
 
+                <div class="mb-4">
+                    <label class="font-bold text-gray-800" for="content">Description: </label>
+                    <textarea class="h-16 bg-white border border-gray-300 rounded py-4 px-3 mr-4 w-full text-gray-600 text-sm focus:outline-none focus:border-gray-400 focus:ring-0" id="description" name="description"></textarea>
+                </div>
+
+                <div class="mb-4">
+                    <label class="font-bold text-gray-800" for="content">Time: </label>
+                    <input class="h-10 bg-white border border-gray-300 rounded py-4 px-3 mr-4 w-full text-gray-600 text-sm focus:outline-none focus:border-gray-400 focus:ring-0" id="time" name="time">
+                </div>
+
+                <button class="bg-blue-500 tracking-wide text-white px-6 py-2 inline-block mb-6 shadow-lg rounded hover:shadow">Create</button>
+                <a href="{{ route('ticket.index') }}" class="bg-gray-500 tracking-wide text-white px-6 py-2 inline-block mb-6 shadow-lg rounded hover:shadow">Cancel</a>
+            </form>
         </div>
+        </body>
     </div>
 @endsection

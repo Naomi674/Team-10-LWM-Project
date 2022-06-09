@@ -28,6 +28,22 @@ class User extends Authenticatable
     ];
 
     /**
+     * Get the tickets authored by this user.
+     */
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class, 'author_id');
+    }
+
+    /**
+     * Get the tickets assigned to this user.
+     */
+    public function assignedTickets()
+    {
+        return $this->hasMany(Ticket::class, 'assignee_id');
+    }
+
+    /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
