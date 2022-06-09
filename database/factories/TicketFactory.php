@@ -17,7 +17,8 @@ class TicketFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name,
+            'open' => $this->faker->boolean,
         ];
     }
 }

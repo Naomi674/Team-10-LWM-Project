@@ -16,9 +16,11 @@ class WelcomeController extends Controller
     {
         $user = auth()->user();
         $systems = DB::table('systems')->get();
+        $tickets = DB::table('tickets')->get();
         return view('welcome', [
             'user' => $user,
-            'systems' => $systems
+            'systems' => $systems,
+            'tickets' => $tickets
         ]);
     }
 

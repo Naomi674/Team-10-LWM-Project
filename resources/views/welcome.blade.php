@@ -30,16 +30,20 @@
                         <h1 class="title is-4">Apps</h1>
                         <form>
                             <div class="box">
-                                <p class="has-text-left has-text-weight-bold">Your recently used apps:</p>
+                                <p class="has-text-left has-text-weight-bold">Your open tickets:</p>
                                 <div class="control">
-                                    <p class="has-text-left mt-4 is-underlined">Request new laptop</p>
-                                    <p class="has-text-left is-underlined">File a exemption</p>
-                                    <p class="has-text-left is-underlined">Create a ticket</p>
+                                @if(count($tickets) > 0)
+                                    @foreach($tickets as $ticket)
+                                        @if($ticket->open)
+                                            <p class="has-text-left is-underlined">{{ $ticket->name }}</p>
+                                        @endif
+                                    @endforeach
+                                @endif
                                 </div>
                             </div>
 
                             <div class="box">
-                                <p class="has-text-left has-text-weight-bold">Your favorite apps:</p>
+                                <p class="has-text-left has-text-weight-bold">Your most used apps:</p>
                                 <div class="control">
                                     <p class="has-text-left mt-4 is-underlined">Order lunch</p>
                                     <p class="has-text-left is-underlined">Change password</p>
