@@ -143,7 +143,7 @@
                     </div>
                     <div class="column is-one-fifth">
                         <div class="buttons">
-                            <button class="button is-danger"><a class="btn btn-primary" href="ticket/{{ $ticket->id }}/destroy">Delete</a></button>
+                            <a class="button is-danger" href="ticket/{{ $ticket->id }}/destroy">Delete</a>
                         </div>
                     </div>
                 </div>

@@ -34,9 +34,9 @@
                                 <div class="control">
                                 @if(count($tickets) > 0)
                                     @foreach($tickets as $ticket)
-                                        @if($ticket->open)
-                                            <p class="has-text-left is-underlined">{{ $ticket->name }}</p>
-                                        @endif
+                                        <hr>
+                                        <p class="has-text-left is-underlined">{{ $ticket->title}}</p>
+                                        <p class="has-text-left has-text-grey-light">{{ $ticket->description }}</p>
                                     @endforeach
                                 @endif
                                 </div>
