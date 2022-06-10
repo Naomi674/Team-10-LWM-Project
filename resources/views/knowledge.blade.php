@@ -1,22 +1,24 @@
 @extends('Components.layout')
 
 @section('head')
+    <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
     <script src="/js/knowledge.js"></script>
+    <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet">
 @endsection
 
 @section('body')
-    onload="removeOldHTML('FAQ')"
+    onload="init()" class="body"
 @endsection
 
 @section('content')
-    <div class="hero mt-5">
-        <p class="title has-text-centered">Knowledge</p>
+    <div class="mt-5">
+        <p class="title has-text-centered" data-position="right" data-title="The Knowledge Page" data-intro="This is the Knowledge Page, here all questions you might have are getting answered.">Knowledge</p>
     </div>
     <div class="container mt-4">
         <div class="columns">
             <!-- Left side -->
             <div class="column is-one-quarter">
-                <div class="pt-6">
+                <div class="pt-6" data-intro="Here you can select a category for your questions">
                     <div class="label">Categories</div>
                     <aside class="menu">
                         <ul id="categoryMenu" class="menu-list">
@@ -32,7 +34,7 @@
                 </div>
             </div>
             <!-- Right Side -->
-            <div id="content" class="column">
+            <div id="content" class="column" data-intro="In this Section you can see all questions already been answered. You can see the Answer by clicking on the question.">
                 <div id="titleCategory" class="title"></div>
                 <template id="template">
                     <div id="card">
@@ -64,4 +66,6 @@
             </div>
         </div>
     </div>
+    {{-- Start a site tour --}}
+    <script src="/js/tour.js"></script>
 @endsection
