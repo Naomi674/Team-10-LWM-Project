@@ -21,6 +21,7 @@ class TicketFactory extends Factory
             'title'=> $this->faker->title,
             'description' => $this->faker->text,
             'time' => $this->faker->numerify('##'),
+            'location' => $this->faker->text,
             'created_at' => now(),
             'updated_at' => now(),
         ];

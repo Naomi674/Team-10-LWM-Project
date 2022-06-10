@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->smallInteger('time');
+            $table->text('location');
             $table->timestamps();
             $table->unsignedBigInteger('author_id')->nullable();
             $table->unsignedBigInteger('assignee_id')->nullable();
