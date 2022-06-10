@@ -11,15 +11,15 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('ticket', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->boolean('open');
-            $table->timestamps();
-        });
-    }
+//    public function up()
+//    {
+//        Schema::create('tickets', function (Blueprint $table) {
+//            $table->id();
+//            $table->string('name');
+//            $table->boolean('open');
+//            $table->timestamps();
+//        });
+//    }
 
     /**
      * Reverse the migrations.
