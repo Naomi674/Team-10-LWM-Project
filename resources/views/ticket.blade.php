@@ -125,7 +125,7 @@
 
                 <div class="column is-one-fifth">
                     <div class="buttons">
-                        <a class="btn btn-primary" href="{{ route('ticket.create') }}">Link</a>
+                        <a class="btn btn-primary h-25" href="{{ route('ticket.create') }}">Create New Ticket</a>
                     </div>
                 </div>
             </div>
