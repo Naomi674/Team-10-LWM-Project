@@ -3,18 +3,16 @@
 @section('head')
     <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
     <script src="/js/knowledge.js"></script>
-    <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet">
 @endsection
-
 @section('body')
     onload="init()" class="body"
 @endsection
-
 @section('content')
-    <div class="mt-5">
-        <p class="title has-text-centered" data-position="right" data-title="The Knowledge Page" data-intro="This is the Knowledge Page, here all questions you might have are getting answered.">Knowledge</p>
-    </div>
+    <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet">
     <div class="container mt-4">
+        <div class="m-5">
+            <h1 class="title has-text-centered" data-title="The Knowledge Page" data-intro="This is the Knowledge Page, here all questions you might have are getting answered.">Knowledge</h1>
+        </div>
         <div class="columns">
             <!-- Left side -->
             <div class="column is-one-quarter">

@@ -6,4 +6,5 @@ introJs().setOptions({
     exitOnOverlayClick: false,
     scrollToTooltip: true,
     scrollTo: 'tooltip',
+    tooltipPosition: 'bottom-middle-aligned',
 }).start();
