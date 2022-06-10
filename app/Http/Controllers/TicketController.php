@@ -41,12 +41,14 @@ class TicketController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'time' => 'required'
+            'time' => 'required',
+            'location' => 'required'
         ]);
         $ticket = new Ticket;
         $ticket->title = $request->title;
         $ticket->description = $request->description;
         $ticket->time = $request->time;
+        $ticket->location = $request->location;
         $ticket->author()->associate(auth()->user());
         $ticket->save();
         return redirect()->route('ticket.index')
@@ -75,11 +77,13 @@ class TicketController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'time' => 'required'
+            'time' => 'required',
+            'location' => 'required'
         ]);
         $ticket->title = $request->title;
         $ticket->description = $request->description;
         $ticket->time = $request->time;
+        $ticket->location = $request->location;
         $ticket->save();
         return redirect()->route('ticket.index')
             ->with('success','Ticket has been updated successfully.');
@@ -98,9 +102,11 @@ class TicketController extends Controller
             'title' => 'required',
             'description' => 'required',
             'time' => 'required',
+            'location' => 'required'
         ]);
         $ticket->title = $request->title;
         $ticket->description = $request->description;
+        $ticket->location = $request->location;
         $ticket->time = $request->time;
         $ticket->save();
         return redirect()->route('ticket.index')
@@ -121,7 +127,7 @@ class TicketController extends Controller
 
 
 
-        return redirect()->route('ticket.index')
-            ->with('success');
+        return redirect()->route('ticket.index');
+//            ->with('success');
     }
 }
