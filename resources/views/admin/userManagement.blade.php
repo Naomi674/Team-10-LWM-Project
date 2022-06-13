@@ -90,7 +90,7 @@
                                 <div class="field">
                                     <label class="label">Password</label>
                                     <p class="control has-icons-left">
-                                        <input class="input" type="password" name="password" placeholder="{{ $user->password }}">
+                                        <input class="input" type="password" name="password" placeholder="**********">
                                         <span class="icon is-small is-left">
                                           <i class="fas fa-lock"></i>
                                         </span>

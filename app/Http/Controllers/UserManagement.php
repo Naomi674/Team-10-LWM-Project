@@ -24,38 +24,6 @@ class UserManagement extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -63,6 +31,18 @@ class UserManagement extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'role_id' => 'required',
+            'password' => [
+                'nullable',
+                'string',
+                'min:12',
+                'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+            ],
+        ]);
+
          $user = User::find($id);
          $user->name = $request->name;
          $user->email = $request->email;
@@ -87,16 +67,21 @@ class UserManagement extends Controller
         return redirect(route('admin.userManagement.index'));
     }
 
-    public function validateUser($request)
+    public function createUser(Request $request)
     {
-        return $request->validate([
+        $request->validate([
             'name' => 'required',
             'email' => 'required',
             'role_id' => 'required',
+            'password' => [
+                'required',
+                'string',
+                'min:12',
+                'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+                'confirmed',
+            ],
         ]);
-    }
 
-    public function createUser(Request $request) {
         User::create([
             'name' => $request->name,
             'email' => $request->email,
