@@ -18,47 +18,53 @@ class ITServicesSeeder extends Seeder
         //Main Services
         DB::table('i_t_services')->insert([
             'category' => 'Main Service',
-            'service' => 'Book a meeting room',
-            'description' => 'Make a room reservation with optional services.',
+            'service' => 'Et consequatur placeat',
+            'description' => 'Ut libero omnis qui cumque voluptas qui architecto ratione quo nihil rerum sed distinctio quas est odio perferendis id error exercitationem. ',
         ]);
 
         DB::table('i_t_services')->insert([
             'category' => 'Main Service',
-            'service' => 'Cleaning',
-            'description' => 'order cleaning service',
+            'service' => 'eos eveniet omnis',
+            'description' => 'Lorem ipsum dolor sit amet. Est totam illum eum aliquid voluptate est quia earum 33 dolorem illum sit earum nulla sed praesentium dolor?',
         ]);
 
         DB::table('i_t_services')->insert([
             'category' => 'Main Service',
-            'service' => 'Furniture',
-            'description' => 'Order furniture for your work place',
+            'service' => 'Et consequatur placeat',
+            'description' => 'Ut libero omnis qui cumque voluptas qui architecto ratione quo nihil rerum sed distinctio quas est odio perferendis id error exercitationem. ',
         ]);
 
         DB::table('i_t_services')->insert([
             'category' => 'Main Service',
-            'service' => 'Handy Man',
-            'description' => 'Order a handyman service',
+            'service' => 'eos eveniet omnis',
+            'description' => 'Lorem ipsum dolor sit amet. Est totam illum eum aliquid voluptate est quia earum 33 dolorem illum sit earum nulla sed praesentium dolor?',
         ]);
 
         //Requests
         DB::table('i_t_services')->insert([
             'category' => 'Requests',
-            'service' => 'Handy Man',
-            'description' => 'Order a handyman service',
+            'service' => 'aut dignissimos',
+            'description' => 'Ut libero omnis qui cumque voluptas qui architecto ratione quo nihil rerum sed distinctio quas est odio perferendis id error exercitationem. ',
+        ]);
+
+        DB::table('i_t_services')->insert([
+            'category' => 'Requests',
+            'service' => 'Request A Monitor',
+            'description' => 'Put in a request for a monitor for your work space',
         ]);
 
         //Issues
         DB::table('i_t_services')->insert([
             'category' => 'Issues',
-            'service' => 'Handy Man',
-            'description' => 'Order a handyman service',
+            'service' => 'Et consequatur placeat',
+            'description' => 'Lorem ipsum dolor sit amet. Est totam illum eum aliquid voluptate est quia earum 33 dolorem illum sit earum nulla sed praesentium dolor?',
         ]);
 
         //Feedback
         DB::table('i_t_services')->insert([
             'category' => 'Feedback',
-            'service' => 'Handy Man',
-            'description' => 'Order a handyman service',
+            'service' => 'eos eveniet omnis',
+            'description' => 'Ut libero omnis qui cumque voluptas qui architecto ratione quo nihil rerum sed distinctio quas est odio perferendis id error exercitationem. ',
         ]);
 
     }

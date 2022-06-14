@@ -18,47 +18,59 @@ class HRServices extends Seeder
         //Main Services
         DB::table('h_r_services')->insert([
             'category' => 'Main Service',
-            'service' => 'Book a meeting room',
-            'description' => 'Make a room reservation with optional services.',
+            'service' => 'Et accusantium sint sed omnis eos',
+            'description' => 'Ut quos nemo a corporis dolores qui recusandae praesentium. Sed voluptatem quia a officiis eligendi non consequatur minima.
+
+',
         ]);
 
         DB::table('h_r_services')->insert([
             'category' => 'Main Service',
-            'service' => 'Cleaning',
-            'description' => 'order cleaning service',
+            'service' => 'Aut quidem quam',
+            'description' => 'Et mollitia soluta et voluptatum explicabo et deleniti quia eum aspernatur optio unde aliquam id velit repudiandae est quas minus.',
         ]);
 
         DB::table('h_r_services')->insert([
             'category' => 'Main Service',
-            'service' => 'Furniture',
-            'description' => 'Order furniture for your work place',
+            'service' => 'Aut quidem quam',
+            'description' => 'Et mollitia soluta et voluptatum explicabo et deleniti quia eum aspernatur optio unde aliquam id velit repudiandae est quas minus.',
         ]);
 
         DB::table('h_r_services')->insert([
             'category' => 'Main Service',
-            'service' => 'Handy Man',
-            'description' => 'Order a handyman service',
+            'service' => 'Et accusantium sint sed omnis eos',
+            'description' => 'Ut quos nemo a corporis dolores qui recusandae praesentium. Sed voluptatem quia a officiis eligendi non consequatur minima.
+
+',
         ]);
 
         //Requests
         DB::table('h_r_services')->insert([
             'category' => 'Requests',
-            'service' => 'Handy Man',
-            'description' => 'Order a handyman service',
+            'service' => 'Request PTO',
+            'description' => 'Put in a request for paid time off days',
+        ]);
+
+        DB::table('h_r_services')->insert([
+            'category' => 'Requests',
+            'service' => 'Aut quidem quam',
+            'description' => 'Et mollitia soluta et voluptatum explicabo et deleniti quia eum aspernatur optio unde aliquam id velit repudiandae est quas minus.',
         ]);
 
         //Issues
         DB::table('h_r_services')->insert([
             'category' => 'Issues',
-            'service' => 'Handy Man',
-            'description' => 'Order a handyman service',
+            'service' => 'Et accusantium sint sed omnis eos',
+            'description' => 'Ut quos nemo a corporis dolores qui recusandae praesentium. Sed voluptatem quia a officiis eligendi non consequatur minima.
+
+',
         ]);
 
         //Feedback
         DB::table('h_r_services')->insert([
             'category' => 'Feedback',
-            'service' => 'Handy Man',
-            'description' => 'Order a handyman service',
+            'service' => 'Aut quidem quam',
+            'description' => 'Et mollitia soluta et voluptatum explicabo et deleniti quia eum aspernatur optio unde aliquam id velit repudiandae est quas minus.',
         ]);
 
     }

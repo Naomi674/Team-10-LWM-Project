@@ -53,7 +53,7 @@ class FacilitiesController extends Controller
      */
     public function show(Facilities $facilities)
     {
-        //
+        return view('Catalogs.forms.facilitiesform');
     }
 
     /**

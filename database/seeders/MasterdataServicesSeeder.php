@@ -18,47 +18,47 @@ class MasterdataServicesSeeder extends Seeder
         //Main Services
         DB::table('masterdata_services')->insert([
             'category' => 'Main Service',
-            'service' => 'Book a meeting room',
-            'description' => 'Make a room reservation with optional services.',
+            'service' => 'n excepturi blanditiis 33',
+            'description' => 'd praesentium magni vel recusandae illo aut libero quia aut laboriosam voluptatem ab earum quasi vel consectetur dignissimos. ',
         ]);
 
         DB::table('masterdata_services')->insert([
             'category' => 'Main Service',
-            'service' => 'Cleaning',
-            'description' => 'order cleaning service',
+            'service' => 'At odit praesentium',
+            'description' => 'd praesentium magni vel recusandae illo aut libero quia aut laboriosam voluptatem ab earum quasi vel consectetur dignissimos. ',
         ]);
 
         DB::table('masterdata_services')->insert([
             'category' => 'Main Service',
-            'service' => 'Furniture',
-            'description' => 'Order furniture for your work place',
+            'service' => 'At odit praesentium',
+            'description' => 'Id molestias magnam ab illum fugiat est nihil voluptatum. Sed recusandae suscipit est itaque asperiores ut vero voluptatem.',
         ]);
 
         DB::table('masterdata_services')->insert([
             'category' => 'Main Service',
-            'service' => 'Handy Man',
-            'description' => 'Order a handyman service',
+            'service' => 'n excepturi blanditiis 33',
+            'description' => 'd praesentium magni vel recusandae illo aut libero quia aut laboriosam voluptatem ab earum quasi vel consectetur dignissimos. ',
         ]);
 
         //Requests
         DB::table('masterdata_services')->insert([
             'category' => 'Requests',
-            'service' => 'Handy Man',
-            'description' => 'Order a handyman service',
+            'service' => ' Aut velit',
+            'description' => 'Id molestias magnam ab illum fugiat est nihil voluptatum. Sed recusandae suscipit est itaque asperiores ut vero voluptatem.',
         ]);
 
         //Issues
         DB::table('masterdata_services')->insert([
             'category' => 'Issues',
-            'service' => 'Handy Man',
-            'description' => 'Order a handyman service',
+            'service' => 'At odit praesentium',
+            'description' => 'd praesentium magni vel recusandae illo aut libero quia aut laboriosam voluptatem ab earum quasi vel consectetur dignissimos. ',
         ]);
 
         //Feedback
         DB::table('masterdata_services')->insert([
             'category' => 'Feedback',
-            'service' => 'Handy Man',
-            'description' => 'Order a handyman service',
+            'service' => 'n excepturi blanditiis 33',
+            'description' => 'Id molestias magnam ab illum fugiat est nihil voluptatum. Sed recusandae suscipit est itaque asperiores ut vero voluptatem.',
         ]);
 
     }

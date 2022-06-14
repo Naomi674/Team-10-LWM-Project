@@ -18,47 +18,47 @@ class FinanceServicesSeeder extends Seeder
         //Main Services
         DB::table('finance_services')->insert([
             'category' => 'Main Service',
-            'service' => 'Book a meeting room',
-            'description' => 'Make a room reservation with optional services.',
+            'service' => 'Aut quia obcaecati aut ',
+            'description' => 'In vitae mollitia At doloremque molestiae et totam amet? ',
         ]);
 
         DB::table('finance_services')->insert([
             'category' => 'Main Service',
-            'service' => 'Cleaning',
-            'description' => 'order cleaning service',
+            'service' => 'et totam amet?',
+            'description' => 'Eos sint impedit est quos autem aut beatae necessitatibus et galisum consequatur. ',
         ]);
 
         DB::table('finance_services')->insert([
             'category' => 'Main Service',
-            'service' => 'Furniture',
-            'description' => 'Order furniture for your work place',
+            'service' => 'Aut quia obcaecati aut ',
+            'description' => 'In vitae mollitia At doloremque molestiae et totam amet? ',
         ]);
 
         DB::table('finance_services')->insert([
             'category' => 'Main Service',
-            'service' => 'Handy Man',
-            'description' => 'Order a handyman service',
+            'service' => 'et totam amet?',
+            'description' => 'Aut labore corrupti et excepturi doloribus qui facere galisum. ',
         ]);
 
         //Requests
         DB::table('finance_services')->insert([
             'category' => 'Requests',
-            'service' => 'Handy Man',
-            'description' => 'Order a handyman service',
+            'service' => 'Cum nesciunt laborum ',
+            'description' => 'Eos sint impedit est quos autem aut beatae necessitatibus et galisum consequatur. ',
         ]);
 
         //Issues
         DB::table('finance_services')->insert([
             'category' => 'Issues',
-            'service' => 'Handy Man',
-            'description' => 'Order a handyman service',
+            'service' => 'Cum nesciunt laborum ',
+            'description' => 'In vitae mollitia At doloremque molestiae et totam amet? ',
         ]);
 
         //Feedback
         DB::table('finance_services')->insert([
             'category' => 'Feedback',
-            'service' => 'Handy Man',
-            'description' => 'Order a handyman service',
+            'service' => 'Aut quia obcaecati aut ',
+            'description' => 'Eos sint impedit est quos autem aut beatae necessitatibus et galisum consequatur. ',
         ]);
 
     }
