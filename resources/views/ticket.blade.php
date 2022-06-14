@@ -45,79 +45,111 @@
             });
         </script>
         <!-- Start of The Tickets -->
+{{--        <div class="column">--}}
+{{--            <div class="box">--}}
+{{--                <div class="columns">--}}
+{{--                    <div class="column is-five-fifth">--}}
+{{--                        <p>--}}
+{{--                            <strong>Title:</strong> CEO Meeting <br>--}}
+{{--                            <strong>Description:</strong> Meeting to discuss company changes <br>--}}
+{{--                            <strong>Time:</strong> 13:00 <br>--}}
+{{--                            <strong>Location:</strong> Meeting room 2 <br>--}}
+{{--                            <strong>Opened By:</strong> Polly <br>--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+{{--                    <div class="column is-one-fifth">--}}
+{{--                        <div class="buttons">--}}
+{{--                            <button class="button is-danger">High</button>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="box">--}}
+{{--                <div class="columns">--}}
+{{--                    <div class="column is-five-fifth">--}}
+{{--                        <p>--}}
+{{--                            <strong>Title:</strong> Accounting Meeting <br>--}}
+{{--                            <strong>Description:</strong> Meeting to discuss the quarterly income of the company <br>--}}
+{{--                            <strong>Time:</strong> 11:00 <br>--}}
+{{--                            <strong>Location:</strong> Meeting room 5 <br>--}}
+{{--                            <strong>Opened By:</strong> Martin <br>--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+{{--                    <div class="column is-one-fifth">--}}
+{{--                        <div class="buttons">--}}
+{{--                            <button class="button is-danger">High</button>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="box">--}}
+{{--                <div class="columns">--}}
+{{--                    <div class="column is-five-fifth">--}}
+{{--                        <p>--}}
+{{--                            <strong>Title:</strong> The Lunch Room Debacle <br>--}}
+{{--                            <strong>Description:</strong> Meet to discuss if we should expand the menu <br>--}}
+{{--                            <strong>Time:</strong> 14:00 <br>--}}
+{{--                            <strong>Location:</strong> Meeting room 3 <br>--}}
+{{--                            <strong>Opened By:</strong> Lars <br>--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+{{--                    <div class="column is-one-fifth">--}}
+{{--                        <div class="buttons">--}}
+{{--                            <button class="button is-warning">Medium</button>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="box">--}}
+{{--                <div class="columns">--}}
+{{--                    <div class="column is-five-fifth">--}}
+{{--                        <p>--}}
+{{--                            <strong>Title:</strong> Daily Standup <br>--}}
+{{--                            <strong>Description:</strong> See where the project team is at and what the will do for the day <br>--}}
+{{--                            <strong>Time:</strong> 9:00 <br>--}}
+{{--                            <strong>Location:</strong> Meeting room 1 <br>--}}
+{{--                            <strong>Opened By:</strong> Owen <br>--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+{{--                    <div class="column is-one-fifth">--}}
+{{--                        <div class="buttons">--}}
+{{--                            <button class="button is-success">Low</button>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
         <div class="column">
             <div class="box">
-                <div class="columns">
-                    <div class="column is-five-fifth">
-                        <p>
-                            <strong>Title:</strong> CEO Meeting <br>
-                            <strong>Description:</strong> Meeting to discuss company changes <br>
-                            <strong>Time:</strong> 13:00 <br>
-                            <strong>Location:</strong> Meeting room 2 <br>
-                            <strong>Opened By:</strong> Polly <br>
-                        </p>
-                    </div>
-                    <div class="column is-one-fifth">
-                        <div class="buttons">
-                            <button class="button is-danger">High</button>
-                        </div>
+
+                <div class="column is-one-fifth">
+                    <div class="buttons">
+                        <a class="btn btn-primary h-25" href="{{ route('ticket.create') }}">Create New Ticket</a>
                     </div>
                 </div>
             </div>
+        @foreach($tickets as $ticket)
             <div class="box">
                 <div class="columns">
                     <div class="column is-five-fifth">
                         <p>
-                            <strong>Title:</strong> Accounting Meeting <br>
-                            <strong>Description:</strong> Meeting to discuss the quarterly income of the company <br>
-                            <strong>Time:</strong> 11:00 <br>
-                            <strong>Location:</strong> Meeting room 5 <br>
-                            <strong>Opened By:</strong> Martin <br>
+                            <strong>Title:</strong> {{$ticket->title}}<br>
+                            <strong>Description:</strong> {{$ticket->description}} <br>
+                            <strong>Time:</strong> {{number_format($ticket->time, 2)}} <br>
+                            <strong>Location:</strong> {{$ticket->location}} <br>
+                            <strong>Opened By:</strong> {{$ticket->author()->first()->name}} <br>
                         </p>
                     </div>
                     <div class="column is-one-fifth">
                         <div class="buttons">
-                            <button class="button is-danger">High</button>
+                            <a class="button is-danger" href="ticket/{{ $ticket->id }}/destroy">Delete</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="box">
-                <div class="columns">
-                    <div class="column is-five-fifth">
-                        <p>
-                            <strong>Title:</strong> The Lunch Room Debacle <br>
-                            <strong>Description:</strong> Meet to discuss if we should expand the menu <br>
-                            <strong>Time:</strong> 14:00 <br>
-                            <strong>Location:</strong> Meeting room 3 <br>
-                            <strong>Opened By:</strong> Lars <br>
-                        </p>
-                    </div>
-                    <div class="column is-one-fifth">
-                        <div class="buttons">
-                            <button class="button is-warning">Medium</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="box">
-                <div class="columns">
-                    <div class="column is-five-fifth">
-                        <p>
-                            <strong>Title:</strong> Daily Standup <br>
-                            <strong>Description:</strong> See where the project team is at and what the will do for the day <br>
-                            <strong>Time:</strong> 9:00 <br>
-                            <strong>Location:</strong> Meeting room 1 <br>
-                            <strong>Opened By:</strong> Owen <br>
-                        </p>
-                    </div>
-                    <div class="column is-one-fifth">
-                        <div class="buttons">
-                            <button class="button is-success">Low</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        @endforeach
+
         </div>
     </div>
 @endsection

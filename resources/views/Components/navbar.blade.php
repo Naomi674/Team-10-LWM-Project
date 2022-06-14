@@ -21,7 +21,7 @@
                     </p>
                 </div>
             </div>
-            <a class="navbar-item has-text-white {{ Request::route()->getName() === null ? "is-active" : "" }}" href="/">
+            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'index' ? "is-active" : "" }}" href="/">
                 Home
             </a>
 
@@ -63,12 +63,18 @@
                     </a>
                 </div>
             </div>
+
+            @if(auth()->user()->role_id == 1)
+                <a class="navbar-item has-text-white {{ Request::route()->getName() === 'admin.admin.index' ? "is-active" : "" }}" href="{{ route('admin.admin.index') }}">
+                    Admin
+                </a>
+            @endif
         </div>
 
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a class="button is-primary">
+                    <a class="button is-primary" href="{{ route('account.index') }}">
                         <strong>My account</strong>
                     </a>
                     <form method="POST" action="{{ route('logout') }}">
