@@ -21,47 +21,48 @@
                     </p>
                 </div>
             </div>
-            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'index' ? "is-active" : "" }}" href="/">
+            <a class="navbar-item has-text-white {{  Route::is('index') ? "is-active" : "" }}" href="/">
                 Home
             </a>
 
-            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'knowledge.index' ? "is-active" : "" }}" href="{{ route('knowledge.index') }}">
+            <a class="navbar-item has-text-white {{ Route::is('knowledge.index') ? "is-active" : "" }}" href="{{ route('knowledge.index') }}">
                 Knowledge
             </a>
 
-            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'ticket.index' ? "is-active" : "" }}" href="{{ route('ticket.index') }}">
+            <a class="navbar-item has-text-white {{ Route::is('ticket.index') ? "is-active" : "" }}" href="{{ route('ticket.index') }}">
                 My Tickets
             </a>
 
-            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'status.index' ? "is-active" : "" }}" href="{{ route('status.index') }}">
+            <a class="navbar-item has-text-white {{ Route::is('status.index') ? "is-active" : "" }}" href="{{ route('status.index') }}">
                 System Status
             </a>
 
             <div class="navbar-item has-dropdown is-hoverable has-text-white">
-                <a class="navbar-link has-text-white {{ Request::route()->getName() === 'catalogs.index' ? "is-active" : "" }}" href="{{ route('catalog.index') }}">
+                <a class="navbar-link has-text-white {{ Route::is('catalogs.index') ? "is-active" : "" }}" href="{{ route('catalog.index') }}">
                     Catalog
                 </a>
 
                 <div class="navbar-dropdown">
-                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'hr.index' ? "is-active" : "" }}">
+                    <a class="navbar-item has-text-white {{ Route::is('hr.index') ? "is-active" : "" }}">
                         HR
                     </a>
-                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'it.index' ? "is-active" : "" }}">
+                    <a class="navbar-item has-text-white {{ Route::is('it.index') ? "is-active" : "" }}">
                         IT
                     </a>
-                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'facilities.index' ? "is-active" : "" }}" href="{{ route('facilities.index') }}">
+                    <a class="navbar-item has-text-white {{ Route::is('facilities.index') ? "is-active" : "" }}" href="{{ route('facilities.index') }}">
                         Facilities
                     </a>
-                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'financial.index' ? "is-active" : "" }}">
+                    <a class="navbar-item has-text-white {{ Route::is('financial.index') ? "is-active" : "" }}">
                         Financial
                     </a>
                 </div>
             </div>
-
-            @if(auth()->user()->role_id == 1)
-                <a class="navbar-item has-text-white {{ Request::route()->getName() === 'admin.admin.index' ? "is-active" : "" }}" href="{{ route('admin.admin.index') }}">
-                    Admin
-                </a>
+            @if(auth()->user() !== null)
+                @if(auth()->user()->role_id === 1)
+                    <a class="navbar-item has-text-white {{ Route::is('admin.admin.index') ? "is-active" : "" }}" href="{{ route('admin.admin.index') }}">
+                        Admin
+                    </a>
+                @endif
             @endif
         </div>
 
