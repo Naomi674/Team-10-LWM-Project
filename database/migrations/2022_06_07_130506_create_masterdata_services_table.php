@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('facilities', function (Blueprint $table) {
+        Schema::create('masterdata_services', function (Blueprint $table) {
             $table->id();
+            $table->string('category');
+            $table->string('service');
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('facilities');
+        Schema::dropIfExists('masterdata_services');
     }
 };

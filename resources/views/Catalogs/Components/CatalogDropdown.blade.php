@@ -10,25 +10,22 @@
     </div>
     <div class="dropdown-menu" id="dropdown-menu3" role="menu">
         <div class="dropdown-content">
-            <a href="#" class="dropdown-item">
-                Buisness Support
-            </a>
-            <a href="/catalog/facilities" class="dropdown-item has-background-primary has-text-white">
+            <a href="/catalog/facilities" class="dropdown-item">
                 Facilities
             </a>
-            <a href="#" class="dropdown-item">
+            <a href="/catalog/finance" class="dropdown-item">
                 Finance
             </a>
-            <a href="#" class="dropdown-item">
-                Home Office
+            <a href="/catalog/businesssupport" class="dropdown-item">
+                Business Support
             </a>
-            <a href="#" class="dropdown-item">
-                HR and Payroll
+            <a href="/catalog/hr" class="dropdown-item">
+                HR
             </a>
-            <a href="#" class="dropdown-item">
-                IT Services
+            <a href="/catalog/it" class="dropdown-item">
+                IT
             </a>
-            <a href="#" class="dropdown-item">
+            <a href="/catalog/masterdata" class="dropdown-item">
                 Masterdata
             </a>
         </div>
