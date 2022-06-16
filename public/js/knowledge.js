@@ -4,7 +4,7 @@ console.log('JavaScript loaded');
  * Function to initialise the page on load
  */
 function init() {
-    removeOldHTML('FAQ')
+    removeOldHTML('FAQ');
 }
 
 function handleClick (element) {

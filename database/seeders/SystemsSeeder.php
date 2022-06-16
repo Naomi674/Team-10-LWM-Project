@@ -4,8 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class FacilitiesSeeder extends Seeder
+class SystemsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +15,9 @@ class FacilitiesSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('systems')->insert([
+            'name' => 'System 1',
+            'down' => true,
+        ]);
     }
 }

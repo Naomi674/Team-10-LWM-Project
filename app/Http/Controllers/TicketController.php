@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class TicketController extends Controller
 {
@@ -14,7 +15,8 @@ class TicketController extends Controller
      */
     public function index()
     {
-        return view('ticket');
+        $tickets = Ticket::all()->sortBy("title");
+        return view('ticket')->with('tickets', $tickets);
     }
 
     /**
@@ -24,7 +26,8 @@ class TicketController extends Controller
      */
     public function create()
     {
-        //
+        return view('ticket_create');
+
     }
 
     /**
@@ -35,7 +38,21 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'time' => 'required',
+            'location' => 'required'
+        ]);
+        $ticket = new Ticket;
+        $ticket->title = $request->title;
+        $ticket->description = $request->description;
+        $ticket->time = $request->time;
+        $ticket->location = $request->location;
+        $ticket->author()->associate(auth()->user());
+        $ticket->save();
+        return redirect()->route('ticket.index')
+            ->with('success','Ticket has been created successfully.');
     }
 
     /**
@@ -55,9 +72,21 @@ class TicketController extends Controller
      * @param  \App\Models\Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ticket $ticket)
+    public function edit(Request $request, Ticket $ticket)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'time' => 'required',
+            'location' => 'required'
+        ]);
+        $ticket->title = $request->title;
+        $ticket->description = $request->description;
+        $ticket->time = $request->time;
+        $ticket->location = $request->location;
+        $ticket->save();
+        return redirect()->route('ticket.index')
+            ->with('success','Ticket has been updated successfully.');
     }
 
     /**
@@ -69,7 +98,19 @@ class TicketController extends Controller
      */
     public function update(Request $request, Ticket $ticket)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'time' => 'required',
+            'location' => 'required'
+        ]);
+        $ticket->title = $request->title;
+        $ticket->description = $request->description;
+        $ticket->location = $request->location;
+        $ticket->time = $request->time;
+        $ticket->save();
+        return redirect()->route('ticket.index')
+            ->with('success','Ticket has been updated successfully.');
     }
 
     /**
@@ -80,6 +121,13 @@ class TicketController extends Controller
      */
     public function destroy(Ticket $ticket)
     {
-        //
+//        $ticket = Ticket::find($ticket);
+        $ticket -> delete();
+//        return redirect('/tickets');
+
+
+
+        return redirect()->route('ticket.index');
+//            ->with('success');
     }
 }

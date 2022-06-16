@@ -5,7 +5,7 @@
     <div class="column is-one-third mb-2">
         <div class="box is-one-third">
             <p class="bd-notification is-primary pb-2">
-                <a href="#"><strong><u>HR</u></strong></a>
+                <a href="catalog/hr"><strong><u>HR</u></strong></a>
             </p>
             <article class ="media pb-2">
                 <div class="media-left">
@@ -25,7 +25,7 @@
             </article>
             <footer class="card-footer">
                 <p class="card-footer-item pt-3">
-                    <a href="#"><i>Go to HR catalog</i></a>
+                    <a href="catalog/hr"><i>Go to HR catalog</i></a>
                 </p>
             </footer>
         </div>
@@ -33,7 +33,7 @@
     <div class="column is-one-third mb-2">
         <div class="box is-one-third">
             <p class="bd-notification is-primary pb-2">
-                <a href="#"><strong><u>IT</u></strong></a>
+                <a href="catalog/it"><strong><u>IT</u></strong></a>
             </p>
             <article class ="media pb-2">
                 <div class="media-left">
@@ -53,7 +53,7 @@
             </article>
             <footer class="card-footer">
                 <p class="card-footer-item pt-3">
-                    <a href="#"><i>Go to IT catalog</i></a>
+                    <a href="catalog/it"><i>Go to IT catalog</i></a>
                 </p>
             </footer>
         </div>
@@ -61,7 +61,7 @@
     <div class="column is-one-third mb-2">
         <div class="box is-one-third">
             <p class="bd-notification is-primary pb-2">
-                <a href="#"><strong><u>Facilities</u></strong></a>
+                <a href="catalog/facilities"><strong><u>Facilities</u></strong></a>
             </p>
             <article class ="media pb-2">
                 <div class="media-left">
@@ -89,7 +89,7 @@
     <div class="column is-one-third mb-2">
         <div class="box is-one-third">
             <p class="bd-notification is-primary pb-2">
-                <a href="#"><strong><u>Finance</u></strong></a>
+                <a href="catalog/finance"><strong><u>Finance</u></strong></a>
             </p>
             <article class ="media pb-2">
                 <div class="media-left">
@@ -109,7 +109,7 @@
             </article>
             <footer class="card-footer">
                 <p class="card-footer-item pt-3">
-                    <a href="#"><i>Go to Finance catalog</i></a>
+                    <a href="catalog/finance"><i>Go to Finance catalog</i></a>
                 </p>
             </footer>
         </div>
@@ -117,7 +117,7 @@
     <div class="column is-one-third mb-2">
         <div class="box is-one-third">
             <p class="bd-notification is-primary pb-2">
-                <a href="#"><strong><u>Masterdata</u></strong></a>
+                <a href="catalog/masterdata"><strong><u>Masterdata</u></strong></a>
             </p>
             <article class ="media pb-2">
                 <div class="media-left">
@@ -137,7 +137,7 @@
             </article>
             <footer class="card-footer">
                 <p class="card-footer-item pt-3">
-                    <a href="#"><i>Go to Masterdata catalog</i></a>
+                    <a href="catalog/masterdata"><i>Go to Masterdata catalog</i></a>
                 </p>
             </footer>
         </div>
@@ -145,7 +145,7 @@
     <div class="column is-one-third mb-2">
         <div class="box is-one-third">
             <p class="bd-notification is-primary pb-2">
-                <a href="#"><strong><u>Business Support</u></strong></a>
+                <a href="catalog/businesssupport"><strong><u>Business Support</u></strong></a>
             </p>
             <article class ="media pb-2">
                 <div class="media-left">
@@ -165,7 +165,7 @@
             </article>
             <footer class="card-footer">
                 <p class="card-footer-item pt-3">
-                    <a href="#"><i>Go to Business Support catalog</i></a>
+                    <a href="catalog/businesssupport"><i>Go to Business Support catalog</i></a>
                 </p>
             </footer>
         </div>
