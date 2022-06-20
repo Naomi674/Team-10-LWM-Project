@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class LoginTest extends TestCase
 {
     /**
      * A basic test example.
@@ -17,15 +17,15 @@ class ExampleTest extends TestCase
     {
         $response = $this->get('/');
 
-        $response->assertStatus(302);
+        $response->assertRedirect('/login');
 
         $response = $this->get('/knowledge');
 
-        $response->assertStatus(302);
+        $response->assertRedirect('/login');
 
         $response = $this->get('/status');
 
-        $response->assertStatus(302);
+        $response->assertRedirect('/login');
     }
 
     public function testLoadingLoginPage() {
