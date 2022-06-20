@@ -6,41 +6,61 @@
             <button onclick="closeModal()" class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
-            <form method="POST" action="{{ route('userManagement.createUser') }}">
+            <form method="POST" action="{{ route('admin.userManagement.store') }}">
                 @csrf
                 @method('POST')
 
                 <div class="field">
                     <div class="control has-icons-left">
-                        <input class="input" type="text" name="name" placeholder="Name">
+                        <input class="input @error('name') is-danger @enderror" type="text" name="name" placeholder="Name">
                         <span class="icon is-small is-left">
                             <i class="fa-solid fa-id-card"></i>
                         </span>
                     </div>
+                    @error('name')
+                    <p class="help is-danger" role="alert">
+                        {{ $message }}
+                    </p>
+                    @enderror
                 </div>
                 <div class="field">
                     <p class="control has-icons-left">
-                        <input class="input" type="email" name="email" placeholder="Email">
+                        <input class="input @error('email') is-danger @enderror" type="email" name="email" placeholder="Email">
                         <span class="icon is-small is-left">
                           <i class="fas fa-envelope"></i>
                         </span>
                     </p>
+                    @error('email')
+                    <p class="help is-danger" role="alert">
+                        {{ $message }}
+                    </p>
+                    @enderror
                 </div>
                 <div class="field">
                     <p class="control has-icons-left">
-                        <input class="input" type="password" name="password" placeholder="Password">
+                        <input class="input @error('password') is-danger @enderror" type="password" name="password" placeholder="Password">
                         <span class="icon is-small is-left">
                           <i class="fas fa-lock"></i>
                         </span>
                     </p>
+                    @error('password')
+                    <p class="help is-danger" role="alert">
+                        {{ $message }}
+                    </p>
+                    @enderror
                 </div>
                 <div class="field">
                     <p class="control has-icons-left">
-                        <input class="input" type="password" name="password_confirmation" placeholder="Confirm Password">
+                        <input class="input @error('password') is-danger @enderror" type="password" name="password_confirmation" placeholder="Confirm Password">
                         <span class="icon is-small is-left">
                       <i class="fas fa-lock"></i>
                     </span>
                     </p>
+                    @error('password')
+                    <p class="help is-danger" role="alert">
+                        {{ $message }}
+                    </p>
+                    @enderror
                 </div>
                 <div class="field">
                     <label>
