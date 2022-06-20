@@ -38,7 +38,6 @@ class UserManagementTest extends TestCase
         $this->assertDatabaseHas('users', [
             'name' => 'AutomaticFooUser',
             'email' => 'automaticfoomail@example.com',
-            'role_id' => 0,
         ]);
     }
 
@@ -53,7 +52,7 @@ class UserManagementTest extends TestCase
 
         $response = $this->post($route, $requestBody);
 
-//        $response->assertSessionHasErrors(['role_id']);
+        $response->assertSessionHasErrors(['role_id']);
         $this->assertDatabaseMissing('users' , [
             'name' => 'AutomaticFooUser',
             'email' => 'automaticfoomail@example.com',
