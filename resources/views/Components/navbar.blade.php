@@ -16,56 +16,68 @@
             <div class="field has-icons-right">
                 <div class="field navbar-divider mr-3 ml-3" style="background-color: #00385a">
                     <p class="control is-expanded has-icons-right">
-                        <input class="input" type="search" placeholder="Search..."/>
+                        <input class="input" type="search" placeholder="Search..." id="searchbar" onkeyup="search_animal()"/>
                         <span class="icon is-small is-right"><i class="fas fa-search"></i></span>
                     </p>
                 </div>
             </div>
-            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'index' ? "is-active" : "" }}" href="/">
+            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'index' ? 'is-active' : '' }}"
+                href="/">
                 Home
             </a>
 
-            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'knowledge.index' ? "is-active" : "" }}" href="{{ route('knowledge.index') }}">
+            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'knowledge.index' ? 'is-active' : '' }}"
+                href="{{ route('knowledge.index') }}">
                 Knowledge
             </a>
 
-            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'ticket.index' ? "is-active" : "" }}" href="{{ route('ticket.index') }}">
+            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'ticket.index' ? 'is-active' : '' }}"
+                href="{{ route('ticket.index') }}">
                 My Tickets
             </a>
 
-            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'status.index' ? "is-active" : "" }}" href="{{ route('status.index') }}">
+            <a class="navbar-item has-text-white {{ Request::route()->getName() === 'status.index' ? 'is-active' : '' }}"
+                href="{{ route('status.index') }}">
                 System Status
             </a>
 
             <div class="navbar-item has-dropdown is-hoverable has-text-white">
-                <a class="navbar-link has-text-white {{ Request::route()->getName() === 'catalogs.index' ? "is-active" : "" }}" href="{{ route('catalog.index') }}">
+                <a class="navbar-link has-text-white {{ Request::route()->getName() === 'catalogs.index' ? 'is-active' : '' }}"
+                    href="{{ route('catalog.index') }}">
                     Catalog
                 </a>
 
                 <div class="navbar-dropdown">
-                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'hr.index' ? "is-active" : "" }}" href="{{ route('hr.index') }}">
+                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'hr.index' ? 'is-active' : '' }}"
+                        href="{{ route('hr.index') }}">
                         HR
                     </a>
-                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'it.index' ? "is-active" : "" }}" href="{{ route('it.index') }}">
+                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'it.index' ? 'is-active' : '' }}"
+                        href="{{ route('it.index') }}">
                         IT
                     </a>
-                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'facilities.index' ? "is-active" : "" }}" href="{{ route('facilities.index') }}">
+                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'facilities.index' ? 'is-active' : '' }}"
+                        href="{{ route('facilities.index') }}">
                         Facilities
                     </a>
-                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'finance.index' ? "is-active" : "" }}" href="{{ route('finance.index') }}">
+                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'finance.index' ? 'is-active' : '' }}"
+                        href="{{ route('finance.index') }}">
                         Finance
                     </a>
-                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'masterdata.index' ? "is-active" : "" }}" href="{{ route('masterdata.index') }}">
+                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'masterdata.index' ? 'is-active' : '' }}"
+                        href="{{ route('masterdata.index') }}">
                         Masterdata
                     </a>
-                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'businesssupport.index' ? "is-active" : "" }}" href="{{ route('businesssupport.index') }}">
+                    <a class="navbar-item has-text-white {{ Request::route()->getName() === 'businesssupport.index' ? 'is-active' : '' }}"
+                        href="{{ route('businesssupport.index') }}">
                         Business Support
                     </a>
                 </div>
             </div>
 
-            @if(auth()->user()->role_id == 1)
-                <a class="navbar-item has-text-white {{ Request::route()->getName() === 'admin.admin.index' ? "is-active" : "" }}" href="{{ route('admin.admin.index') }}">
+            @if (auth()->user()->role_id == 1)
+                <a class="navbar-item has-text-white {{ Request::route()->getName() === 'admin.admin.index' ? 'is-active' : '' }}"
+                    href="{{ route('admin.admin.index') }}">
                     Admin
                 </a>
             @endif

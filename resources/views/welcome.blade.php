@@ -15,6 +15,13 @@
         @endforeach
     @endif
 
+    <div class="columns is-mobile is-centered">
+        <div class="column is-half">
+          <p class="bd-notification is-primary">
+              <ul id="list-holder" class="has-background-primary has-text-light has-text-centered"></ul>
+          </p>
+        </div>
+    </div>
 
     <section class="container mt-6">
         <div class="columns is-multiline is-centered">
@@ -114,11 +121,38 @@
             // Add a keyboard event to close all modals
             document.addEventListener('keydown', (event) => {
                 const e = event || window.event;
-
+            
                 if (e.keyCode === 27) { // Escape key
                     closeAllModals();
                 }
             });
         });
+
+        let jsonData = `[
+            {"Name": "My Tickets"},
+            {"Name": "Admin"},
+            {"Name": "Catalog"},
+            {"Name": "Knowledge"}
+        ]`
+
+        let data = JSON.parse(jsonData)
+
+        function search_animal() {
+            let input = document.getElementById('searchbar').value
+            input = input.toLowerCase();
+            let x = document.querySelector('#list-holder');
+            x.innerHTML = ""
+
+            for (i = 0; i < data.length; i++) {
+                let obj = data[i];
+
+                if (obj.Name.toLowerCase().includes(input)) {
+                    const elem = document.createElement("li")
+                    elem.innerHTML = `<a href="${obj.Name}">${obj.Name}</a>`
+                    x.appendChild(elem)
+                    console.log(elem)
+                }
+            }
+        }
     </script>
 @endsection
