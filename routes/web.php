@@ -38,7 +38,10 @@ Route::resource('/catalog/businesssupport', BusinessSupportServicesController::c
 //Route::get('/main-service/facilities', [FacilitiesController::class, 'filter']);
 Route::resource('/ticket', TicketController::class)->middleware('auth');
 Route::resource('/status', SystemController::class)->middleware('auth');
-Route::resource('/knowledge', KnowledgeController::class)->middleware('auth');
+Route::get('/knowledge', [KnowledgeController::class, 'index'])->name('knowledge.index')->middleware('auth');
+Route::put('/knowledge/ask-question', [KnowledgeController::class, 'storeNewQuestion'])->middleware('auth');
+Route::put('/knowledge/answer-question', [KnowledgeController::class, 'storeAnsweredQuestion'])->middleware('auth');
+Route::delete('/knowledge/knowledge-question-delete',[KnowledgeController::class, 'delete'])->name('knowledge.delete')->middleware('auth');
 Route::resource('/catalog', CatalogController::class)->middleware('auth');
 Route::resource('/search', SearchController::class)->middleware('auth');
 Route::get('/foobar', [FacilitiesController::class, 'ajax'])->middleware('auth');
@@ -53,7 +56,5 @@ Route::group(['middleware' => 'auth'], function () {
        Route::resource('userManagement', UserManagement::class);
     });
 });
-
-Route::get('/foo', [KnowledgeController::class, 'ajax'])->middleware('auth');
 
 Route::post('/userManagement/createUser', [UserManagement::class, 'createUser'])->name('userManagement.createUser');
