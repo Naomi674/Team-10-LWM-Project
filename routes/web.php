@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KnowledgeController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::resource('/ticket', TicketController::class)->middleware('auth');
 Route::resource('/status', SystemController::class)->middleware('auth');
 Route::resource('/knowledge', KnowledgeController::class)->middleware('auth');
 Route::resource('/catalog', CatalogController::class)->middleware('auth');
+Route::resource('/search', SearchController::class)->middleware('auth');
 Route::get('/foobar', [FacilitiesController::class, 'ajax'])->middleware('auth');
 Route::resource('/account', AccountController::class)->middleware('auth');
 Route::get('/update-password', function () {
