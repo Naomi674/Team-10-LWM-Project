@@ -13,24 +13,25 @@
         @if(count($pendingKnowledge) > 0 && auth()->user()->role_id === 1)
             <div class="notification is-danger ml-6 mr-6 mt-4">
                 <button onclick="hideNotification(this.offsetParent)" class="delete"></button>
-                Open Questions! Click <a onclick="showPendingKnowledge()">here</a>
+                There are {{ $pendingKnowledge->count() }} open questions! Click <a onclick="showPendingKnowledge()">here</a>
                 to answer them.
             </div>
 
             <!-- Modal to show all unanswered questions -->
             <div id="openQuestions" class="modal">
                 <div class="modal-background"></div>
-                <div class="modal-card">
+                <div class="modal-card" style="width: 1400px">
                     <header class="modal-card-head">
                         <p class="modal-card-title">Open Questions</p>
                         <button onclick="closeModal()" class="delete" aria-label="close"></button>
                     </header>
                     <section class="modal-card-body">
-                        <table id="pendingKnowledgeTableBody" class="table is-fullwidth">
+                        <table id="pendingKnowledgeTable" class="table is-fullwidth">
                             <thead>
                                 <tr>
                                     <th>Author</th>
                                     <th>Question</th>
+                                    <th>Category</th>
                                     <th>Asked</th>
                                 </tr>
                             </thead>
@@ -40,7 +41,7 @@
                         </table>
                     </section>
                     <footer class="modal-card-foot">
-                        <button onclick="closeModal()" class="button">Cancel</button>
+                        <a onclick="closeModal()" class="button">Cancel</a>
                     </footer>
                 </div>
             </div>
@@ -51,14 +52,17 @@
                 <div class="modal-card">
                     <header class="modal-card-head">
                         <p class="modal-card-title">Ask A Question</p>
-                        <button onclick="closeModal()" class="delete" aria-label="close"></button>
+                        <a onclick="closeModal()" class="delete" aria-label="close"></a>
                     </header>
                     <section class="modal-card-body">
-                        <form>
+                        <form method="POST" action="/knowledge/answer-question">
+                            @csrf
+                            @method('PUT')
+
                             <div class="field">
                                 <label class="label" for="title">Question</label>
                                 <div class="control has-icons-left">
-                                    <p class="input" id="title" type="text"></p>
+                                    <input class="input" name="title" id="answerQuestionTitle" type="text" readonly>
                                     <span class="icon is-small is-left">
                                         <i class="fa-solid fa-question"></i>
                                     </span>
@@ -72,24 +76,29 @@
                                 <label>
                                     <p class="label">Category</p>
                                     <div class="select">
-                                        <select name="category">
+                                        <select name="category" id="category">
                                             <option value="FAQ"}>FAQ</option>
                                             <option value="Onboarding">Onboarding</option>
                                             <option value="IT Knowledge"}>IT Knowledge</option>
                                             <option value="HR"}>HR</option>
-                                            <option value="ServiceNow Porta"}>ServiceNow Porta</option>
+                                            <option value="ServiceNow Portal"}>ServiceNow Portal</option>
                                             <option value="Facilities"}>Facilities</option>
                                             <option value="Financial Services"}>Financial Services</option>
                                         </select>
                                     </div>
                                 </label>
                             </div>
+                            <hr>
+                            <button class="button is-success">Submit</button>
+                            <a onclick="closeModal()" class="button">Cancel</a>
+                        </form>
+                        <hr>
+                        <form method="POST" action="/knowledge/knowledge-question-delete?title=" onsubmit="return changeAction(this)">
+                            @csrf
+                            @method('DELETE')
+                            <button class="button is-danger">Delete Question</button>
                         </form>
                     </section>
-                    <footer class="modal-card-foot">
-                        <button class="button is-success">Submit</button>
-                        <button onclick="closeModal()" class="button">Cancel</button>
-                    </footer>
                 </div>
             </div>
         @endif
@@ -109,7 +118,10 @@
                     <button onclick="closeModal()" class="delete" aria-label="close"></button>
                 </header>
                 <section class="modal-card-body">
-                    <form>
+                    <form method="POST" action="/knowledge/ask-question">
+                        @csrf
+                        @method('PUT')
+
                         <div class="field">
                             <label class="label" for="title">Question</label>
                             <div class="control has-icons-left">
@@ -128,19 +140,18 @@
                                         <option value="Onboarding">Onboarding</option>
                                         <option value="IT Knowledge"}>IT Knowledge</option>
                                         <option value="HR"}>HR</option>
-                                        <option value="ServiceNow Porta"}>ServiceNow Porta</option>
+                                        <option value="ServiceNow Portal"}>ServiceNow Portal</option>
                                         <option value="Facilities"}>Facilities</option>
                                         <option value="Financial Services"}>Financial Services</option>
                                     </select>
                                 </div>
                             </label>
                         </div>
+                        <hr>
+                        <button class="button is-success">Submit</button>
+                        <a onclick="closeModal()" class="button">Cancel</a>
                     </form>
                 </section>
-                <footer class="modal-card-foot">
-                    <button class="button is-success">Submit</button>
-                    <button onclick="closeModal()" class="button">Cancel</button>
-                </footer>
             </div>
         </div>
 
@@ -181,13 +192,8 @@
                             <div id="collapsible-card" class="is-collapsible" style="display: none">
                                 <div class="card-content">
                                     <p id="body" class="content is-5">No Body</p>
-                                    <p class="subtitle is-6">
-                                        <i id="author">No Author</i>
-                                    </p>
-                                </div>
-                                <div class="card-footer">
-                                    <p class="card-footer-item">
-                                        <a onclick="console.log('function not defined yet')">Read more...</a>
+                                    <p class="subtitle is-7">
+                                        Asked by: <i id="author">No Author</i>
                                     </p>
                                 </div>
                             </div>
