@@ -7,6 +7,34 @@ function init() {
     removeOldHTML('FAQ');
 }
 
+function showPendingKnowledge() {
+    document.querySelector('#openQuestions').classList.add('is-active');
+    document.querySelector('#pendingKnowledgeTableBody').innerHTML = null;
+    loadPendingKnowledge();
+}
+
+function buildPendingHTML(entries) {
+    const table = document.querySelector('#pendingKnowledgeTableBody');
+
+    console.log(entries);
+
+    entries.forEach(entry => {
+        const tr = document.createElement('tr');
+        tr.setAttribute('onclick', 'answerQuestion(this.children)')
+        tr.setAttribute('style', 'cursor: pointer')
+        tr.innerHTML += `<th>${entry.author}</th>`
+        tr.innerHTML += `<th>${entry.title}</th>`
+        tr.innerHTML += `<th>${entry.updated_at}</th>`
+
+        table.appendChild(tr)
+    })
+}
+
+function answerQuestion() {
+    document.querySelector('.modal.is-active').classList.remove('is-active');
+    document.querySelector('#answerQuestion').classList.add('is-active');
+}
+
 function handleClick (element) {
     if (element.hasAttribute('class')) return;
 
@@ -53,12 +81,22 @@ function buildHTML(entries, category)
 
 async function loadCategory(category)
 {
-    let response = await fetch('/foo?category=' + category);
+    let response = await fetch('/api/knowledge?category=' + category);
     if (response.status === 200) {
         let entries = await response.json();
         // console.log(entries);
         document.getElementById('titleCategory').innerHTML = category;
         buildHTML(entries, category);
+    }
+}
+
+async function loadPendingKnowledge()
+{
+    let response = await fetch('/api/pendingKnowledge');
+    if (response.status === 200) {
+        let entries = await response.json();
+        console.log(entries);
+        buildPendingHTML(entries);
     }
 }
 

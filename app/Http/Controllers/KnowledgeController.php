@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Knowledge;
+use App\Models\PendingKnowledge;
 use Illuminate\Http\Request;
 use GuzzleHttp\Psr7\Uri;
 use Illuminate\Support\Facades\DB;
@@ -12,7 +13,9 @@ class KnowledgeController extends Controller
 {
     public function index()
     {
-        return view('knowledge');
+        $pendingKnowledge = DB::table('pending_knowledge')->get();
+
+        return view('knowledge', compact('pendingKnowledge'));
     }
 
     public function ajax(Request $request)
@@ -20,6 +23,13 @@ class KnowledgeController extends Controller
         $category = $request->category;
 
         $entry = DB::table('knowledge')->where('category', $category)->get();
+
+        echo $entry;
+    }
+
+    public function pendingKnowledge(Request $request)
+    {
+        $entry = DB::table('pending_knowledge')->get();
 
         echo $entry;
     }

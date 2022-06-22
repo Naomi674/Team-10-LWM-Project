@@ -10,11 +10,143 @@
 @section('content')
     <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet">
     <div class="container mt-4">
+        @if(count($pendingKnowledge) > 0 && auth()->user()->role_id === 1)
+            <div class="notification is-danger ml-6 mr-6 mt-4">
+                <button onclick="hideNotification(this.offsetParent)" class="delete"></button>
+                Open Questions! Click <a onclick="showPendingKnowledge()">here</a>
+                to answer them.
+            </div>
+
+            <!-- Modal to show all unanswered questions -->
+            <div id="openQuestions" class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                    <header class="modal-card-head">
+                        <p class="modal-card-title">Open Questions</p>
+                        <button onclick="closeModal()" class="delete" aria-label="close"></button>
+                    </header>
+                    <section class="modal-card-body">
+                        <table id="pendingKnowledgeTableBody" class="table is-fullwidth">
+                            <thead>
+                                <tr>
+                                    <th>Author</th>
+                                    <th>Question</th>
+                                    <th>Asked</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pendingKnowledgeTableBody" class="is-hoverable">
+                                <!-- Open Questions will be shown here once they loaded by js -->
+                            </tbody>
+                        </table>
+                    </section>
+                    <footer class="modal-card-foot">
+                        <button onclick="closeModal()" class="button">Cancel</button>
+                    </footer>
+                </div>
+            </div>
+
+            <!-- Modal answer a question -->
+            <div id="answerQuestion" class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                    <header class="modal-card-head">
+                        <p class="modal-card-title">Ask A Question</p>
+                        <button onclick="closeModal()" class="delete" aria-label="close"></button>
+                    </header>
+                    <section class="modal-card-body">
+                        <form>
+                            <div class="field">
+                                <label class="label" for="title">Question</label>
+                                <div class="control has-icons-left">
+                                    <p class="input" id="title" type="text"></p>
+                                    <span class="icon is-small is-left">
+                                        <i class="fa-solid fa-question"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label" for="body">Answer</label>
+                                <textarea class="textarea" id="body" type="text" name="body" placeholder="Write your answer here"></textarea>
+                            </div>
+                            <div class="field">
+                                <label>
+                                    <p class="label">Category</p>
+                                    <div class="select">
+                                        <select name="category">
+                                            <option value="FAQ"}>FAQ</option>
+                                            <option value="Onboarding">Onboarding</option>
+                                            <option value="IT Knowledge"}>IT Knowledge</option>
+                                            <option value="HR"}>HR</option>
+                                            <option value="ServiceNow Porta"}>ServiceNow Porta</option>
+                                            <option value="Facilities"}>Facilities</option>
+                                            <option value="Financial Services"}>Financial Services</option>
+                                        </select>
+                                    </div>
+                                </label>
+                            </div>
+                        </form>
+                    </section>
+                    <footer class="modal-card-foot">
+                        <button class="button is-success">Submit</button>
+                        <button onclick="closeModal()" class="button">Cancel</button>
+                    </footer>
+                </div>
+            </div>
+        @endif
         <div class="m-5">
             <h1 class="title has-text-centered" data-title="The Knowledge Page" data-intro="This is the Knowledge Page, here all questions you might have are getting answered.">Knowledge</h1>
         </div>
+        <div class="level-right">
+            <a class="button is-success" onclick="openModal()" data-intro="Here you can ask a new question. Once a authorized user answered your question, it will show up here.">New Question</a>
+        </div>
+
+        <!-- Modal to ask a new question -->
+        <div id="newQuestion" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Ask A Question</p>
+                    <button onclick="closeModal()" class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    <form>
+                        <div class="field">
+                            <label class="label" for="title">Question</label>
+                            <div class="control has-icons-left">
+                                <textarea class="input" id="title" type="text" name="title" placeholder="Ask your question here"></textarea>
+                                <span class="icon is-small is-left">
+                                    <i class="fa-solid fa-question"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>
+                                <p class="label">Category</p>
+                                <div class="select">
+                                    <select name="category">
+                                        <option value="FAQ"}>FAQ</option>
+                                        <option value="Onboarding">Onboarding</option>
+                                        <option value="IT Knowledge"}>IT Knowledge</option>
+                                        <option value="HR"}>HR</option>
+                                        <option value="ServiceNow Porta"}>ServiceNow Porta</option>
+                                        <option value="Facilities"}>Facilities</option>
+                                        <option value="Financial Services"}>Financial Services</option>
+                                    </select>
+                                </div>
+                            </label>
+                        </div>
+                    </form>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button is-success">Submit</button>
+                    <button onclick="closeModal()" class="button">Cancel</button>
+                </footer>
+            </div>
+        </div>
+
+        <!-- Main part of the page -->
         <div class="columns">
-            <!-- Left side -->
+            <!-- Left side / side menu -->
             <div class="column is-one-quarter">
                 <div class="pt-6" data-intro="Here you can select a category for your questions">
                     <div class="label">Categories</div>
@@ -31,7 +163,8 @@
                     </aside>
                 </div>
             </div>
-            <!-- Right Side -->
+
+            <!-- Right Side / questions -->
             <div id="content" class="column" data-intro="In this Section you can see all questions already been answered. You can see the Answer by clicking on the question.">
                 <div id="titleCategory" class="title"></div>
                 <template id="template">
@@ -64,6 +197,31 @@
             </div>
         </div>
     </div>
-    {{-- Start a site tour --}}
+
+    <!-- Open and close modals -->
+    <script>
+        /**
+         * Opens the modal html
+         */
+        function openModal() {
+            const element = document.querySelector('#newQuestion');
+            element.classList.add('is-active');
+        }
+
+        /**
+         * Closes the open modal element
+         */
+        function closeModal() {
+            const element = document.querySelector('.modal.is-active');
+            element.classList.remove('is-active');
+        }
+
+        function hideNotification(element) {
+            element.setAttribute('style', 'display:none')
+        }
+    </script>
+
+    <!-- Start a site tour -->
     <script src="/js/tour.js"></script>
+
 @endsection
