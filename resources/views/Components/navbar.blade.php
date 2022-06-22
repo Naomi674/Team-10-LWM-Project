@@ -110,14 +110,18 @@
         <div class="box">
             <div id="myDropdown" class="dropdown-content">
                 <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()" class="input">
+                @if(auth()->user()->role_id == 1)
                 <li class="ml-2 mt-3"><a href="{{ route('admin.admin.index') }}">Admin</a></li>
+                @endif
                 <li class="ml-2 mt-3"><a href="{{ route('catalog.index') }}">Catalog</a></li>
                 <li class="ml-2 mt-3"><a href="{{ route('ticket.create') }}">Create a ticket</a></li>
                 <li class="ml-2 mt-3"><a href="{{ route('knowledge.index') }}">Knowledge</a></li>
                 <li class="ml-2 mt-3"><a href="{{ route('ticket.index') }}">My Tickets</a></li>
                 <li class="ml-2 mt-3"><a href="{{ route('status.index') }}">System Status</a></li>
                 <li class="ml-2 mt-3"><a href="/update-password">Update your password</a></li>
+                @if(auth()->user()->role_id == 1)
                 <li class="ml-2 mt-3"><a href="{{ route('admin.userManagement.index') }}">User Management</a></li>
+                @endif
                 <li class="ml-2 mt-3"><a href="{{ route('hr.index') }}">HR Catalog</a></li>
                 <li class="ml-2 mt-3"><a href="{{ route('it.index') }}">IT Catalog</a></li>
                 <li class="ml-2 mt-3"><a href="{{ route('facilities.index') }}">Facilities Catalog</a></li>
