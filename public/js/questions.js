@@ -33,3 +33,15 @@ function createFourthBlock() {
         myBlock.style.display = "block";
     }
 }
+
+function createFifthBlock() {
+    let myBlock = document.getElementById("fifth-block");
+
+    let displaySetting = myBlock.style.display;
+
+    if (displaySetting == "block") {
+        myBlock.style.display = "none";
+    } else {
+        myBlock.style.display = "block";
+    }
+}

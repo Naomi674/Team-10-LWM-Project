@@ -7,7 +7,7 @@
     #test-block {
         display: block;
     }
-    #second-block, #third-block, #fourth-block {
+    #second-block, #third-block, #fourth-block, #fifth-block {
         display: none;
     }
     .column {
@@ -218,10 +218,17 @@
                     <button onclick="createFourthBlock()" class="button is-danger">No</button>
             </div>
             <div id="fourth-block" class="question pt-3">
-                <p>Do you have a problem or request regarding your computer?</p>
-                    <a href="/catalog/feedback"><button class="button is-success">Yes</button></a>
-                    <button onclick="createThirdBlock()" class="button is-danger">No</button>
+                <p>Would you like to create a new ticket?</p>
+                    <a href="{{ route('ticket.create') }}"><button class="button is-success">Yes</button></a>
+                    <button onclick="createFifthBlock()" class="button is-danger">No</button>
             </div>
+            @if (auth()->user()->role_id == 1)
+            <div id="fifth-block" class="question pt-3">
+                <p>Do you want to see an overview of all users?</p>
+                    <a href="{{ route('admin.userManagement.index') }}"><button class="button is-success">Yes</button></a>
+                    <button onclick="createFifthBlock()" class="button is-danger">No</button>
+            </div>
+            @endif
         </div>
     </div>
 @endsection
