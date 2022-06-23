@@ -41,10 +41,11 @@
                             </div>
 
                             <div class="box">
-                                <p class="has-text-left has-text-weight-bold">Your most used apps:</p>
+                                <p class="has-text-left has-text-weight-bold">Your most used services:</p>
                                 <div class="control">
-                                    <p class="has-text-left mt-4 is-underlined">Order lunch</p>
-                                    <p class="has-text-left is-underlined">Change password</p>
+                                    <a class="has-text-left mt-4 is-underlined" href="{{ route('knowledge.index') }}">Financial services</a>
+                                    <br>
+                                    <a class="has-text-left is-underlined" href="{{ route('knowledge.index') }}">HR</a>
                                 </div>
                             </div>
                         </form>

@@ -5,7 +5,7 @@ async function init() {
     const character = await getApiData();
     console.log(character)
     const div = document.createElement('p');
-    div.innerHTML = 'daily quote: ' +`${character.contents.quotes[0].quote}`;
+    div.innerHTML = 'Daily quote: ' +`${character.contents.quotes[0].quote}`;
     domElement.append(div)
 }
 
