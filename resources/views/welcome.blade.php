@@ -21,9 +21,7 @@
                 <div class="columns">
                     <div class="column left">
                         <h1 class="title is-1">Hello, {{ $user->name }}</h1>
-                        <h2 class="subtitle colored is-4">Today you have the following activities planned:</h2>
-                        <p>11:00 - Meeting with CEO</p>
-                        <p>12:00 - Lunch</p>
+                        <div id="quotes"></div>
                     </div>
 
                     <div class="column right has-text-centered">
@@ -121,4 +119,5 @@
             });
         });
     </script>
+    <script src="{{ asset('js/quotesApi.js') }}"></script>
 @endsection
