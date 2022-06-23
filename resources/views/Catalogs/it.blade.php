@@ -5,12 +5,12 @@
 @endsection
 
 @section('body')
-    onload="removeOldHTML('Main Service')"
+    onload="init()"
 @endsection
 
 @section('content')
     <div class="hero mt-5">
-        <p class="title has-text-centered">IT</p>
+        <p id="catalogTitle" class="title has-text-centered">IT</p>
     </div>
     <div class="container mt-4">
         <div class="columns">

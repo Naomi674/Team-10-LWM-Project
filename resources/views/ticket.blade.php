@@ -138,7 +138,7 @@
                             <strong>Description:</strong> {{$ticket->description}} <br>
                             <strong>Time:</strong> {{number_format($ticket->time, 2)}} <br>
                             <strong>Location:</strong> {{$ticket->location}} <br>
-                            <strong>Opened By:</strong> {{$ticket->author()->first()->name}} <br>
+{{--                            <strong>Opened By:</strong> {{$ticket->author()->first()->name}} <br>--}}
                         </p>
                     </div>
                     <div class="column is-one-fifth">

@@ -20,14 +20,4 @@ class FinanceServicesController extends Controller
         return view('Catalogs.finance', compact('financeServices'));
     }
 
-
-    public function ajax(Request $request)
-    {
-        $category = $request->category;
-
-        $entry = DB::table('finance_services')->where('category', $category)->get();
-
-        echo $entry;
-    }
-
 }

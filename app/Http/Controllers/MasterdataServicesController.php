@@ -20,14 +20,4 @@ class MasterdataServicesController extends Controller
         return view('Catalogs.masterdata', compact('masterdataServices'));
     }
 
-
-    public function ajax(Request $request)
-    {
-        $category = $request->category;
-
-        $entry = DB::table('masterdata_services')->where('category', $category)->get();
-
-        echo $entry;
-    }
-
 }

@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateFacilitiesRequest;
 use App\Models\Facilities;
 use GuzzleHttp\Psr7\Uri;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 
 class CatalogController extends Controller
@@ -21,69 +22,25 @@ class CatalogController extends Controller
         return view('Catalogs.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function ajax(Request $request)
     {
-        //
+        $category = $request->category;
+
+        $table = $request->table;
+
+        $entry = DB::table($table)->where('category', $category)->get();
+
+        echo $entry;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreFacilitiesRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreFacilitiesRequest $request)
+    private function validateTicket(Request $request)
     {
-        //
+        return $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'time' => 'required',
+            'location' => 'required'
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Facilities  $facilities
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Facilities $facilities)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Facilities  $facilities
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Facilities $facilities)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateFacilitiesRequest  $request
-     * @param  \App\Models\Facilities  $facilities
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateFacilitiesRequest $request, Facilities $facilities)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Facilities  $facilities
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Facilities $facilities)
-    {
-        //
-    }
 }

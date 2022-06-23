@@ -39,7 +39,7 @@ Route::resource('/ticket', TicketController::class)->middleware('auth');
 Route::resource('/status', SystemController::class)->middleware('auth');
 Route::resource('/knowledge', KnowledgeController::class)->middleware('auth');
 Route::resource('/catalog', CatalogController::class)->middleware('auth');
-Route::get('/foobar', [FacilitiesController::class, 'ajax'])->middleware('auth');
+Route::get('/catalogajax', [CatalogController::class, 'ajax'])->middleware('auth');
 Route::resource('/account', AccountController::class)->middleware('auth');
 Route::get('/update-password', function () {
     return view('auth.update-password');
