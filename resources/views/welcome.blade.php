@@ -15,7 +15,6 @@
         @endforeach
     @endif
 
-
     <section class="container mt-6">
         <div class="columns is-multiline is-centered">
             <div class="column is-10 register">
@@ -26,6 +25,7 @@
                         <p>11:00 - Meeting with CEO</p>
                         <p>12:00 - Lunch</p>
                     </div>
+
                     <div class="column right has-text-centered">
                         <h1 class="title is-4">Apps</h1>
                         <form>
@@ -114,7 +114,7 @@
             // Add a keyboard event to close all modals
             document.addEventListener('keydown', (event) => {
                 const e = event || window.event;
-
+            
                 if (e.keyCode === 27) { // Escape key
                     closeAllModals();
                 }
