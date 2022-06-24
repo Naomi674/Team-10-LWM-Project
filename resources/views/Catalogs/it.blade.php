@@ -49,6 +49,11 @@
                                     <p class="subtitle is-6">
                                     </p>
                                 </div>
+                                <footer class="card-footer">
+                                    <p class="card-footer-item">
+                                        <a href="/catalog/create">Go to form...</a>
+                                    </p>
+                                </footer>
                             </div>
                         </div>
                     </div>

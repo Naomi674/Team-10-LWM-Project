@@ -13,27 +13,42 @@
                                         <div class="media-content">
                                             <div class="content">
                                                 <p>
-                                                <form action="{{ route('facilities.store') }}" method="POST">
+                                                <form action="{{ route('catalog.store') }}" method="POST">
                                                     @csrf
-                                                    <strong>Title</strong><br/><input type="text" name="title" value="example"
-                                                                                     id="title"><br/>
+                                                    <strong>Title</strong><br/><input type="text"
+                                                                                      name="title"
+                                                                                      value="{{old('title')}}"
+                                                                                      placeholder="title"
+                                                                                      id="title"><br/>
                                                     @error('title')
-                                                    <p>{{ $message }}</p>
+                                                    <p class="is-danger">{{ $message }}</p>
                                                     @enderror
-                                                    <strong>Description</strong><br/><input type="text" name="description" value="example"
-                                                                                       id="description"><br/>
+
+                                                    <strong>Description</strong><br/><input type="text"
+                                                                                            name="description"
+                                                                                            value="{{old('description')}}"
+                                                                                            placeholder="description"
+                                                                                            id="description"><br/>
                                                     @error('description')
-                                                    <p>{{ $message }}</p>
+                                                    <p class="is-danger">{{ $message }}</p>
                                                     @enderror
-                                                    <strong>Time</strong><br/><input type="number" name="thud" value="12"
+
+                                                    <strong>Time</strong><br/><input type="number"
+                                                                                     name="time"
+                                                                                     value="{{old('time')}}"
+                                                                                     placeholder="time"
                                                                                      id="number"><br/>
                                                     @error('time')
-                                                    <p>{{ $message }}</p>
+                                                    <p class="is-danger">{{ $message }}</p>
                                                     @enderror
-                                                    <strong>Location</strong><br/><input type="text" name="location" value="example"
-                                                                                            id="location"><br/>
+
+                                                    <strong>Location</strong><br/><input type="text"
+                                                                                         name="location"
+                                                                                         value="{{old('location')}}"
+                                                                                         placeholder="location"
+                                                                                         id="location"><br/>
                                                     @error('location')
-                                                    <p>{{ $message }}</p>
+                                                    <p class="is-danger">{{ $message }}</p>
                                                     @enderror
                                                     <button type="submit">Submit</button>
                                                 </form>
