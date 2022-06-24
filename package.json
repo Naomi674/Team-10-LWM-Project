@@ -24,6 +24,9 @@
         "sass-loader": "^12.6.0"
     },
     "dependencies": {
-        "intro.js": "^5.1.0"
+        "echo": "^0.1.9",
+        "intro.js": "^5.1.0",
+        "laravel": "^0.0.1",
+        "pusher-js": "^7.1.1-beta"
     }
 }

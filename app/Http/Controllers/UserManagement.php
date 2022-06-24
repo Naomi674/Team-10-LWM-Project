@@ -24,16 +24,6 @@ class UserManagement extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -41,7 +31,32 @@ class UserManagement extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(
+            [
+                'name' => ['required'],
+                'email' => ['required', 'email', 'unique:users,email'],
+                'password' => ['required', 'min:12'],
+                'role_id' => ['required', 'between:0,1'],
+            ]
+        );
+
+        $dataArray = array(
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role_id' => $request->role_id,
+        );
+
+        $user = User::create($dataArray);
+
+        if(!is_null($user)) {
+            return redirect(route('admin.userManagement.index'));
+        }
+
+        else {
+            return false;
+        }
+//        return redirect(route('admin.userManagement.index'));
     }
 
     /**
@@ -91,19 +106,8 @@ class UserManagement extends Controller
     {
         return $request->validate([
             'name' => 'required',
-            'email' => 'required',
-            'role_id' => 'required',
+            'email' => ['required', 'email'],
+            'role_id' => ['required', 'between:0,1'],
         ]);
-    }
-
-    public function createUser(Request $request) {
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'role_id' => $request->role_id,
-        ]);
-
-        return redirect(route('admin.userManagement.index'));
     }
 }
