@@ -21,9 +21,7 @@
                 <div class="columns">
                     <div class="column left">
                         <h1 class="title is-1">Hello, {{ $user->name }}</h1>
-                        <h2 class="subtitle colored is-4">Today you have the following activities planned:</h2>
-                        <p>11:00 - Meeting with CEO</p>
-                        <p>12:00 - Lunch</p>
+                        <div id="quotes"></div>
                     </div>
 
                     <div class="column right has-text-centered">
@@ -43,10 +41,11 @@
                             </div>
 
                             <div class="box">
-                                <p class="has-text-left has-text-weight-bold">Your most used apps:</p>
+                                <p class="has-text-left has-text-weight-bold">Your most used services:</p>
                                 <div class="control">
-                                    <p class="has-text-left mt-4 is-underlined">Order lunch</p>
-                                    <p class="has-text-left is-underlined">Change password</p>
+                                    <a class="has-text-left mt-4 is-underlined" href="{{ route('knowledge.index') }}">Financial services</a>
+                                    <br>
+                                    <a class="has-text-left is-underlined" href="{{ route('knowledge.index') }}">HR</a>
                                 </div>
                             </div>
                         </form>
@@ -121,4 +120,5 @@
             });
         });
     </script>
+    <script src="{{ asset('js/quotesApi.js') }}"></script>
 @endsection

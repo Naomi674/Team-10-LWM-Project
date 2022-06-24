@@ -20,14 +20,4 @@ class ITServicesController extends Controller
         return view('Catalogs.it', compact('itServices'));
     }
 
-
-    public function ajax(Request $request)
-    {
-        $category = $request->category;
-
-        $entry = DB::table('i_t_services')->where('category', $category)->get();
-
-        echo $entry;
-    }
-
 }

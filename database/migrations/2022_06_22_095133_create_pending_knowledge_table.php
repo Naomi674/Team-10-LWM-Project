@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('h_r_services', function (Blueprint $table) {
+        Schema::create('pending_knowledge', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('body')->nullable();
+            $table->string('author')->nullable();
             $table->string('category');
-            $table->string('service');
-            $table->string('description');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('h_r_services');
+        Schema::dropIfExists('pending_knowledge');
     }
 };

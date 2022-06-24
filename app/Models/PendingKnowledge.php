@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class HRServices extends Model
+class PendingKnowledge extends Model
 {
     use HasFactory;
-    protected $table = 'hr_services';
-    protected $guarded = [];
 
+    protected $guarded = [];
 }

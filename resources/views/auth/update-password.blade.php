@@ -12,7 +12,7 @@
         @csrf
         @method('PUT')
 
-        <h1 class="is-size-4">Chnage Password</h1>
+        <h1 class="is-size-4">Change Password</h1>
 
         <hr>
 
@@ -58,7 +58,7 @@
                 </button>
             </p>
             <p class="level-item">
-                <a class="button is-ghost" href="{{ route('account.index') }}">
+                <a class="button is-ghost" onclick="history.back()">
                     Go Back
                 </a>
             </p>
