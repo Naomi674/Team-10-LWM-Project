@@ -47,9 +47,8 @@ Route::put('/knowledge/ask-question', [KnowledgeController::class, 'storeNewQues
 Route::put('/knowledge/answer-question', [KnowledgeController::class, 'storeAnsweredQuestion'])->middleware('auth');
 Route::delete('/knowledge/knowledge-question-delete',[KnowledgeController::class, 'delete'])->name('knowledge.delete')->middleware('auth');
 Route::resource('/catalog', CatalogController::class)->middleware('auth');
-
-Route::get('/catalogajax', [CatalogController::class, 'ajax'])->middleware('auth');
 Route::resource('/search', SearchController::class)->middleware('auth');
+Route::get('/foobar', [FacilitiesController::class, 'ajax'])->middleware('auth');
 Route::resource('/account', AccountController::class)->middleware('auth');
 Route::get('/update-password', function () {
     return view('auth.update-password');

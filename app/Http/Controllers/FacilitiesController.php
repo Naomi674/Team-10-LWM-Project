@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreFacilitiesRequest;
 use App\Http\Requests\UpdateFacilitiesRequest;
 use App\Models\Facilities;
-use App\Models\Ticket;
 use App\Models\FacilitiesServices;
 use GuzzleHttp\Psr7\Uri;
 use Illuminate\Http\Request;
@@ -32,7 +31,7 @@ class FacilitiesController extends Controller
      */
     public function create()
     {
-        return view('Catalogs.forms.facilities.create');
+        //
     }
 
     /**
@@ -43,8 +42,7 @@ class FacilitiesController extends Controller
      */
     public function store(StoreFacilitiesRequest $request)
     {
-        $ticket = Ticket::create($this->validateTicket($request));
-        return redirect(route('catalogs.facilities', $ticket));
+        //
     }
 
     /**
@@ -55,7 +53,7 @@ class FacilitiesController extends Controller
      */
     public function show(Facilities $facilities)
     {
-        //
+        return view('Catalogs.forms.facilitiesform');
     }
 
     /**
@@ -90,6 +88,15 @@ class FacilitiesController extends Controller
     public function destroy(Facilities $facilities)
     {
         //
+    }
+
+    public function ajax(Request $request)
+    {
+        $category = $request->category;
+
+        $entry = DB::table('facilities_services')->where('category', $category)->get();
+
+        echo $entry;
     }
 
 }

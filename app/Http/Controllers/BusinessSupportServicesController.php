@@ -20,4 +20,14 @@ class BusinessSupportServicesController extends Controller
         return view('Catalogs.businesssupport', compact('businessSupportServices'));
     }
 
+
+    public function ajax(Request $request)
+    {
+        $category = $request->category;
+
+        $entry = DB::table('business_support_services')->where('category', $category)->get();
+
+        echo $entry;
+    }
+
 }

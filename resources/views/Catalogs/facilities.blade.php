@@ -5,12 +5,12 @@
 @endsection
 
 @section('body')
-    onload="init()"
+    onload="removeOldHTML('Main Service')"
 @endsection
 
 @section('content')
     <div class="hero mt-5">
-        <p id="catalogTitle" class="title has-text-centered">Facilities</p>
+        <p class="title has-text-centered">Facilities</p>
     </div>
     <div class="container mt-4">
         <div class="columns">
@@ -51,7 +51,7 @@
                                 </div>
                                 <footer class="card-footer">
                                     <p class="card-footer-item">
-                                        <a href="/catalog/create">Go to form...</a>
+                                        <a href="/catalog/facilities/show">Go to form...</a>
                                     </p>
                                 </footer>
                             </div>

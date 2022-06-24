@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreFacilitiesRequest;
 use App\Http\Requests\UpdateFacilitiesRequest;
 use App\Models\Facilities;
-use App\Models\Ticket;
 use GuzzleHttp\Psr7\Uri;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 
 class CatalogController extends Controller
@@ -30,7 +28,7 @@ class CatalogController extends Controller
      */
     public function create()
     {
-        return view('Catalogs.create');
+        //
     }
 
     /**
@@ -39,46 +37,53 @@ class CatalogController extends Controller
      * @param  \App\Http\Requests\StoreFacilitiesRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreFacilitiesRequest $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'time' => 'required',
-            'location' => 'required'
-        ]);
-
-       // if(auth()->user()->role_id == 1) {
-            Ticket::create([
-                'title' => $request->title,
-                'description' => $request->description,
-                'time' => $request->time,
-                'location' => $request->location,
-            ]);
-       // }
-
-        return view('Catalogs.index');
+        //
     }
 
-    public function ajax(Request $request)
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Facilities  $facilities
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Facilities $facilities)
     {
-        $category = $request->category;
-
-        $table = $request->table;
-
-        $entry = DB::table($table)->where('category', $category)->get();
-
-        echo $entry;
+        //
     }
 
-//    private function validateTicket(Request $request)
-//    {
-//        return $request->validate([
-//            'title' => 'required',
-//            'description' => 'required',
-//            'time' => 'required',
-//            'location' => 'required'
-//        ]);
-//    }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Facilities  $facilities
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Facilities $facilities)
+    {
+        //
+    }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \App\Http\Requests\UpdateFacilitiesRequest  $request
+     * @param  \App\Models\Facilities  $facilities
+     * @return \Illuminate\Http\Response
+     */
+    public function update(UpdateFacilitiesRequest $request, Facilities $facilities)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Facilities  $facilities
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Facilities $facilities)
+    {
+        //
+    }
 }

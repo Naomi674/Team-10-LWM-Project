@@ -5,12 +5,12 @@
 @endsection
 
 @section('body')
-    onload="init()"
+    onload="removeOldHTML('Main Service')"
 @endsection
 
 @section('content')
     <div class="hero mt-5">
-        <p id="catalogTitle" class="title has-text-centered">HR</p>
+        <p class="title has-text-centered">HR</p>
     </div>
     <div class="container mt-4">
         <div class="columns">
@@ -49,11 +49,6 @@
                                     <p class="subtitle is-6">
                                     </p>
                                 </div>
-                                <footer class="card-footer">
-                                    <p class="card-footer-item">
-                                        <a href="/catalog/create">Go to form...</a>
-                                    </p>
-                                </footer>
                             </div>
                         </div>
                     </div>

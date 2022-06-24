@@ -21,4 +21,14 @@ class HRServicesController extends Controller
         return view('Catalogs.hr', compact('hrServices'));
     }
 
+
+    public function ajax(Request $request)
+    {
+        $category = $request->category;
+
+        $entry = DB::table('h_r_services')->where('category', $category)->get();
+
+        echo $entry;
+    }
+
 }

@@ -1,7 +1,5 @@
 <?php
 
-
-use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\KnowledgeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;

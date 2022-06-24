@@ -1,7 +1,8 @@
+<div class="label">Catalog</div>
 <div class="dropdown">
     <div class="dropdown-trigger">
         <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
-            <span id="dropdownTitle">Catalog</span>
+            <span>Facilities</span>
             <span class="icon is-small">
         <i class="fas fa-angle-down" aria-hidden="true"></i>
       </span>
@@ -21,7 +22,7 @@
             <a href="/catalog/hr" class="dropdown-item">
                 HR
             </a>
-            <a href="/catalog/it" class="dropdown-item is-selected">
+            <a href="/catalog/it" class="dropdown-item">
                 IT
             </a>
             <a href="/catalog/masterdata" class="dropdown-item">

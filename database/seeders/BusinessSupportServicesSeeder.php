@@ -16,41 +16,49 @@ class BusinessSupportServicesSeeder extends Seeder
     public function run()
     {
         //Main Services
-        DB::table('businesssupport_services')->insert([
+        DB::table('business_support_services')->insert([
             'category' => 'Main Service',
-            'service' => 'New Destruction Request',
-            'description' => 'New Destruction Request',
+            'service' => 'Lorem ipsum dolor sit amet.',
+            'description' => 'Qui aperiam tempore eum totam quos est aspernatur aliquid et consectetur officiis et nobis ipsum At quia numquam rem magnam veritatis?',
         ]);
 
-        DB::table('businesssupport_services')->insert([
+        DB::table('business_support_services')->insert([
             'category' => 'Main Service',
-            'service' => 'Request low value Purchase Order',
-            'description' => 'For non-contracted goods & services up to 5000 EUR or an equivalent. Paid at full delivery & execution, to be invoiced on 1 invoice.',
+            'service' => 'Ea porro neque quo tempora',
+            'description' => 'nulla et distinctio cupiditate id voluptate inventore sed quod repellat non saepe eius et magni nihil.',
         ]);
 
-        DB::table('businesssupport_services')->insert([
+        DB::table('business_support_services')->insert([
             'category' => 'Main Service',
-            'service' => 'Create a Capital Budgeting Demand',
-            'description' => 'Create a Capital Budgeting Demand',
+            'service' => 'Id esse aperiam non',
+            'description' => 'consequatur obcaecati sit galisum obcaecati vel ullam quidem et obcaecati cumque.',
         ]);
 
-        DB::table('businesssupport_services')->insert([
+        DB::table('business_support_services')->insert([
             'category' => 'Main Service',
-            'service' => 'Edit an existing capital budgeting demand',
-            'description' => 'Edit an existing capital budgeting demand',
+            'service' => 'Et fuga exercitationem ',
+            'description' => 'a expedita odit qui sapiente ipsa. Quo libero praesentium At tempora doloribus ad dolor',
         ]);
 
         //Requests
-
+        DB::table('business_support_services')->insert([
+            'category' => 'Requests',
+            'service' => 'est enim esse ad',
+            'description' => 'architecto sequi et provident unde eum dignissimos quae. Ut beatae doloremque et',
+        ]);
 
         //Issues
-
+        DB::table('business_support_services')->insert([
+            'category' => 'Issues',
+            'service' => 'officiis corporis sit facilis',
+            'description' => 'eius sed vero odio est rerum iste ut cumque sunt eum praesentium repellat. ',
+        ]);
 
         //Feedback
-        DB::table('businesssupport_services')->insert([
+        DB::table('business_support_services')->insert([
             'category' => 'Feedback',
-            'service' => 'Give Feedback on Business Support',
-            'description' => 'How do you think we are doing?',
+            'service' => '33 officia quam sit',
+            'description' => 'Ut odio ut ipsum sunt vel quia autem qui quia maiores ad reiciendis distinctio sequi placeat. Est possimus necessitatibus sit consectetur obcaecati sed exercitationem dolores ',
         ]);
 
     }
