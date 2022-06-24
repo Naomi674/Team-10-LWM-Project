@@ -7,7 +7,7 @@
     #test-block {
         display: block;
     }
-    #second-block, #third-block, #fourth-block, #fifth-block {
+    #second-block, #third-block, #fourth-block, #fifth-block, #sixth-block {
         display: none;
     }
     .column {
@@ -226,9 +226,14 @@
             <div id="fifth-block" class="question pt-3">
                 <p>Do you want to see an overview of all users?</p>
                     <a href="{{ route('admin.userManagement.index') }}"><button class="button is-success">Yes</button></a>
-                    <button onclick="createFifthBlock()" class="button is-danger">No</button>
+                    <button onclick="createSixthBlock()" class="button is-danger">No</button>
             </div>
             @endif
+            <div id="sixth-block" class="question pt-3">
+                <p>Is there an issue with the coffee machine?</p>
+                    <a href="{{ route('facilities.index') }}"><button class="button is-success">Yes</button></a>
+                    <button onclick="createSixthBlock()" class="button is-danger">No</button>
+            </div>
         </div>
     </div>
 @endsection

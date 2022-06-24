@@ -45,3 +45,15 @@ function createFifthBlock() {
         myBlock.style.display = "block";
     }
 }
+
+function createSixthBlock() {
+    let myBlock = document.getElementById("sixth-block");
+
+    let displaySetting = myBlock.style.display;
+
+    if (displaySetting == "block") {
+        myBlock.style.display = "none";
+    } else {
+        myBlock.style.display = "block";
+    }
+}
