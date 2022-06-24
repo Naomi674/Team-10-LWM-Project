@@ -14,7 +14,7 @@ class ChatController extends Controller
 
     public function show()
     {
-        //
+        return redirect()->with('message', 'The success message!');
     }
 
     public function create()
@@ -28,11 +28,6 @@ class ChatController extends Controller
         $request->validate([
            'message' => 'required'
         ]);
-
-        Chat::create($request->all());
-
-        return redirect()->route('products.index')
-            ->with('success','Product created successfully.');
     }
 
     public function edit()

@@ -11,6 +11,11 @@
             </div>
         </div>
 
+        @if(session() ->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
 
         <div class="pull-right p-4">
             <a class="button is-warning is-bold" href="{{ route('chats.create') }}">Send a message</a>
