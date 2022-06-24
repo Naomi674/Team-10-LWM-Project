@@ -6,7 +6,7 @@
             <div class="columns">
                 <!-- Title -->
                 <div class="column is-one-fourth">
-                    <div class="title">All Tickets</div>
+                    <div class="title">My Tickets</div>
                 </div>
                 <!-- Drop down Menu -->
                 <div class="column is-one-fourth">
@@ -21,10 +21,10 @@
                         </div>
                         <div class="dropdown-menu" id="dropdown-menu" role="menu">
                             <div class="dropdown-content">
-                                <a href="{{ route('ticket.index') }}?desc=0" class="dropdown-item">
+                                <a href="{{ route('ticket.myTickets') }}?desc=0" class="dropdown-item">
                                     Low To High Priority
                                 </a>
-                                <a href="{{ route('ticket.index') }}?desc=1" class="dropdown-item">
+                                <a href="{{ route('ticket.myTickets') }}?desc=1" class="dropdown-item">
                                     High To Low Priority
                                 </a>
                             </div>
@@ -49,15 +49,15 @@
                 <div class="column is-one-fifth">
                     <div class="buttons">
                         <a class="button is-primary is-large " href="{{ route('ticket.create') }}">Create New Ticket</a>
+
                     </div>
                 </div>
-                @if(auth()->user()->isAdmin())
                 <div class="column is-one-fifth">
                     <div class="buttons">
-                        <a class="button is-danger is-large " href="{{ route('ticket.myTickets') }}">My Tickets</a>
+                        <a class="button is-danger is-large " href="{{ route('ticket.index') }}">View all tickets</a>
+
                     </div>
                 </div>
-                @endif
             </div>
         @foreach($tickets as $ticket)
             <div class="box">
@@ -69,7 +69,6 @@
                             <strong>Time:</strong> {{number_format($ticket->time, 2)}} <br>
                             <strong>Location:</strong> {{$ticket->location}} <br>
                             <strong>Opened By:</strong> {{$ticket->author()->first()->name}} <br>
-                            <strong>Assigned To:</strong> @if($ticket->assignee()->first()){{$ticket->assignee()->first()->name}}@endif <br>
                             <strong>Priority:</strong> {{ $priorities_contract[$ticket->priority]}} <br>
                             @if(auth()->user()->isAdmin() )
                             <form method="PUT" action="{{ route('ticket.edit', $ticket) }}">
@@ -87,12 +86,13 @@
                                     <i data-feather="info"></i>
                                 </button>
                                 </div>
+{{--                                <strong>Status:</strong> {{ $statuses_contract[$ticket->status]}}--}}
                             </form>
                             @endif
                         </p>
                     </div>
                     <div class="column is-one-fifth">
-                        <form method="POST" action="{{ route('ticket.destroy',  $ticket->id) }}">
+                        <form method="POST" action="{{ route('ticket.destroy',  $ticket->id ) }}">
                             @csrf
                             <input type="hidden" name="_method" value="DELETE">
                             <button type="submit" class="button is is-danger is-outlined">
@@ -101,21 +101,16 @@
                             </button>
                         </form>
 
-                        @if(auth()->user()->isAdmin() )
-                            <form method="POST" action="{{ route('ticket.take', $ticket->id) }}">
-                                @csrf
-                                <div class="button is-primary is-small">
-                                    <button type="submit" class="button is-primary is-small">
-                                        <span>Take to Work</span>
-                                        <i data-feather="info"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        @endif
+
+{{--                        <div class="buttons">--}}
+{{--                            <a class="button is-danger" href="ticket/{{ $ticket->id }}/destroy">Delete</a>--}}
+{{--                            <a href="{{ url('ticket/delete/'.$ticket->id) }}" class="button is-danger">Delete</a>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>
         @endforeach
+
         </div>
     </div>
 @endsection
