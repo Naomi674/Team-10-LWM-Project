@@ -3,17 +3,7 @@
 @section('content')
 
     <div class="field has-addons is-justify-content-right mt-6 mr-6 has-icons-right">
-        <div class="control">
-            <input class="input" type="text" placeholder="Search">
-        </div>
-        <div class="control">
-            <a class="button is-info">
-            <span class="icon is-small is-left">
-             <i class="fas fa-search"></i>
-            </span>
-            </a>
-        </div>
-    </div>
+
     <div class="container mt-5 p-6">
             <div class="columns">
             <div class="column is-one"><div class="card">

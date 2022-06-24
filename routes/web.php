@@ -3,6 +3,7 @@
 use App\Http\Controllers\BusinessSupportServicesController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\FinanceServicesController;
 use App\Http\Controllers\HRServicesController;
@@ -16,6 +17,9 @@ use App\Http\Controllers\KnowledgeController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\SearchController;
+use App\Events\Message;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +61,5 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/foo', [KnowledgeController::class, 'ajax'])->middleware('auth');
 
 Route::post('/userManagement/createUser', [UserManagement::class, 'createUser'])->name('userManagement.createUser');
+
+Route::resource('/chats', ChatController::class)->middleware('auth');
