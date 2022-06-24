@@ -62,7 +62,7 @@ class KnowledgeController extends Controller
     }
 
     // APIs
-    public function ajax(Request $request)
+    public function getKnowledgeCategoryEntries(Request $request)
     {
         $category = $request->category;
 
@@ -71,7 +71,7 @@ class KnowledgeController extends Controller
         echo $entry;
     }
 
-    public function pendingKnowledge(Request $request)
+    public function getPendingKnowledgeEntries(Request $request)
     {
         $entry = DB::table('pending_knowledge')->get();
 

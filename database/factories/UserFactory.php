@@ -20,12 +20,12 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => 'admin',
-            'email' => 'admin@admin.test',
-            'email_verified_at' => now(),
-            'password' => Hash::make('admin42'), // password
+            'name' => $this->faker->name(),
+            'email' => $this->faker->email(),
+            'email_verified_at' => $this->faker->date('d-m-Y'),
+            'password' => Hash::make('password'), // password
             'remember_token' => Str::random(10),
-            'role_id' => 1, // Admin role (user is 0)
+            'role_id' => $this->faker->numberBetween(0, 1), // User is 0, Admin is 1
         ];
     }
 

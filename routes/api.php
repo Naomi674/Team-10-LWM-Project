@@ -19,5 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/knowledge', [KnowledgeController::class, 'ajax']);
-Route::get('/pendingKnowledge', [KnowledgeController::class, 'pendingKnowledge']);
+Route::get('/knowledge', [KnowledgeController::class, 'getKnowledgeCategoryEntries']);
+Route::get('/pendingKnowledge', [KnowledgeController::class, 'getPendingKnowledgeEntries']);
