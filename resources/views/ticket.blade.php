@@ -48,13 +48,13 @@
             <div class="box">
                 <div class="column is-one-fifth">
                     <div class="buttons">
-                        <a class="button is-primary is-large " href="{{ route('ticket.create') }}">Create New Ticket</a>
+                        <a class="button is-primary" href="{{ route('ticket.create') }}">Create New Ticket</a>
                     </div>
                 </div>
                 @if(auth()->user()->isAdmin())
                 <div class="column is-one-fifth">
                     <div class="buttons">
-                        <a class="button is-danger is-large " href="{{ route('ticket.myTickets') }}">My Tickets</a>
+                        <a class="button is-danger" href="{{ route('ticket.myTickets') }}">My Tickets</a>
                     </div>
                 </div>
                 @endif
@@ -92,10 +92,10 @@
                         </p>
                     </div>
                     <div class="column is-one-fifth">
-                        <form method="POST" action="{{ route('ticket.destroy',  $ticket->id) }}">
+                        <form method="POST" action="{{ route('ticket.destroy',  $ticket->id) }}" class="pb-3">
                             @csrf
                             <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="button is is-danger is-outlined">
+                            <button type="submit" class="button is-danger is-outlined">
                                 <span>Delete</span>
                                 <i data-feather="delete"></i>
                             </button>
@@ -104,12 +104,10 @@
                         @if(auth()->user()->isAdmin() )
                             <form method="POST" action="{{ route('ticket.take', $ticket->id) }}">
                                 @csrf
-                                <div class="button is-primary is-small">
-                                    <button type="submit" class="button is-primary is-small">
-                                        <span>Take to Work</span>
-                                        <i data-feather="info"></i>
-                                    </button>
-                                </div>
+                                <button type="submit" class="button is-primary">
+                                    <span>Take to Work</span>
+                                    <i data-feather="info"></i>
+                                </button>
                             </form>
                         @endif
                     </div>
