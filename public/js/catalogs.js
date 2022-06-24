@@ -1,10 +1,25 @@
 console.log('JavaScript loaded');
 
+let targetTable = '';
+
 /**
  * Function to initialise the page on load
  */
 function init() {
+    // console.log("test");
+    updateDropdown()
+    const uri = window.location.pathname;
+    const path = uri.substring(uri.lastIndexOf('/')+1);
+    targetTable = path + "_services";
+    console.log(targetTable);
     removeOldHTML('Main Service')
+}
+
+function updateDropdown() {
+    const catalog = document.querySelector("#catalogTitle");
+    if (catalog == null) return;
+    const dropDown = document.querySelector('#dropdownTitle');
+    dropDown.innerHTML = catalog.innerHTML;
 }
 
 function handleClick (element) {
@@ -52,7 +67,8 @@ function buildHTML(entries, category)
 
 async function loadCategory(category)
 {
-    let response = await fetch('/foobar?category=' + category);
+    console.log('/foobar?category=' + category + '?table=' + targetTable);
+    let response = await fetch('/catalogajax?category=' + category + '&table=' + targetTable);
     if (response.status === 200) {
         let entries = await response.json();
         // console.log(entries);
