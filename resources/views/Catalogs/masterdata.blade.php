@@ -10,7 +10,7 @@
 
 @section('content')
     <div class="hero mt-5">
-        <p class="title has-text-centered">Facilities</p>
+        <p class="title has-text-centered">Masterdata</p>
     </div>
     <div class="container mt-4">
         <div class="columns">
@@ -29,7 +29,7 @@
                     </aside>
                 </div>
             </div>
-        <!-- Right Side -->
+            <!-- Right Side -->
             <div id="content" class="column">
                 <div id="titleCategory" class="title"></div>
                 <template id="template">
@@ -49,11 +49,6 @@
                                     <p class="subtitle is-6">
                                     </p>
                                 </div>
-                                <footer class="card-footer">
-                                    <p class="card-footer-item">
-                                        <a href="/catalog/facilities/show">Go to form...</a>
-                                    </p>
-                                </footer>
                             </div>
                         </div>
                     </div>

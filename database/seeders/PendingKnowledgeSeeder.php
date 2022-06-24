@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class FacilitiesSeeder extends Seeder
+class PendingKnowledgeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class FacilitiesSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\PendingKnowledge::factory(5)->create();
     }
 }
