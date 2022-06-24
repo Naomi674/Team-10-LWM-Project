@@ -21,7 +21,8 @@ use App\Http\Controllers\WelcomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/ticket/my', [TicketController::class,'myTickets'])->name('ticket.myTickets')->middleware('auth');
+Route::post('/ticket/take/{ticket}', [TicketController::class,'take'])->name('ticket.take')->middleware('auth');
 Route::resource('/', WelcomeController::class)->middleware('auth');
 Route::resource('/catalog/facilities', FacilitiesController::class)->middleware('auth');
 Route::resource('/ticket', TicketController::class)->middleware('auth');
