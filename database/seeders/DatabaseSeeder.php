@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ITServicesSeeder::class);
         $this->call(MasterdataServicesSeeder::class);
         $this->call(KnowledgeSeeder::class);
+        $this->call(PendingKnowledgeSeeder::class);
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
     }

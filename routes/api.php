@@ -1,6 +1,8 @@
 <?php
 
+
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\KnowledgeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/knowledge', [KnowledgeController::class, 'ajax']);
+Route::get('/pendingKnowledge', [KnowledgeController::class, 'pendingKnowledge']);
