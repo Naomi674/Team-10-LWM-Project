@@ -45,5 +45,16 @@ class AccountTest extends TestCase
             ->put($route, $requestBody);
         
         $this->assertDatabaseMissing('users', $requestBody);
+
+        $requestBody = [
+            'name' => '',//missing name, will fail
+            'email' => 'updated@foo.com',
+        ];
+
+        $response = $this->actingAs($user)
+            ->withSession(['banned' => false])
+            ->put($route, $requestBody);
+
+        $this->assertDatabaseMissing('users', $requestBody);
     }
 }

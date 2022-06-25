@@ -58,5 +58,37 @@ class UserManagementTest extends TestCase
             'email' => 'automaticfoomail@example.com',
             'role_id' => 42, // Role does not exist
         ]);
+
+        $requestBody = [
+            'name' => '',
+            'email' => 'automaticfoomail@example.com',
+            'password' => 'password',
+            'role_id' => 42, // Role does not exist
+        ];
+
+        $response = $this->post($route, $requestBody);
+
+        $response->assertSessionHasErrors(['name']);
+        $this->assertDatabaseMissing('users' , [
+            'name' => 'AutomaticFooUser',
+            'email' => 'automaticfoomail@example.com',
+            'role_id' => 42, // Role does not exist
+        ]);
+
+        $requestBody = [
+            'name' => 'AutomaticFooUser',
+            'email' => '',
+            'password' => 'password',
+            'role_id' => 42, // Role does not exist
+        ];
+
+        $response = $this->post($route, $requestBody);
+
+        $response->assertSessionHasErrors(['email']);
+        $this->assertDatabaseMissing('users' , [
+            'name' => 'AutomaticFooUser',
+            'email' => 'automaticfoomail@example.com',
+            'role_id' => 42, // Role does not exist
+        ]);
     }
 }

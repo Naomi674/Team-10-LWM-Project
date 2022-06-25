@@ -54,7 +54,6 @@ function answerQuestion(children) {
 function changeAction(element) {
     let action = element.action
     const title = element.offsetParent.children[1].firstElementChild[2].value;
-    console.log(title);
     action += title;
     element.action = action;
     return true;
