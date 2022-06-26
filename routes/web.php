@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KnowledgeController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\WelcomeController;
-use App\Http\Controllers\SearchController;
 use App\Events\Message;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -51,7 +50,6 @@ Route::delete('/knowledge/knowledge-question-delete',[KnowledgeController::class
 Route::resource('/catalog', CatalogController::class)->middleware('auth');
 
 Route::get('/catalogajax', [CatalogController::class, 'ajax'])->middleware('auth');
-Route::resource('/search', SearchController::class)->middleware('auth');
 Route::resource('/account', AccountController::class)->middleware('auth');
 Route::get('/update-password', function () {
     return view('auth.update-password');

@@ -19,6 +19,7 @@
                                                                                       name="title"
                                                                                       value="{{old('title')}}"
                                                                                       placeholder="title"
+                                                                                      class="input"
                                                                                       id="title"><br/>
                                                     @error('title')
                                                     <p class="is-danger">{{ $message }}</p>
@@ -28,6 +29,7 @@
                                                                                             name="description"
                                                                                             value="{{old('description')}}"
                                                                                             placeholder="description"
+                                                                                            class="input"
                                                                                             id="description"><br/>
                                                     @error('description')
                                                     <p class="is-danger">{{ $message }}</p>
@@ -37,10 +39,12 @@
                                                                                          name="location"
                                                                                          value="{{old('location')}}"
                                                                                          placeholder="location"
+                                                                                         class="input"
                                                                                          id="location"><br/>
                                                     @error('location')
                                                     <p class="is-danger">{{ $message }}</p>
                                                     @enderror
+
 
                                                     <strong>Author</strong><br/><input type="text"
                                                                                        name="author"
@@ -52,6 +56,7 @@
                                                     @enderror
 
                                                     <button type="submit">Submit</button>
+
                                                 </form>
                                                 </p>
                                             </div>

@@ -20,6 +20,7 @@ function buildPendingHTML(entries) {
         const tr = document.createElement('tr');
         tr.setAttribute('onclick', 'answerQuestion(this.children)')
         tr.setAttribute('style', 'cursor: pointer')
+        tr.innerHTML += `<th hidden id="entry_id">${entry.id}</th>`
         tr.innerHTML += `<th>${entry.author}</th>`
         tr.innerHTML += `<th>${entry.title}</th>`
         tr.innerHTML += `<th>${entry.category}</th>`
@@ -45,14 +46,14 @@ function answerQuestion(children) {
 
     document.querySelector('.modal.is-active').classList.remove('is-active');
     document.querySelector('#answerQuestion').classList.add('is-active');
-
-    document.querySelector('#answerQuestionTitle').value = children[1].innerText;
+    console.log(children);
+    document.querySelector('#editModal_id').value = children[0].innerHTML;
+    document.querySelector('#answerQuestionTitle').value = children[2].innerText;
 }
 
 function changeAction(element) {
     let action = element.action
     const title = element.offsetParent.children[1].firstElementChild[2].value;
-    console.log(title);
     action += title;
     element.action = action;
     return true;
@@ -118,7 +119,7 @@ async function loadPendingKnowledge()
     let response = await fetch('/api/pendingKnowledge');
     if (response.status === 200) {
         let entries = await response.json();
-        // console.log(entries);
+        console.log(entries);
         buildPendingHTML(entries);
     }
 }

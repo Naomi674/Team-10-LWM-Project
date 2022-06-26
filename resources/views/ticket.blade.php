@@ -52,13 +52,13 @@
             <div class="box">
                 <div class="column is-one-fifth">
                     <div class="buttons">
-                        <a class="button is-primary is-large " href="{{ route('ticket.create') }}">Create New Ticket</a>
+                        <a class="button is-primary" href="{{ route('ticket.create') }}">Create New Ticket</a>
                     </div>
                 </div>
-                @if(auth()->user()->isAdmin())
+                @if (auth()->user()->role_id == 1)
                 <div class="column is-one-fifth">
                     <div class="buttons">
-                        <a class="button is-danger is-large " href="{{ route('ticket.myTickets') }}">My Tickets</a>
+                        <a class="button is-danger" href="{{ route('ticket.myTickets') }}">My Tickets</a>
                     </div>
                 </div>
                 @endif
@@ -111,7 +111,7 @@
                             <strong>Opened By:</strong> {{$ticket->author()->first()->name}} <br>
                             <strong>Assigned To:</strong> @if($ticket->assignee()->first()){{$ticket->assignee()->first()->name}}@endif <br>
                             <strong>Priority:</strong> {{ $priorities_contract[$ticket->priority]}} <br>
-                            @if(auth()->user()->isAdmin() )
+                            @if (auth()->user()->role_id == 1)
                             <form method="PUT" action="{{ route('ticket.edit', $ticket) }}">
                                 @csrf
                                 <div class="select is-primary is-small">
@@ -131,24 +131,22 @@
                             @endif
                     </div>
                     <div class="column is-one-fifth">
-                        <form method="POST" action="{{ route('ticket.destroy',  $ticket->id) }}">
+                        <form method="POST" action="{{ route('ticket.destroy',  $ticket->id) }}" class="pb-3">
                             @csrf
                             <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="button is is-danger is-outlined">
+                            <button type="submit" class="button is-danger is-outlined">
                                 <span>Delete</span>
                                 <i data-feather="delete"></i>
                             </button>
                         </form>
 
-                        @if(auth()->user()->isAdmin() )
+                        @if (auth()->user()->role_id == 1)
                             <form method="POST" action="{{ route('ticket.take', $ticket->id) }}">
                                 @csrf
-                                <div class="button is-primary is-small">
-                                    <button type="submit" class="button is-primary is-small">
-                                        <span>Take to Work</span>
-                                        <i data-feather="info"></i>
-                                    </button>
-                                </div>
+                                <button type="submit" class="button is-primary">
+                                    <span>Take to Work</span>
+                                    <i data-feather="info"></i>
+                                </button>
                             </form>
                         @endif
                     </div>

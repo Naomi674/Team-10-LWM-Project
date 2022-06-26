@@ -70,7 +70,7 @@
                             <strong>Location:</strong> {{$ticket->location}} <br>
                             <strong>Opened By:</strong> {{$ticket->author()->first()->name}} <br>
                             <strong>Priority:</strong> {{ $priorities_contract[$ticket->priority]}} <br>
-                            @if(auth()->user()->isAdmin() )
+                            @if (auth()->user()->role_id == 1)
                             <form method="PUT" action="{{ route('ticket.edit', $ticket) }}">
                                 @csrf
                                 <div class="select is-primary is-small">

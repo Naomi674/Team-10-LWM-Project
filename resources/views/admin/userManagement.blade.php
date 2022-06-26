@@ -18,7 +18,18 @@
             const element = document.querySelector('.modal' && '.is-active');
             element.classList.remove('is-active');
         }
+
+        function hideNotification(element) {
+            element.setAttribute('style', 'display:none')
+        }
     </script>
+
+    @if(!$errors->isEmpty())
+        <div class="notification is-danger ml-6 mr-6 mt-4">
+            <button onclick="hideNotification(this.offsetParent)" class="delete"></button>
+            Something went wrong, please try again!
+        </div>
+    @endif
 
     <x-register-modal />
 
@@ -72,7 +83,7 @@
                                 <div class="field">
                                     <label class="label" for="name">Name</label>
                                     <div class="control has-icons-left">
-                                        <input class="input" id="name" type="text" name="name" value="{{ $user->name }}">
+                                        <input class="input" id="name" type="text" name="name" value="{{ $user->name }}" required>
                                         <span class="icon is-small is-left">
                                             <i class="fa-solid fa-id-card"></i>
                                         </span>
@@ -81,7 +92,7 @@
                                 <div class="field">
                                     <label class="label">Email</label>
                                     <div class="control has-icons-left">
-                                        <input class="input" type="email" name="email" value="{{ $user->email }}">
+                                        <input class="input" type="email" name="email" value="{{ $user->email }}" required>
                                         <span class="icon is-small is-left">
                                             <i class="fa-solid fa-envelope"></i>
                                         </span>
@@ -90,7 +101,7 @@
                                 <div class="field">
                                     <label class="label">Password</label>
                                     <p class="control has-icons-left">
-                                        <input class="input" type="password" name="password" placeholder="{{ $user->password }}">
+                                        <input class="input" type="password" name="password" placeholder="Type new password" pattern=".{12,}">
                                         <span class="icon is-small is-left">
                                           <i class="fas fa-lock"></i>
                                         </span>
