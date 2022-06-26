@@ -12,7 +12,7 @@
 
                 <div class="field">
                     <div class="control has-icons-left">
-                        <input class="input @error('name') is-danger @enderror" type="text" name="name" placeholder="Name">
+                        <input class="input @error('name') is-danger @enderror" type="text" name="name" placeholder="Name" required>
                         <span class="icon is-small is-left">
                             <i class="fa-solid fa-id-card"></i>
                         </span>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="field">
                     <p class="control has-icons-left">
-                        <input class="input @error('email') is-danger @enderror" type="email" name="email" placeholder="Email">
+                        <input class="input @error('email') is-danger @enderror" type="email" name="email" placeholder="Email" required>
                         <span class="icon is-small is-left">
                           <i class="fas fa-envelope"></i>
                         </span>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="field">
                     <p class="control has-icons-left">
-                        <input class="input @error('password') is-danger @enderror" type="password" name="password" placeholder="Password">
+                        <input class="input @error('password') is-danger @enderror" type="password" name="password" placeholder="Password" pattern=".{12,}" required>
                         <span class="icon is-small is-left">
                           <i class="fas fa-lock"></i>
                         </span>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="field">
                     <p class="control has-icons-left">
-                        <input class="input @error('password') is-danger @enderror" type="password" name="password_confirmation" placeholder="Confirm Password">
+                        <input class="input @error('password') is-danger @enderror" type="password" name="password_confirmation" placeholder="Confirm Password" pattern=".{12,}" required>
                         <span class="icon is-small is-left">
                       <i class="fas fa-lock"></i>
                     </span>
