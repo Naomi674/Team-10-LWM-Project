@@ -83,9 +83,9 @@
             </div>
 
             @if (auth()->user()->role_id == 1)
-                <a class="navbar-item has-text-white {{ Request::route()->getName() === 'admin.admin.index' ? 'is-active' : '' }}"
-                    href="{{ route('admin.admin.index') }}">
-                    Admin
+                <a class="navbar-item has-text-white {{ Request::route()->getName() === 'admin.userManagement.index' ? 'is-active' : '' }}"
+                    href="{{ route('admin.userManagement.index') }}">
+                    User Management
                 </a>
             @endif
         </div>
