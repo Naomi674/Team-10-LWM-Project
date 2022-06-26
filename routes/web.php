@@ -65,3 +65,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::post('/userManagement/createUser', [UserManagement::class, 'createUser'])->name('userManagement.createUser');
 
 Route::resource('/chats', ChatController::class)->middleware('auth');
+
+Route::get('admin/chats/create', [ChatController::class, 'create'])->middleware('admin');
+Route::post('admin/chats', [ChatController::class, 'store'])->middleware('admin');
+Route::get('admin/chats/edit', [ChatController::class, 'edit'])->middleware('admin');

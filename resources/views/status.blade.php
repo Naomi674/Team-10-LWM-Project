@@ -182,7 +182,19 @@
                     </tr>
                     </tbody>
                 </table>
+
             </div>
         </div>
+
+        <button class="buttons has-background-warning button is-link">
+            <a href="{{ route('chats.create') }}">Send message</a>
+        </button>
+
+        <button class="buttons has-background-black button is-link">
+            Check for new message
+        </button>
+
+
     </div>
+
 @endsection
