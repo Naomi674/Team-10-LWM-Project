@@ -1,5 +1,11 @@
 @extends('Components.layout')
 
+@section('head')
+    <script src="/js/catalogs.js"></script>
+@endsection
+@section('body')
+    onload="init()" class="body"
+@endsection
 @section('content')
     <div class="container mt-4">
         <div class="column">
@@ -42,8 +48,6 @@
             });
         </script>
         <!-- Start of The Tickets -->
-
-
         <div class="column">
             <div class="box">
                 <div class="column is-one-fifth">
@@ -59,6 +63,42 @@
                 </div>
                 @endif
             </div>
+            <!-- modal -->
+            @if(count($catalogTickets) > 0 && auth()->user()->role_id === 1)
+                <div class="notification is-warning ml-6 mr-6 mt-4">
+                    <a onclick="hideNotification(this.offsetParent)" class="button delete"></a>
+                    There are {{ $catalogTickets->count() }} catalog tickets! Click <a onclick="showCatalogTickets()">here</a>
+                    to view them.
+                </div>
+
+                <!-- Modal to show all catalog Tickets -->
+                <div id="catalogTickets" class="modal">
+                    <div class="modal-background"></div>
+                    <div class="modal-card" style="width: 1400px">
+                        <header class="modal-card-head">
+                            <p class="modal-card-title">Catalog Tickets</p>
+                            <button onclick="closeModal()" class="delete" aria-label="close"></button>
+                        </header>
+                        <section class="modal-card-body">
+                            <div id="catalogTicketsDisplay">
+                                <template id="catalogTicketsForm">
+                                    <form method="POST" action="/catalog/delete">
+                                        @csrf
+                                        @method('DELETE')
+                                        <div id="catalogTicketsTableBody" class="is-hoverable">
+                                            <!-- where the stuff will be shown -->
+                                        </div>
+                                    </form>
+                                </template>
+                            </div>
+                        </section>
+                        <footer class="modal-card-foot">
+                            <a onclick="closeModal()" class="button">Cancel</a>
+                        </footer>
+                    </div>
+                </div>
+            @endif
+            <!-- Normal Tickets -->
         @foreach($tickets as $ticket)
             <div class="box">
                 <div class="columns">
@@ -89,7 +129,6 @@
                                 </div>
                             </form>
                             @endif
-                        </p>
                     </div>
                     <div class="column is-one-fifth">
                         <form method="POST" action="{{ route('ticket.destroy',  $ticket->id) }}">

@@ -7,6 +7,7 @@ use App\Http\Responses\StatusPublicContract;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Enumerable;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Enum;
 use phpDocumentor\Reflection\Types\Nullable;
@@ -22,13 +23,14 @@ class TicketController extends Controller
      */
     public function index(Request $request)
     {
+        $catalogTickets = DB::table('catalog_tickets')->get();
         $tickets = Ticket::all()->sortBy("priority",0,(bool)$request->get('desc'));
         $user = auth()->user();
         if(!$user->isAdmin()) {
             $tickets = $user->tickets()->get()->sortBy("priority",0,(bool)$request->get('desc'));
         }
 
-        return view('ticket')
+        return view('ticket', compact('catalogTickets'))
             ->with('tickets', $tickets)
             ->with('priorities_contract', PriorityPublicContract::PUBLIC_FIELDS)
             ->with('available_priorities',Ticket::AVAILABLE_PRIORITIES)
