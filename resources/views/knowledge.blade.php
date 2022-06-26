@@ -53,7 +53,6 @@
                     </footer>
                 </div>
             </div>
-
             <!-- Modal answer a question -->
             <div id="answerQuestion" class="modal">
                 <div class="modal-background"></div>
@@ -79,14 +78,13 @@
                             </div>
                             <div class="field">
                                 <label class="label" for="body">Answer</label>
-                                <textarea class="textarea" id="body" type="text" name="body" placeholder="Write your answer here"></textarea>
+                                <textarea class="textarea" id="body" type="text" name="body" placeholder="Write your answer here" required></textarea>
                             </div>
                             <div class="field">
                                 <label>
                                     <p class="label">Category</p>
                                     <div class="select">
                                         <select name="category" id="category" required>
-                                            <option value="" disabled selected>Select category ...</option>
                                             <option value="FAQ"}>FAQ</option>
                                             <option value="Onboarding">Onboarding</option>
                                             <option value="IT Knowledge"}>IT Knowledge</option>
@@ -135,7 +133,7 @@
                         <div class="field">
                             <label class="label" for="title">Question</label>
                             <div class="control has-icons-left">
-                                <textarea class="input" id="title" type="text" name="title" placeholder="Ask your question here"></textarea>
+                                <textarea class="input" id="title" type="text" name="title" placeholder="Ask your question here" required></textarea>
                                 <span class="icon is-small is-left">
                                     <i class="fa-solid fa-question"></i>
                                 </span>
@@ -145,7 +143,8 @@
                             <label>
                                 <p class="label">Category</p>
                                 <div class="select">
-                                    <select name="category">
+                                    <select name="category" required>
+                                        <option value="" disabled selected>Select category ...</option>
                                         <option value="FAQ"}>FAQ</option>
                                         <option value="Onboarding">Onboarding</option>
                                         <option value="IT Knowledge"}>IT Knowledge</option>
