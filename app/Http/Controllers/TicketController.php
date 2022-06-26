@@ -24,7 +24,7 @@ class TicketController extends Controller
     {
         $tickets = Ticket::all()->sortBy("priority",0,(bool)$request->get('desc'));
         $user = auth()->user();
-        if(!$user->isAdmin()) {
+        if(!$user->role_id==1) {
             $tickets = $user->tickets()->get()->sortBy("priority",0,(bool)$request->get('desc'));
         }
 
@@ -62,7 +62,7 @@ class TicketController extends Controller
         $request->validate([
             'title' => 'required|string|max:256',
             'description' => 'required|string|max:1024',
-            'time' => 'required|integer|max:999',
+            'time' => 'required|integer|max:23',
             'location' => 'required|string|max:56',
             'priority' => ['required', 'integer', Rule::in(Ticket::AVAILABLE_PRIORITIES)],
         ]);
@@ -148,7 +148,7 @@ class TicketController extends Controller
     public function myTickets(Request $request)
     {
         $user = auth()->user();
-        if(!$user->isAdmin()) {
+        if(!$user->role_id==1) {
 
             return redirect()->route('ticket.index');
         }
@@ -173,7 +173,7 @@ class TicketController extends Controller
     {
 
         $user = auth()->user();
-        if(!$user->isAdmin()) {
+        if(!$user->role_id==1) {
 
             return redirect()->route('ticket.index');
         }
