@@ -14,8 +14,6 @@ function showPendingKnowledge() {
 }
 
 function buildPendingHTML(entries) {
-    const table = document.querySelector('#pendingKnowledgeTableBody');
-
     // console.log(entries);
 
     entries.forEach(entry => {

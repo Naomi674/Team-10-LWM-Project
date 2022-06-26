@@ -23,3 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/knowledge', [KnowledgeController::class, 'getKnowledgeCategoryEntries']);
 Route::get('/pendingKnowledge', [KnowledgeController::class, 'getPendingKnowledgeEntries']);
+Route::get('/catalogtickets', [CatalogController::class, 'getCatalogTickets']);

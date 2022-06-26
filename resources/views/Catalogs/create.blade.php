@@ -35,16 +35,6 @@
                                                     <p class="is-danger">{{ $message }}</p>
                                                     @enderror
 
-                                                    <strong>Time</strong><br/><input type="number"
-                                                                                     name="time"
-                                                                                     value="{{old('time')}}"
-                                                                                     placeholder="time"
-                                                                                     class="input"
-                                                                                     id="number"><br/>
-                                                    @error('time')
-                                                    <p class="is-danger">{{ $message }}</p>
-                                                    @enderror
-
                                                     <strong>Location</strong><br/><input type="text"
                                                                                          name="location"
                                                                                          value="{{old('location')}}"
@@ -54,7 +44,19 @@
                                                     @error('location')
                                                     <p class="is-danger">{{ $message }}</p>
                                                     @enderror
-                                                    <button type="submit" class="button">Submit</button>
+
+
+                                                    <strong>Author</strong><br/><input type="text"
+                                                                                       name="author"
+                                                                                       value="{{old('author')}}"
+                                                                                       placeholder="author"
+                                                                                       id="author"><br/>
+                                                    @error('author')
+                                                    <p class="is-danger">{{ $message }}</p>
+                                                    @enderror
+
+                                                    <button type="submit">Submit</button>
+
                                                 </form>
                                                 </p>
                                             </div>
