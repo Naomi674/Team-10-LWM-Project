@@ -1,0 +1,47 @@
+/* whoever is going to be reading this code, I must warn you...
+this is most likely illegal. */
+
+#test-block {
+    display: block;
+}
+
+#second-hr-block,
+#second-masterdata-block,
+#second-finance-block,
+#second-facilities-block,
+#second-it-block,
+#second-support-block,
+#third-hr-block,
+#third-masterdata-block,
+#third-finance-block,
+#third-facilities-block,
+#third-it-block,
+#third-support-block,
+#fourth-hr-block,
+#fourth-masterdata-block,
+#fourth-finance-block,
+#fourth-facilities-block,
+#fourth-it-block,
+#fourth-support-block,
+#fifth-hr-block,
+#fifth-masterdata-block,
+#fifth-finance-block,
+#fifth-facilities-block,
+#fifth-it-block,
+#fifth-support-block,
+#sixth-hr-block,
+#sixth-masterdata-block,
+#sixth-finance-block,
+#sixth-facilities-block,
+#sixth-it-block,
+#sixth-support-block {
+    display: none;
+}
+
+.column {
+    border-radius: 10px;
+}
+
+#modalbtn:hover {
+    background-color: hsl(48, 100%, 67%);
+}

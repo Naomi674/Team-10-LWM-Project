@@ -2,27 +2,11 @@
 
 @section('head')
     <script src="js/questions.js"></script>
-
-    <style>
-        #test-block {
-            display: block;
-        }
-
-        #second-block,
-        #third-block,
-        #fourth-block,
-        #fifth-block,
-        #sixth-block {
-            display: none;
-        }
-
-        .column {
-            border-radius: 10px;
-        }
-    </style>
+    <link href="css/questions.css" rel="stylesheet">
 
 @section('content')
-<button class="button is-light js-modal-trigger ml-3 mb-3" data-target="modal-js-example">Need help?</button>
+    <button class="button is-primary js-modal-trigger ml-3 mb-3" data-target="modal-js-example">Need help?</button>
+
 
     <div class="columns is-flex is-multiline pl-3 pr-3">
         <div class="column is-one-third mb-2">
@@ -213,39 +197,210 @@
             <div class="box">
                 <div class="columns is-centered">
                     <div class="column is-four-fifths is-centered has-background-light">
-                        <h4 class="title is-4 has-text-centered mb-0"><strong>Don't know where to look for help?</strong></h4>
+                        <button class="button is-light is-warning js-modal-trigger ml-2 mb-1 mt-1 p-2"
+                            data-target="modal-js-hr" onclick="closeAllModals()" id="modalbtn">HR</button>
+                        <button class="button is-light is-warning js-modal-trigger ml-2 mb-1 mt-1 p-2"
+                            data-target="modal-js-it" onclick="closeAllModals()" id="modalbtn">IT</button>
+                        <button class="button is-light is-warning js-modal-trigger ml-2 mb-1 mt-1 p-2"
+                            data-target="modal-js-finance" onclick="closeAllModals()" id="modalbtn">Finance</button>
+                        <button class="button is-light is-warning js-modal-trigger ml-2 mb-1 mt-1 p-2"
+                            data-target="modal-js-facilities" onclick="closeAllModals()" id="modalbtn">Facilites</button>
+                        <button class="button is-light is-warning js-modal-trigger ml-2 mb-1 mt-1 p-2"
+                            data-target="modal-js-masterdata" onclick="closeAllModals()" id="modalbtn">Masterdata</button>
+                        <button class="button is-light is-warning js-modal-trigger ml-2 mb-1 mt-1 p-2"
+                            data-target="modal-js-businesssupport" onclick="closeAllModals()" id="modalbtn">Support</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-js-hr" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content is-huge">
+            <div class="box">
+                <div class="columns is-centered">
+                    <div class="column is-four-fifths is-centered has-background-light">
+                        <a class="js-modal-trigger" onclick="closeAllModals()"data-target="modal-js-example">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa-solid fa-arrow-left-long"></i>
+                            </span>
+                        </a>
+                        <h4 class="title is-4 has-text-centered mb-0"><strong>HR</strong></h4>
                         <div id="test-block" class="question">
-                            <p>Do you have a problem or request regarding your computer?</p>
-                            <a href="{{ route('it.index') }}"><button class="button is-success">Yes</button></a>
-                            <button onclick="createSecondBlock()" class="button is-danger">No</button>
+                            <p>Do you want to request paid time off?</p>
+                            <a href="{{ route('catalog.create') }}"><button class="button is-success">Yes</button></a>
+                            <button onclick="createSecondHrBlock()" class="button is-danger">No</button>
                         </div>
-                        <div id="second-block" class="question pt-3">
+                        <div id="second-hr-block" class="question pt-3">
+                            <p>Do you want to request additional commuting allowance?</p>
+                            <a href="{{ route('catalog.create') }}"><button class="button is-success">Yes</button></a>
+                            <button onclick="createThirdHrBlock()" class="button is-danger">No</button>
+                        </div>
+                        <div id="third-hr-block" class="question pt-3">
+                            <p>Has there been an issue with your payroll?</p>
+                            <a href="{{ route('catalog.create') }}"><button class="button is-success">Yes</button></a>
+                            <button onclick="createThirdHrBlock()" class="button is-danger">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-js-it" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content is-huge">
+            <div class="box">
+                <div class="columns is-centered">
+                    <div class="column is-four-fifths is-centered has-background-light">
+                        <a class="js-modal-trigger" onclick="closeAllModals()"data-target="modal-js-example">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa-solid fa-arrow-left-long"></i>
+                            </span>
+                        </a>
+                        <h4 class="title is-4 has-text-centered mb-0"><strong>IT</strong></h4>
+                        <div id="test-block" class="question">
+                            <p>Would you like to request some hardware?</p>
+                            <a href="{{ route('catalog.create') }}"><button class="button is-success">Yes</button></a>
+                            <button onclick="createSecondItBlock()" class="button is-danger">No</button>
+                        </div>
+                        <div id="second-it-block" class="question pt-3">
                             <p>Would you like to change your password?</p>
                             <a href="/update-password"><button class="button is-success">Yes</button></a>
-                            <button onclick="createThirdBlock()" class="button is-danger">No</button>
+                            <button onclick="createThirdItBlock()" class="button is-danger">No</button>
                         </div>
-                        <div id="third-block" class="question pt-3">
-                            <p>Do you have a question regarding your salary or payroll?</p>
+                        <div id="third-it-block" class="question pt-3">
+                            <p>Are you having issues with some software?</p>
+                            <a href="{{ route('it.index') }}"><button class="button is-success">Yes</button></a>
+                            <button onclick="createThirdItBlock()" class="button is-danger">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-js-finance" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content is-huge">
+            <div class="box">
+                <div class="columns is-centered">
+                    <div class="column is-four-fifths is-centered has-background-light">
+                        <a class="js-modal-trigger" onclick="closeAllModals()"data-target="modal-js-example">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa-solid fa-arrow-left-long"></i>
+                            </span>
+                        </a>
+                        <h4 class="title is-4 has-text-centered mb-0"><strong>Finance</strong></h4>
+                        <div id="test-block" class="question">
+                            <p>Do you have a question regarding your salary?</p>
                             <a href="{{ route('finance.index') }}"><button class="button is-success">Yes</button></a>
-                            <button onclick="createFourthBlock()" class="button is-danger">No</button>
+                            <button onclick="createSecondFinanceBlock()" class="button is-danger">No</button>
                         </div>
-                        <div id="fourth-block" class="question pt-3">
-                            <p>Would you like to create a new ticket?</p>
-                            <a href="{{ route('ticket.create') }}"><button class="button is-success">Yes</button></a>
-                            <button onclick="createFifthBlock()" class="button is-danger">No</button>
+                        <div id="second-finance-block" class="question pt-3">
+                            <p>Do you have a special project cost request?</p>
+                            <a href="{{ route('catalog.create') }}"><button class="button is-success">Yes</button></a>
+                            <button onclick="createSecondFinanceBlock()" class="button is-danger">No</button>
                         </div>
-                        @if (auth()->user()->role_id == 1)
-                            <div id="fifth-block" class="question pt-3">
-                                <p>Do you want to see an overview of all users?</p>
-                                <a href="{{ route('admin.userManagement.index') }}"><button
-                                        class="button is-success">Yes</button></a>
-                                <button onclick="createSixthBlock()" class="button is-danger">No</button>
-                            </div>
-                        @endif
-                        <div id="sixth-block" class="question pt-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-js-facilities" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content is-huge">
+            <div class="box">
+                <div class="columns is-centered">
+                    <div class="column is-four-fifths is-centered has-background-light">
+                        <a class="js-modal-trigger" onclick="closeAllModals()"data-target="modal-js-example">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa-solid fa-arrow-left-long"></i>
+                            </span>
+                        </a>
+                        <h4 class="title is-4 has-text-centered mb-0"><strong>Facilites</strong></h4>
+                        <div id="test-block" class="question">
+                            <p>Would you like to request a handyman service?</p>
+                            <a href="{{ route('catalog.create') }}"><button class="button is-success">Yes</button></a>
+                            <button onclick="createSecondFacilitiesBlock()" class="button is-danger">No</button>
+                        </div>
+                        <div id="second-facilities-block" class="question pt-3">
+                            <p>Would you like to request lunch service?</p>
+                            <a href="{{ route('catalog.create') }}"><button class="button is-success">Yes</button></a>
+                            <button onclick="createThirdFacilitiesBlock()" class="button is-danger">No</button>
+                        </div>
+                        <div id="third-facilities-block" class="question pt-3">
                             <p>Is there an issue with the coffee machine?</p>
-                            <a href="{{ route('facilities.index') }}"><button class="button is-success">Yes</button></a>
-                            <button onclick="createSixthBlock()" class="button is-danger">No</button>
+                            <a href="{{ route('catalog.create') }}"><button class="button is-success">Yes</button></a>
+                            <button onclick="createFourthFacilitiesBlock()" class="button is-danger">No</button>
+                        </div>
+                        <div id="fourth-facilities-block" class="question pt-3">
+                            <p>Is there some sort of technical issue?</p>
+                            <a href="{{ route('catalog.create') }}"><button class="button is-success">Yes</button></a>
+                                <button onclick="createFourthFacilitiesBlock()" class="button is-danger">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-js-masterdata" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content is-huge">
+            <div class="box">
+                <div class="columns is-centered">
+                    <div class="column is-four-fifths is-centered has-background-light">
+                        <a class="js-modal-trigger" onclick="closeAllModals()"data-target="modal-js-example">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa-solid fa-arrow-left-long"></i>
+                            </span>
+                        </a>
+                        <h4 class="title is-4 has-text-centered mb-0"><strong>Masterdata</strong></h4>
+                        <div id="test-block" class="question">
+                            <p>Would you like to hand in a request for a new vendor?</p>
+                            <a href="{{ route('catalog.create') }}"><button class="button is-success">Yes</button></a>
+                            <button onclick="createSecondMasterdataBlock()" class="button is-danger">No</button>
+                        </div>
+                        <div id="second-masterdata-block" class="question pt-3">
+                            <p>Would you like to change a BOM component?</p>
+                            <a href="{{ route('catalog.create') }}"><button class="button is-success">Yes</button></a>
+                            <button onclick="createThirdMasterdataBlock()" class="button is-danger">No</button>
+                        </div>
+                        <div id="third-masterdata-block" class="question pt-3">
+                            <p>Is there an issue with materials?</p>
+                            <a href="{{ route('catalog.create') }}"><button class="button is-success">Yes</button></a>
+                            <button onclick="createThirdMasterdataBlock()" class="button is-danger">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-js-businesssupport" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content is-huge">
+            <div class="box">
+                <div class="columns is-centered">
+                    <div class="column is-four-fifths is-centered has-background-light">
+                        <a class="js-modal-trigger" onclick="closeAllModals()"data-target="modal-js-example">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa-solid fa-arrow-left-long"></i>
+                            </span>
+                        </a>
+                        <h4 class="title is-4 has-text-centered mb-0"><strong>Business Support</strong></h4>
+                        <div id="test-block" class="question">
+                            <p>Would you like to hand in a new destruction request?</p>
+                            <a href="{{ route('catalog.create') }}"><button class="button is-success">Yes</button></a>
+                            <button onclick="createSecondSupportBlock()" class="button is-danger">No</button>
+                        </div>
+                        <div id="second-support-block" class="question pt-3">
+                            <p>Would you like to create a capital budgeting demand?</p>
+                            <a href={{ route('catalog.create') }}><button class="button is-success">Yes</button></a>
+                            <button onclick="createSecondSupportBlock()" class="button is-danger">No</button>
                         </div>
                     </div>
                 </div>
@@ -255,29 +410,14 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Functions to open and close a modal
-            function openModal($el) {
-                $el.classList.add('is-active');
-            }
-
-            function closeModal($el) {
-                $el.classList.remove('is-active');
-            }
-
-            function closeAllModals() {
-                (document.querySelectorAll('.modal') || []).forEach(($modal) => {
-                    closeModal($modal);
-                });
-            }
 
             // Add a click event on buttons to open a specific modal
             (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
                 const modal = $trigger.dataset.target;
                 const $target = document.getElementById(modal);
-                console.log($target);
 
                 $trigger.addEventListener('click', () => {
-                    openModal($target);
+                    // openModal($target);
                 });
             });
 
