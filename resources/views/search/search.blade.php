@@ -32,7 +32,7 @@
 
     {{-- <a href="{{ route('catalog.index') }}" class="btn btn-primary">Test me!</a> --}}
 
-    <script>
+{{--    <script>--}}
         // function myFunction() {
         //     var input, filter, ul, li, a, i, txtValue;
         //     input = document.getElementById("myInput");
@@ -79,7 +79,7 @@
         // var a = document.querySelectorAll('.list-item');
         // console.log(a)
         // a.href = "http://www.google.com";
-    </script>
+{{--    </script>--}}
 
     {{-- <div class="dropdown"> --}}
         {{-- <button onclick="myFunction()" class="dropbtn">Dropdown</button> --}}

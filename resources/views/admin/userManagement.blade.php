@@ -18,7 +18,18 @@
             const element = document.querySelector('.modal' && '.is-active');
             element.classList.remove('is-active');
         }
+
+        function hideNotification(element) {
+            element.setAttribute('style', 'display:none')
+        }
     </script>
+
+    @if(!$errors->isEmpty())
+        <div class="notification is-danger ml-6 mr-6 mt-4">
+            <button onclick="hideNotification(this.offsetParent)" class="delete"></button>
+            Something went wrong, please try again!
+        </div>
+    @endif
 
     <x-register-modal />
 
