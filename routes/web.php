@@ -50,7 +50,6 @@ Route::delete('/knowledge/knowledge-question-delete',[KnowledgeController::class
 Route::resource('/catalog', CatalogController::class)->middleware('auth');
 
 Route::get('/catalogajax', [CatalogController::class, 'ajax'])->middleware('auth');
-Route::resource('/search', SearchController::class)->middleware('auth');
 Route::resource('/account', AccountController::class)->middleware('auth');
 Route::get('/update-password', function () {
     return view('auth.update-password');

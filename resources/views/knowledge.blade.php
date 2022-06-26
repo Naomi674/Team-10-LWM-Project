@@ -10,8 +10,16 @@
 @section('content')
     <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet">
     <div class="container mt-4">
-        @if(count($pendingKnowledge) > 0 && auth()->user()->role_id === 1)
+
+        @if(!$errors->isEmpty())
             <div class="notification is-danger ml-6 mr-6 mt-4">
+                <button onclick="hideNotification(this.offsetParent)" class="delete"></button>
+                Something went wrong, please try again!
+            </div>
+        @endif
+
+        @if(count($pendingKnowledge) > 0 && auth()->user()->role_id === 1)
+            <div class="notification is-warning ml-6 mr-6 mt-4">
                 <button onclick="hideNotification(this.offsetParent)" class="delete"></button>
                 There are {{ $pendingKnowledge->count() }} open questions! Click <a onclick="showPendingKnowledge()">here</a>
                 to answer them.
@@ -59,10 +67,11 @@
                             @csrf
                             @method('PUT')
 
+                            <input id="editModal_id" name="id" value="" hidden>
                             <div class="field">
                                 <label class="label" for="title">Question</label>
                                 <div class="control has-icons-left">
-                                    <input class="input" name="title" id="answerQuestionTitle" type="text" readonly>
+                                    <input class="input" name="title" id="answerQuestionTitle" type="text">
                                     <span class="icon is-small is-left">
                                         <i class="fa-solid fa-question"></i>
                                     </span>

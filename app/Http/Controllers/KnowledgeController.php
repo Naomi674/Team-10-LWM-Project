@@ -38,25 +38,25 @@ class KnowledgeController extends Controller
             'category' => 'required',
         ]);
 
-        $pendingQuestion = PendingKnowledge::where('title', $request->title)->first();
+        $pendingQuestion = PendingKnowledge::where('id', $request->id)->first();
 
 //        if ($pendingQuestion->count() > 1) $pendingQuestion = $pendingQuestion->first();
 
         Knowledge::create([
             'author' => $pendingQuestion->author,
-            'title' => $pendingQuestion->title,
+            'title' => $request->title,
             'body' => $request->body,
             'category' => $request->category,
             'created_at' => $pendingQuestion->created_at,
         ]);
 
-        PendingKnowledge::where('title', $request->title)->delete();
+        PendingKnowledge::where('id', $request->id)->delete();
 
         return redirect(route('knowledge.index'));
     }
 
     public function delete(Request $request) {
-        PendingKnowledge::where('title' ,$request->title)->delete();
+        PendingKnowledge::where('id' ,$request->id)->delete();
 
         return redirect(route('knowledge.index'));
     }
