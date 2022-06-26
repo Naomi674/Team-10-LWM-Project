@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KnowledgeController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\WelcomeController;
-use App\Http\Controllers\SearchController;
 use App\Events\Message;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
