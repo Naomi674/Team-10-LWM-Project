@@ -71,7 +71,7 @@
                             <div class="field">
                                 <label class="label" for="title">Question</label>
                                 <div class="control has-icons-left">
-                                    <input class="input" name="title" id="answerQuestionTitle" type="text">
+                                    <input class="input" name="title" id="answerQuestionTitle" type="text" required>
                                     <span class="icon is-small is-left">
                                         <i class="fa-solid fa-question"></i>
                                     </span>
@@ -85,7 +85,8 @@
                                 <label>
                                     <p class="label">Category</p>
                                     <div class="select">
-                                        <select name="category" id="category">
+                                        <select name="category" id="category" required>
+                                            <option value="" disabled selected>Select category ...</option>
                                             <option value="FAQ"}>FAQ</option>
                                             <option value="Onboarding">Onboarding</option>
                                             <option value="IT Knowledge"}>IT Knowledge</option>
