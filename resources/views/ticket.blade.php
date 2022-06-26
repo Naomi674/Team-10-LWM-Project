@@ -51,7 +51,7 @@
                         <a class="button is-primary is-large " href="{{ route('ticket.create') }}">Create New Ticket</a>
                     </div>
                 </div>
-                @if(auth()->user()->isAdmin())
+                @if (auth()->user()->role_id == 1)
                 <div class="column is-one-fifth">
                     <div class="buttons">
                         <a class="button is-danger is-large " href="{{ route('ticket.myTickets') }}">My Tickets</a>
@@ -71,7 +71,7 @@
                             <strong>Opened By:</strong> {{$ticket->author()->first()->name}} <br>
                             <strong>Assigned To:</strong> @if($ticket->assignee()->first()){{$ticket->assignee()->first()->name}}@endif <br>
                             <strong>Priority:</strong> {{ $priorities_contract[$ticket->priority]}} <br>
-                            @if(auth()->user()->isAdmin() )
+                            @if (auth()->user()->role_id == 1)
                             <form method="PUT" action="{{ route('ticket.edit', $ticket) }}">
                                 @csrf
                                 <div class="select is-primary is-small">
@@ -101,7 +101,7 @@
                             </button>
                         </form>
 
-                        @if(auth()->user()->isAdmin() )
+                        @if (auth()->user()->role_id == 1)
                             <form method="POST" action="{{ route('ticket.take', $ticket->id) }}">
                                 @csrf
                                 <div class="button is-primary is-small">
