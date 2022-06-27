@@ -19,6 +19,7 @@
                                                                                       name="title"
                                                                                       value="{{old('title')}}"
                                                                                       placeholder="title"
+                                                                                      class="input"
                                                                                       id="title"><br/>
                                                     @error('title')
                                                     <p class="is-danger">{{ $message }}</p>
@@ -28,17 +29,9 @@
                                                                                             name="description"
                                                                                             value="{{old('description')}}"
                                                                                             placeholder="description"
+                                                                                            class="input"
                                                                                             id="description"><br/>
                                                     @error('description')
-                                                    <p class="is-danger">{{ $message }}</p>
-                                                    @enderror
-
-                                                    <strong>Time</strong><br/><input type="number"
-                                                                                     name="time"
-                                                                                     value="{{old('time')}}"
-                                                                                     placeholder="time"
-                                                                                     id="number"><br/>
-                                                    @error('time')
                                                     <p class="is-danger">{{ $message }}</p>
                                                     @enderror
 
@@ -46,11 +39,24 @@
                                                                                          name="location"
                                                                                          value="{{old('location')}}"
                                                                                          placeholder="location"
+                                                                                         class="input"
                                                                                          id="location"><br/>
                                                     @error('location')
                                                     <p class="is-danger">{{ $message }}</p>
                                                     @enderror
+
+
+                                                    <strong>Author</strong><br/><input type="text"
+                                                                                       name="author"
+                                                                                       value="{{old('author')}}"
+                                                                                       placeholder="author"
+                                                                                       id="author"><br/>
+                                                    @error('author')
+                                                    <p class="is-danger">{{ $message }}</p>
+                                                    @enderror
+
                                                     <button type="submit">Submit</button>
+
                                                 </form>
                                                 </p>
                                             </div>

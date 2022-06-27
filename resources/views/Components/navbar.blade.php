@@ -3,6 +3,10 @@
     li {
         list-style-type: none;
     }
+    li:hover {
+        background-color: hsl(0, 0%, 71%);
+        border-radius: 5px;
+    }
 </style>
 
 <nav class="navbar mb-4" role="navigation" aria-label="main navigation">
@@ -79,9 +83,9 @@
             </div>
 
             @if (auth()->user()->role_id == 1)
-                <a class="navbar-item has-text-white {{ Request::route()->getName() === 'admin.admin.index' ? 'is-active' : '' }}"
-                    href="{{ route('admin.admin.index') }}">
-                    Admin
+                <a class="navbar-item has-text-white {{ Request::route()->getName() === 'admin.userManagement.index' ? 'is-active' : '' }}"
+                    href="{{ route('admin.userManagement.index') }}">
+                    User Management
                 </a>
             @endif
         </div>
@@ -111,23 +115,23 @@
             <div id="myDropdown" class="dropdown-content">
                 <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()" class="input">
                 @if(auth()->user()->role_id == 1)
-                <li class="ml-2 mt-3"><a href="{{ route('admin.admin.index') }}">Admin</a></li>
+                <li class="ml-2 mt-3"><a class="pl-2" href="{{ route('admin.admin.index') }}">Admin</a></li>
                 @endif
-                <li class="ml-2 mt-3"><a href="{{ route('catalog.index') }}">Catalog</a></li>
-                <li class="ml-2 mt-3"><a href="{{ route('ticket.create') }}">Create a ticket</a></li>
-                <li class="ml-2 mt-3"><a href="{{ route('knowledge.index') }}">Knowledge</a></li>
-                <li class="ml-2 mt-3"><a href="{{ route('ticket.index') }}">My Tickets</a></li>
-                <li class="ml-2 mt-3"><a href="{{ route('status.index') }}">System Status</a></li>
-                <li class="ml-2 mt-3"><a href="/update-password">Update your password</a></li>
+                <li class="ml-2 mt-3"><a class="pl-2" href="{{ route('catalog.index') }}">Catalog</a></li>
+                <li class="ml-2 mt-3"><a class="pl-2" href="{{ route('ticket.create') }}">Create a ticket</a></li>
+                <li class="ml-2 mt-3"><a class="pl-2" href="{{ route('knowledge.index') }}">Knowledge</a></li>
+                <li class="ml-2 mt-3"><a class="pl-2" href="{{ route('ticket.index') }}">My Tickets</a></li>
+                <li class="ml-2 mt-3"><a class="pl-2" href="{{ route('status.index') }}">System Status</a></li>
+                <li class="ml-2 mt-3"><a class="pl-2" href="/update-password">Update your password</a></li>
                 @if(auth()->user()->role_id == 1)
-                <li class="ml-2 mt-3"><a href="{{ route('admin.userManagement.index') }}">User Management</a></li>
+                <li class="ml-2 mt-3"><a class="pl-2" href="{{ route('admin.userManagement.index') }}">User Management</a></li>
                 @endif
-                <li class="ml-2 mt-3"><a href="{{ route('hr.index') }}">HR Catalog</a></li>
-                <li class="ml-2 mt-3"><a href="{{ route('it.index') }}">IT Catalog</a></li>
-                <li class="ml-2 mt-3"><a href="{{ route('facilities.index') }}">Facilities Catalog</a></li>
-                <li class="ml-2 mt-3"><a href="{{ route('finance.index') }}">Finance Catalog</a></li>
-                <li class="ml-2 mt-3"><a href="{{ route('masterdata.index') }}">Masterdata Catalog</a></li>
-                <li class="ml-2 mt-3"><a href="{{ route('businesssupport.index') }}">Business Support Catalog</a></li>
+                <li class="ml-2 mt-3"><a class="pl-2" href="{{ route('hr.index') }}">HR Catalog</a></li>
+                <li class="ml-2 mt-3"><a class="pl-2" href="{{ route('it.index') }}">IT Catalog</a></li>
+                <li class="ml-2 mt-3"><a class="pl-2" href="{{ route('facilities.index') }}">Facilities Catalog</a></li>
+                <li class="ml-2 mt-3"><a class="pl-2" href="{{ route('finance.index') }}">Finance Catalog</a></li>
+                <li class="ml-2 mt-3"><a class="pl-2" href="{{ route('masterdata.index') }}">Masterdata Catalog</a></li>
+                <li class="ml-2 mt-3"><a class="pl-2" href="{{ route('businesssupport.index') }}">Business Support Catalog</a></li>
             </div>
         </div>
     </div>
@@ -154,7 +158,6 @@
         (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
             const modal = $trigger.dataset.target;
             const $target = document.getElementById(modal);
-            console.log($target);
 
             $trigger.addEventListener('click', () => {
                 openModal($target);

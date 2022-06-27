@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Ticket;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,9 +17,11 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('description');
+            $table->string('description');
             $table->smallInteger('time');
-            $table->text('location');
+            $table->string('location');
+            $table->enum('priority', Ticket::AVAILABLE_PRIORITIES)->default(Ticket::PRIORITY_LOW);
+            $table->enum('status', Ticket::AVAILABLE_STATUSES)->default(Ticket::STATUS_TO_DO);
             $table->timestamps();
             $table->unsignedBigInteger('author_id')->nullable();
             $table->unsignedBigInteger('assignee_id')->nullable();

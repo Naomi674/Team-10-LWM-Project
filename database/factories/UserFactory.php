@@ -25,7 +25,7 @@ class UserFactory extends Factory
             'email_verified_at' => $this->faker->date('d-m-Y'),
             'password' => Hash::make('password'), // password
             'remember_token' => Str::random(10),
-            'role_id' => $this->faker->numberBetween(0, 1), // User is 0, Admin is 1
+            'role_id' => Role::ROLE_ADMIN, // Admin role (user is 0)
         ];
     }
 

@@ -1,0 +1,31 @@
+/* whoever is going to be reading this code, I must warn you...
+this is most likely illegal. */
+
+#test-block {
+    display: block;
+}
+
+#second-hr-block,
+#second-masterdata-block,
+#second-finance-block,
+#second-facilities-block,
+#second-it-block,
+#second-support-block,
+#third-hr-block,
+#third-masterdata-block,
+#third-facilities-block,
+#third-it-block,
+#fourth-masterdata-block,
+#fourth-facilities-block,
+#fifth-masterdata-block,
+#sixth-masterdata-block {
+    display: none;
+}
+
+.column {
+    border-radius: 10px;
+}
+
+#modalbtn:hover {
+    background-color: hsl(48, 100%, 67%);
+}

@@ -33,8 +33,10 @@
                                 @if(count($tickets) > 0)
                                     @foreach($tickets as $ticket)
                                         <hr>
-                                        <p class="has-text-left is-underlined">{{ $ticket->title}}</p>
-                                        <p class="has-text-left has-text-grey-light">{{ $ticket->description }}</p>
+                                        <a href="{{ route('ticket.index') }}">
+                                            <p class="has-text-left is-underlined">{{ $ticket->title}}</p>
+                                            <p class="has-text-left has-text-grey-light">{{ $ticket->description }}</p>
+                                        </a>
                                     @endforeach
                                 @endif
                                 </div>
@@ -43,9 +45,9 @@
                             <div class="box">
                                 <p class="has-text-left has-text-weight-bold">Your most used services:</p>
                                 <div class="control">
-                                    <a class="has-text-left mt-4 is-underlined" href="{{ route('knowledge.index') }}">Financial services</a>
+                                    <a class="has-text-left mt-4 is-underlined" href="{{ route('finance.index') }}">Financial services</a>
                                     <br>
-                                    <a class="has-text-left is-underlined" href="{{ route('knowledge.index') }}">HR</a>
+                                    <a class="has-text-left is-underlined" href="{{ route('hr.index') }}">HR</a>
                                 </div>
                             </div>
                         </form>

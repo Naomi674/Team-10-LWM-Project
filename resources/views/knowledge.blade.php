@@ -10,8 +10,16 @@
 @section('content')
     <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet">
     <div class="container mt-4">
-        @if(count($pendingKnowledge) > 0 && auth()->user()->role_id === 1)
+
+        @if(!$errors->isEmpty())
             <div class="notification is-danger ml-6 mr-6 mt-4">
+                <button onclick="hideNotification(this.offsetParent)" class="delete"></button>
+                Something went wrong, please try again!
+            </div>
+        @endif
+
+        @if(count($pendingKnowledge) > 0 && auth()->user()->role_id === 1)
+            <div class="notification is-warning ml-6 mr-6 mt-4">
                 <button onclick="hideNotification(this.offsetParent)" class="delete"></button>
                 There are {{ $pendingKnowledge->count() }} open questions! Click <a onclick="showPendingKnowledge()">here</a>
                 to answer them.
@@ -45,7 +53,6 @@
                     </footer>
                 </div>
             </div>
-
             <!-- Modal answer a question -->
             <div id="answerQuestion" class="modal">
                 <div class="modal-background"></div>
@@ -59,10 +66,11 @@
                             @csrf
                             @method('PUT')
 
+                            <input id="editModal_id" name="id" value="" hidden>
                             <div class="field">
                                 <label class="label" for="title">Question</label>
                                 <div class="control has-icons-left">
-                                    <input class="input" name="title" id="answerQuestionTitle" type="text" readonly>
+                                    <input class="input" name="title" id="answerQuestionTitle" type="text" required>
                                     <span class="icon is-small is-left">
                                         <i class="fa-solid fa-question"></i>
                                     </span>
@@ -70,13 +78,13 @@
                             </div>
                             <div class="field">
                                 <label class="label" for="body">Answer</label>
-                                <textarea class="textarea" id="body" type="text" name="body" placeholder="Write your answer here"></textarea>
+                                <textarea class="textarea" id="body" type="text" name="body" placeholder="Write your answer here" required></textarea>
                             </div>
                             <div class="field">
                                 <label>
                                     <p class="label">Category</p>
                                     <div class="select">
-                                        <select name="category" id="category">
+                                        <select name="category" id="category" required>
                                             <option value="FAQ"}>FAQ</option>
                                             <option value="Onboarding">Onboarding</option>
                                             <option value="IT Knowledge"}>IT Knowledge</option>
@@ -125,7 +133,7 @@
                         <div class="field">
                             <label class="label" for="title">Question</label>
                             <div class="control has-icons-left">
-                                <textarea class="input" id="title" type="text" name="title" placeholder="Ask your question here"></textarea>
+                                <textarea class="input" id="title" type="text" name="title" placeholder="Ask your question here" required></textarea>
                                 <span class="icon is-small is-left">
                                     <i class="fa-solid fa-question"></i>
                                 </span>
@@ -135,7 +143,8 @@
                             <label>
                                 <p class="label">Category</p>
                                 <div class="select">
-                                    <select name="category">
+                                    <select name="category" required>
+                                        <option value="" disabled selected>Select category ...</option>
                                         <option value="FAQ"}>FAQ</option>
                                         <option value="Onboarding">Onboarding</option>
                                         <option value="IT Knowledge"}>IT Knowledge</option>

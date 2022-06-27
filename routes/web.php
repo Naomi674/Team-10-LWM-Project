@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KnowledgeController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\WelcomeController;
-use App\Http\Controllers\SearchController;
 use App\Events\Message;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -32,7 +31,8 @@ use Illuminate\Http\Response;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/ticket/my', [TicketController::class,'myTickets'])->name('ticket.myTickets')->middleware('auth');
+Route::post('/ticket/take/{ticket}', [TicketController::class,'take'])->name('ticket.take')->middleware('auth');
 Route::resource('/', WelcomeController::class)->middleware('auth');
 Route::resource('/catalog/facilities', FacilitiesController::class)->middleware('auth');
 Route::resource('/catalog/hr', HRServicesController::class)->middleware('auth');
@@ -40,6 +40,7 @@ Route::resource('/catalog/it', ITServicesController::class)->middleware('auth');
 Route::resource('/catalog/finance', FinanceServicesController::class)->middleware('auth');
 Route::resource('/catalog/masterdata', MasterdataServicesController::class)->middleware('auth');
 Route::resource('/catalog/businesssupport', BusinessSupportServicesController::class)->middleware('auth');
+Route::get('/catalogticket/delete', [CatalogController::class, 'destroy'])->middleware('auth');
 //Route::get('/main-service/facilities', [FacilitiesController::class, 'filter']);
 Route::resource('/ticket', TicketController::class)->middleware('auth');
 Route::resource('/status', SystemController::class)->middleware('auth');
@@ -50,7 +51,6 @@ Route::delete('/knowledge/knowledge-question-delete',[KnowledgeController::class
 Route::resource('/catalog', CatalogController::class)->middleware('auth');
 
 Route::get('/catalogajax', [CatalogController::class, 'ajax'])->middleware('auth');
-Route::resource('/search', SearchController::class)->middleware('auth');
 Route::resource('/account', AccountController::class)->middleware('auth');
 Route::get('/update-password', function () {
     return view('auth.update-password');
