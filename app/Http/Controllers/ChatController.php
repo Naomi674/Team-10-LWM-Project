@@ -3,18 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chat;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\Response;
 
 class ChatController extends Controller
 {
     public function index()
     {
-        return view('chats.index');
-    }
-
-    public function show()
-    {
-        //
+        $messages = Chat::all();
+        return view('chats.index', compact('messages'));
     }
 
     public function create()
@@ -24,15 +23,20 @@ class ChatController extends Controller
 
     public function store(Request $request)
     {
-
-        $request->validate([
-           'message' => 'required'
+        $attributes = $request->validate([
+           'title' => 'required|max:255'
         ]);
 
-        Chat::create($request->all());
+        Chat::create($attributes);
 
-        return redirect()->route('products.index')
-            ->with('success','Product created successfully.');
+        return redirect('/status')->with('success', 'Message was successfully send');
+    }
+
+    public function show()
+    {
+        $messages = DB::table('chats')->get();
+
+        echo $messages;
     }
 
     public function edit()
