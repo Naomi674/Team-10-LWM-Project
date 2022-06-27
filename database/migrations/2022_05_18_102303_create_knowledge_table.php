@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('knowledge', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('body');
+            $table->text('body');
             $table->string('author');
             $table->string('category');
             $table->timestamps();

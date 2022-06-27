@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('category');
             $table->string('service');
-            $table->string('description');
+            $table->text('description');
             $table->timestamps();
         });
     }
