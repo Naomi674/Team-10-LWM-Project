@@ -4,6 +4,7 @@ use App\Http\Controllers\BusinessSupportServicesController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\FinanceServicesController;
 use App\Http\Controllers\HRServicesController;
@@ -66,6 +67,7 @@ Route::post('/userManagement/createUser', [UserManagement::class, 'createUser'])
 
 Route::resource('/chats', ChatController::class)->middleware('auth');
 
-Route::get('admin/chats/create', [ChatController::class, 'create'])->middleware('admin');
-Route::post('admin/chats', [ChatController::class, 'store'])->middleware('admin');
-Route::get('admin/chats/edit', [ChatController::class, 'edit'])->middleware('admin');
+Route::get('admin/chats/create', [ChatController::class, 'create'])->middleware('auth');
+Route::post('/chats', [ChatController::class, 'store'])->middleware('auth');
+Route::get('admin/chats/edit', [ChatController::class, 'edit'])->middleware('auth');
+Route::get('admin/chats/show', [ChatController::class, 'show']);

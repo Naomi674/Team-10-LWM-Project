@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\System;
 use Illuminate\Http\Request;
 
 class SystemController extends Controller
@@ -11,36 +12,25 @@ class SystemController extends Controller
      */
     public function index()
     {
-        return view('status');
+        $systems = System::all();
+
+        return view('status', compact('systems'));
     }
 
-    public function show()
+    public function update($id)
     {
-        //
-    }
+        $system = System::find($id);
 
-    public function create()
-    {
-        //
-    }
+        if ($system->status === 1) {
+            $status = 0;
+        } else {
+            $status = 1;
+        }
 
-    public function store()
-    {
-        //
-    }
+        $system->update([
+            'status' => $status
+        ]);
 
-    public function edit()
-    {
-        //
-    }
-
-    public function update()
-    {
-        //
-    }
-
-    public function delete()
-    {
-        //
+        return redirect(route('status.index'));
     }
 }

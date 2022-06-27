@@ -7,7 +7,7 @@
                     <h1>You want to contact with the admin of the portal? Start chat by typing in a question or a message. </h1>
                 </div>
 
-                <form method="POST" action="/admin/chats">
+                <form method="POST" action="/chats">
                     @csrf
 
                     <div class="mb-15">

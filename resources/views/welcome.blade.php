@@ -5,10 +5,10 @@
 {{--    make if statement to check if any from systems is down --}}
     @if(count($systems) > 0)
         @foreach($systems as $system)
-            @if($system->down)
+            @if($system->status === false)
                 <div class="notification is-danger ml-6 mr-6 mt-4">
                     <button class="delete"></button>
-                    System <strong>{{$system->name}}</strong> is down! Click <a class="js-modal-trigger" data-target="modal-js-example">here</a>
+                    System <strong>{{$system->title}}</strong> is down! Click <a class="js-modal-trigger" data-target="modal-js-example">here</a>
                     to read more.
                 </div>
             @endif
