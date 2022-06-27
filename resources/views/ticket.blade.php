@@ -1,12 +1,18 @@
 @extends('Components.layout')
 
+@section('head')
+    <script src="/js/catalogs.js"></script>
+@endsection
+@section('body')
+    onload="init()" class="body"
+@endsection
 @section('content')
     <div class="container mt-4">
         <div class="column">
             <div class="columns">
                 <!-- Title -->
                 <div class="column is-one-fourth">
-                    <div class="title">My Tickets</div>
+                    <div class="title">All Tickets</div>
                 </div>
                 <!-- Drop down Menu -->
                 <div class="column is-one-fourth">
@@ -21,13 +27,10 @@
                         </div>
                         <div class="dropdown-menu" id="dropdown-menu" role="menu">
                             <div class="dropdown-content">
-                                <a href="#" class="dropdown-item">
-                                    Most Recent
-                                </a>
-                                <a class="dropdown-item">
+                                <a href="{{ route('ticket.index') }}?desc=0" class="dropdown-item">
                                     Low To High Priority
                                 </a>
-                                <a href="#" class="dropdown-item">
+                                <a href="{{ route('ticket.index') }}?desc=1" class="dropdown-item">
                                     High To Low Priority
                                 </a>
                             </div>
@@ -47,77 +50,109 @@
         <!-- Start of The Tickets -->
         <div class="column">
             <div class="box">
-                <div class="columns">
-                    <div class="column is-five-fifth">
-                        <p>
-                            <strong>Title:</strong> CEO Meeting <br>
-                            <strong>Description:</strong> Meeting to discuss company changes <br>
-                            <strong>Time:</strong> 13:00 <br>
-                            <strong>Location:</strong> Meeting room 2 <br>
-                            <strong>Opened By:</strong> Polly <br>
-                        </p>
-                    </div>
-                    <div class="column is-one-fifth">
-                        <div class="buttons">
-                            <button class="button is-danger">High</button>
-                        </div>
+                <div class="column is-one-fifth">
+                    <div class="buttons">
+                        <a class="button is-primary" href="{{ route('ticket.create') }}">Create New Ticket</a>
                     </div>
                 </div>
+                @if (auth()->user()->role_id == 1)
+                <div class="column is-one-fifth">
+                    <div class="buttons">
+                        <a class="button is-danger" href="{{ route('ticket.myTickets') }}">My Tickets</a>
+                    </div>
+                </div>
+                @endif
             </div>
+            <!-- modal -->
+            @if(count($catalogTickets) > 0 && auth()->user()->role_id === 1)
+                <div class="notification is-warning ml-6 mr-6 mt-4">
+                    <a onclick="hideNotification(this.offsetParent)" class="button delete"></a>
+                    There are {{ $catalogTickets->count() }} catalog tickets! Click <a onclick="showCatalogTickets()">here</a>
+                    to view them.
+                </div>
+
+                <!-- Modal to show all catalog Tickets -->
+                <div id="catalogTickets" class="modal">
+                    <div class="modal-background"></div>
+                    <div class="modal-card" style="width: 1400px">
+                        <header class="modal-card-head">
+                            <p class="modal-card-title">Catalog Tickets</p>
+                            <button onclick="closeModal()" class="delete" aria-label="close"></button>
+                        </header>
+                        <section class="modal-card-body">
+                            <div id="catalogTicketsDisplay">
+                                <template id="catalogTicketsForm">
+                                    <form method="POST" action="/catalog/delete">
+                                        @csrf
+                                        @method('DELETE')
+                                        <div id="catalogTicketsTableBody" class="is-hoverable">
+                                            <!-- where the stuff will be shown -->
+                                        </div>
+                                    </form>
+                                </template>
+                            </div>
+                        </section>
+                        <footer class="modal-card-foot">
+                            <a onclick="closeModal()" class="button">Cancel</a>
+                        </footer>
+                    </div>
+                </div>
+            @endif
+            <!-- Normal Tickets -->
+        @foreach($tickets as $ticket)
             <div class="box">
                 <div class="columns">
                     <div class="column is-five-fifth">
                         <p>
-                            <strong>Title:</strong> Accounting Meeting <br>
-                            <strong>Description:</strong> Meeting to discuss the quarterly income of the company <br>
-                            <strong>Time:</strong> 11:00 <br>
-                            <strong>Location:</strong> Meeting room 5 <br>
-                            <strong>Opened By:</strong> Martin <br>
-                        </p>
+                            <strong>Title:</strong> {{$ticket->title}}<br>
+                            <strong>Description:</strong> {{$ticket->description}} <br>
+                            <strong>Time:</strong> {{number_format($ticket->time, 2)}} <br>
+                            <strong>Location:</strong> {{$ticket->location}} <br>
+                            <strong>Opened By:</strong> {{$ticket->author()->first()->name}} <br>
+                            <strong>Assigned To:</strong> @if($ticket->assignee()->first()){{$ticket->assignee()->first()->name}}@endif <br>
+                            <strong>Priority:</strong> {{ $priorities_contract[$ticket->priority]}} <br>
+                            @if (auth()->user()->role_id == 1)
+                            <form method="PUT" action="{{ route('ticket.edit', $ticket) }}">
+                                @csrf
+                                <div class="select is-primary is-small">
+                                    <select id="status" name="status">
+                                        @foreach($available_statuses as $status)
+                                            <option value="{{$status}}" @if($ticket->status==$status)selected="selected"@endif>{{ $statuses_contract[$status]}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="button is-primary is-small">
+                                <button type="submit" class="button is-primary is-small">
+                                    <span>Update</span>
+                                    <i data-feather="info"></i>
+                                </button>
+                                </div>
+                            </form>
+                            @endif
                     </div>
                     <div class="column is-one-fifth">
-                        <div class="buttons">
-                            <button class="button is-danger">High</button>
-                        </div>
+                        <form method="POST" action="{{ route('ticket.destroy',  $ticket->id) }}" class="pb-3">
+                            @csrf
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="button is-danger is-outlined">
+                                <span>Delete</span>
+                                <i data-feather="delete"></i>
+                            </button>
+                        </form>
+
+                        @if (auth()->user()->role_id == 1)
+                            <form method="POST" action="{{ route('ticket.take', $ticket->id) }}">
+                                @csrf
+                                <button type="submit" class="button is-primary">
+                                    <span>Take to Work</span>
+                                    <i data-feather="info"></i>
+                                </button>
+                            </form>
+                        @endif
                     </div>
                 </div>
             </div>
-            <div class="box">
-                <div class="columns">
-                    <div class="column is-five-fifth">
-                        <p>
-                            <strong>Title:</strong> The Lunch Room Debacle <br>
-                            <strong>Description:</strong> Meet to discuss if we should expand the menu <br>
-                            <strong>Time:</strong> 14:00 <br>
-                            <strong>Location:</strong> Meeting room 3 <br>
-                            <strong>Opened By:</strong> Lars <br>
-                        </p>
-                    </div>
-                    <div class="column is-one-fifth">
-                        <div class="buttons">
-                            <button class="button is-warning">Medium</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="box">
-                <div class="columns">
-                    <div class="column is-five-fifth">
-                        <p>
-                            <strong>Title:</strong> Daily Standup <br>
-                            <strong>Description:</strong> See where the project team is at and what the will do for the day <br>
-                            <strong>Time:</strong> 9:00 <br>
-                            <strong>Location:</strong> Meeting room 1 <br>
-                            <strong>Opened By:</strong> Owen <br>
-                        </p>
-                    </div>
-                    <div class="column is-one-fifth">
-                        <div class="buttons">
-                            <button class="button is-success">Low</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        @endforeach
         </div>
     </div>
 @endsection

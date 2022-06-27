@@ -20,55 +20,32 @@
 
         <style>
             body {
+                display: flex;
+                min-height: 100vh;
+                flex-direction: column;
                 font-family: 'Nunito', sans-serif;
             }
 
-            .is-active {
-                background-color: #e35205; !important;
+            #wrapper {
+                flex: 1;
             }
 
-            a.navbar-item.is-active, .navbar-link.is-active {
-                background-color: #e35205;
-            }
-
-            a.navbar-item.is-active:not(:focus):not(:hover), .navbar-link.is-active:not(:focus):not(:hover) {
-                background-color: #e35205;
-            }
-
-            .navbar-item.has-dropdown:focus .navbar-link, .navbar-item.has-dropdown:hover .navbar-link, .navbar-item.has-dropdown.is-active .navbar-link {
-                background-color: #e35205;
-            }
-
-            .navbar-dropdown a.navbar-item:focus, .navbar-dropdown a.navbar-item:hover {
-                background-color: #e35205;
-            }
-
-            .navbar-dropdown {
-                background-color: #00385a;
-            }
-
-            .navbar-item {
-                background-color: #00385a;
-                color: white;
-            }
-
-            a.has-text-white:hover, a.has-text-white:focus {
-                background-color: #e35205;
-            }
-
-            a.has-text-white:hover, a.has-text-white:focus {
-                color: #e35205;
+            .footer {
+                background-color: hsl(0deg, 0%, 98%);
+                padding: 3rem 1.5rem 6rem;
+                margin-top: 50px;
             }
         </style>
     </head>
 
-    <body>
-        <div>
+    <body @yield('body')>
+        <div id="wrapper">
             @include('Components.navbar')
 
             @yield('content')
         </div>
-        <footer class="footer my-6">
+
+        <footer class="footer">
             @yield('footer')
             <p class="text-center text-muted" id="copyright">Copyright © 2022 Lamb Weston. All rights reserved.</p>
         </footer>

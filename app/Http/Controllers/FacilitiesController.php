@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreFacilitiesRequest;
 use App\Http\Requests\UpdateFacilitiesRequest;
 use App\Models\Facilities;
+use App\Models\Ticket;
+use App\Models\FacilitiesServices;
 use GuzzleHttp\Psr7\Uri;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 
 class FacilitiesController extends Controller
@@ -14,11 +17,12 @@ class FacilitiesController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        return view('Catalogs.facilities');
+        $facilitiesServices = FacilitiesServices::get();
+        return view('Catalogs.facilities', compact('facilitiesServices'));
     }
 
     /**
@@ -28,7 +32,7 @@ class FacilitiesController extends Controller
      */
     public function create()
     {
-        //
+        return view('Catalogs.forms.facilities.create');
     }
 
     /**
@@ -39,7 +43,8 @@ class FacilitiesController extends Controller
      */
     public function store(StoreFacilitiesRequest $request)
     {
-        //
+        $ticket = Ticket::create($this->validateTicket($request));
+        return redirect(route('catalogs.facilities', $ticket));
     }
 
     /**
@@ -86,4 +91,5 @@ class FacilitiesController extends Controller
     {
         //
     }
+
 }

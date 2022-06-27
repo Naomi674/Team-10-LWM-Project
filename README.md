@@ -7,6 +7,41 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Testing
+### Test Plan
+
+The following user stories are tested in this Laravel application:
+1. "As an admin I want to be able to register a new user"
+3. "As a user I can update my account information such as my email and username"
+
+The user stories are tested within the application for the following scenarios (numbers refer to the user stories above):
+1. An admin can create a new user which is saved in the database when inputting valid data into the form [High Level Testing]. When the data is invalid, the user should not be saved into the database and the session has an error [High Level Testing]. When an admin tries to create a user with an email that is already in use, the user should not be duplicated [Low Level Testing]. 
+2. As a user I can update my user information with valid data and the updated data is updated in the database [High Level Testing]. When my input is invalid the database should not be updated [High Level Testing]. Passwords are excluded from the testing here, since password updating is handled through a different page.
+
+### Test evaluation
+The tests in this application apply to two features. In the following the coverage of the tests is listed:
+- create user
+  - Covers: the whole process of registration a new user and check if the new user actually exist in the database
+- wrong registration input
+  - Covers: role_ids that doesn't exist and empty fields when submitting
+  - Doesn't cover: wrongly spelled emails
+- user duplication
+  - Covers: if a duplicated user can be created
+  - Doesn't cover: how the database would handle such event
+- update account
+  - Covers: the whole process of a user updating his profile information with valid data
+  - Doesn't cover: Updating a users' password (different page)
+- update account with wrong data
+  - Covers: input wrong data won't be pushed to database
+  - Doesn't cover: wrong password data (different page)
+
+### Test results
+If everything is correctly setup, the tests should run without any errors and should look something like this:
+
+<img src="https://i.ibb.co/7KC8w0L/Screenshot-20220625-175645.png" alt="Screenshot-20220625-175645" border="0">
+
+(Tests run automatically on every pull request to main)
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
