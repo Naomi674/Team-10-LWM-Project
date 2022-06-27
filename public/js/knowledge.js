@@ -40,14 +40,14 @@ function answerQuestion(children) {
         }
     }
     for (let option of options) {
-        if (option.value === children[2].innerText) {
+        if (option.value === children[3].innerText) {
             option.setAttribute('selected', 'true');
         }
     }
 
     document.querySelector('.modal.is-active').classList.remove('is-active');
     document.querySelector('#answerQuestion').classList.add('is-active');
-    console.log(children);
+    // console.log(children);
     document.querySelector('#editModal_id').value = children[0].innerHTML;
     document.querySelector('#answerQuestionTitle').value = children[2].innerText;
 }
@@ -120,7 +120,7 @@ async function loadPendingKnowledge()
     let response = await fetch('/api/pendingKnowledge');
     if (response.status === 200) {
         let entries = await response.json();
-        console.log(entries);
+        // console.log(entries);
         buildPendingHTML(entries);
     }
 }
