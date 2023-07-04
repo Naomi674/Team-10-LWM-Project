@@ -34,6 +34,15 @@
             </p>
             @enderror
         </div>
+
+        <!-- Remember me checkbox -->
+        <div class="field">
+            <label class="checkbox">
+                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                Remember me
+            </label>
+        </div>
+
         <div class="level">
             <p class="level-left">
                 <button type="submit" class="button is-primary">
