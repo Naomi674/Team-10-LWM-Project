@@ -56,8 +56,6 @@ Route::get('/update-password', function () {
     return view('auth.update-password');
 })->middleware('auth');
 
-Route::post('/login', 'Auth\LoginController@login')->middleware('throttle:5,10');
-
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => 'role:admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
        Route::resource('admin', AdminController::class);

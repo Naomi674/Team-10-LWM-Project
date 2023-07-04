@@ -36,6 +36,7 @@ class CreateNewUser implements CreatesNewUsers
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
+            // protection against rainbow table attacks
             'password' => Hash::make($input['password']),
             'role_id' => '0'
         ]);

@@ -40,9 +40,10 @@
                     <p class="control has-icons-left">
                         <input class="input @error('password') is-danger @enderror" type="password" name="password" placeholder="Password" pattern=".{12,}" required>
                         <span class="icon is-small is-left">
-                          <i class="fas fa-lock"></i>
-                        </span>
+            <i class="fas fa-lock"></i>
+        </span>
                     </p>
+                    <p class="help">Password must be at least 12 characters long, contain at least one lowercase letter, one uppercase letter, one number, and one special character.</p>
                     @error('password')
                     <p class="help is-danger" role="alert">
                         {{ $message }}
@@ -53,8 +54,8 @@
                     <p class="control has-icons-left">
                         <input class="input @error('password') is-danger @enderror" type="password" name="password_confirmation" placeholder="Confirm Password" pattern=".{12,}" required>
                         <span class="icon is-small is-left">
-                      <i class="fas fa-lock"></i>
-                    </span>
+            <i class="fas fa-lock"></i>
+        </span>
                     </p>
                     @error('password')
                     <p class="help is-danger" role="alert">
