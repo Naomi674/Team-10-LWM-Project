@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('h_r_services', function (Blueprint $table) {
+        Schema::create('catalog_tickets', function (Blueprint $table) {
             $table->id();
-            $table->string('category');
-            $table->string('service');
+            $table->string('title');
             $table->string('description');
+            $table->string('location')->nullable();
+            $table->string('author');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('h_r_services');
+        Schema::dropIfExists('catalog_tickets');
     }
 };

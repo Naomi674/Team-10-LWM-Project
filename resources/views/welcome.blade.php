@@ -5,16 +5,15 @@
 {{--    make if statement to check if any from systems is down --}}
     @if(count($systems) > 0)
         @foreach($systems as $system)
-            @if($system->down)
+            @if($system->status === false)
                 <div class="notification is-danger ml-6 mr-6 mt-4">
                     <button class="delete"></button>
-                    System <strong>{{$system->name}}</strong> is down! Click <a class="js-modal-trigger" data-target="modal-js-example">here</a>
+                    System <strong>{{$system->title}}</strong> is down! Click <a class="js-modal-trigger" data-target="modal-js-example">here</a>
                     to read more.
                 </div>
             @endif
         @endforeach
     @endif
-
 
     <section class="container mt-6">
         <div class="columns is-multiline is-centered">
@@ -22,10 +21,9 @@
                 <div class="columns">
                     <div class="column left">
                         <h1 class="title is-1">Hello, {{ $user->name }}</h1>
-                        <h2 class="subtitle colored is-4">Today you have the following activities planned:</h2>
-                        <p>11:00 - Meeting with CEO</p>
-                        <p>12:00 - Lunch</p>
+                        <div id="quotes"></div>
                     </div>
+
                     <div class="column right has-text-centered">
                         <h1 class="title is-4">Apps</h1>
                         <form>
@@ -35,18 +33,21 @@
                                 @if(count($tickets) > 0)
                                     @foreach($tickets as $ticket)
                                         <hr>
-                                        <p class="has-text-left is-underlined">{{ $ticket->title}}</p>
-                                        <p class="has-text-left has-text-grey-light">{{ $ticket->description }}</p>
+                                        <a href="{{ route('ticket.index') }}">
+                                            <p class="has-text-left is-underlined">{{ $ticket->title}}</p>
+                                            <p class="has-text-left has-text-grey-light">{{ $ticket->description }}</p>
+                                        </a>
                                     @endforeach
                                 @endif
                                 </div>
                             </div>
 
                             <div class="box">
-                                <p class="has-text-left has-text-weight-bold">Your most used apps:</p>
+                                <p class="has-text-left has-text-weight-bold">Your most used services:</p>
                                 <div class="control">
-                                    <p class="has-text-left mt-4 is-underlined">Order lunch</p>
-                                    <p class="has-text-left is-underlined">Change password</p>
+                                    <a class="has-text-left mt-4 is-underlined" href="{{ route('finance.index') }}">Financial services</a>
+                                    <br>
+                                    <a class="has-text-left is-underlined" href="{{ route('hr.index') }}">HR</a>
                                 </div>
                             </div>
                         </form>
@@ -114,11 +115,12 @@
             // Add a keyboard event to close all modals
             document.addEventListener('keydown', (event) => {
                 const e = event || window.event;
-
+            
                 if (e.keyCode === 27) { // Escape key
                     closeAllModals();
                 }
             });
         });
     </script>
+    <script src="{{ asset('js/quotesApi.js') }}"></script>
 @endsection

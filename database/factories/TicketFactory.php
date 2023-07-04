@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Ticket;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,6 +23,8 @@ class TicketFactory extends Factory
             'description' => $this->faker->text,
             'time' => $this->faker->numerify('##'),
             'location' => $this->faker->text,
+            'priority' => $this->faker->randomElement(Ticket::AVAILABLE_PRIORITIES),
+            'status' => $this->faker->randomElement(Ticket::AVAILABLE_STATUSES),
             'created_at' => now(),
             'updated_at' => now(),
         ];

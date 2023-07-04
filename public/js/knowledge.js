@@ -7,6 +7,59 @@ function init() {
     removeOldHTML('FAQ');
 }
 
+function showPendingKnowledge() {
+    document.querySelector('#openQuestions').classList.add('is-active');
+    document.querySelector('#pendingKnowledgeTableBody').innerHTML = null;
+    loadPendingKnowledge();
+}
+
+function buildPendingHTML(entries) {
+    // console.log(entries);
+    const table = document.querySelector('#pendingKnowledgeTableBody')
+
+    entries.forEach(entry => {
+        const tr = document.createElement('tr');
+        tr.setAttribute('onclick', 'answerQuestion(this.children)')
+        tr.setAttribute('style', 'cursor: pointer')
+        tr.innerHTML += `<th hidden id="entry_id">${entry.id}</th>`
+        tr.innerHTML += `<th>${entry.author}</th>`
+        tr.innerHTML += `<th>${entry.title}</th>`
+        tr.innerHTML += `<th>${entry.category}</th>`
+        tr.innerHTML += `<th>${entry.updated_at}</th>`
+
+        table.appendChild(tr)
+    })
+}
+
+function answerQuestion(children) {
+    const options = document.querySelector('#category').children;
+
+    for (let option of options) {
+        if (option.hasAttribute('selected')) {
+            option.removeAttribute('selected');
+        }
+    }
+    for (let option of options) {
+        if (option.value === children[3].innerText) {
+            option.setAttribute('selected', 'true');
+        }
+    }
+
+    document.querySelector('.modal.is-active').classList.remove('is-active');
+    document.querySelector('#answerQuestion').classList.add('is-active');
+    // console.log(children);
+    document.querySelector('#editModal_id').value = children[0].innerHTML;
+    document.querySelector('#answerQuestionTitle').value = children[2].innerText;
+}
+
+function changeAction(element) {
+    let action = element.action
+    const title = element.offsetParent.children[1].firstElementChild[2].value;
+    action += title;
+    element.action = action;
+    return true;
+}
+
 function handleClick (element) {
     if (element.hasAttribute('class')) return;
 
@@ -53,12 +106,22 @@ function buildHTML(entries, category)
 
 async function loadCategory(category)
 {
-    let response = await fetch('/foo?category=' + category);
+    let response = await fetch('/api/knowledge?category=' + category);
     if (response.status === 200) {
         let entries = await response.json();
         // console.log(entries);
         document.getElementById('titleCategory').innerHTML = category;
         buildHTML(entries, category);
+    }
+}
+
+async function loadPendingKnowledge()
+{
+    let response = await fetch('/api/pendingKnowledge');
+    if (response.status === 200) {
+        let entries = await response.json();
+        // console.log(entries);
+        buildPendingHTML(entries);
     }
 }
 

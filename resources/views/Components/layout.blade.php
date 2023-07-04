@@ -20,18 +20,32 @@
 
         <style>
             body {
+                display: flex;
+                min-height: 100vh;
+                flex-direction: column;
                 font-family: 'Nunito', sans-serif;
+            }
+
+            #wrapper {
+                flex: 1;
+            }
+
+            .footer {
+                background-color: hsl(0deg, 0%, 98%);
+                padding: 3rem 1.5rem 6rem;
+                margin-top: 50px;
             }
         </style>
     </head>
 
     <body @yield('body')>
-        <div>
+        <div id="wrapper">
             @include('Components.navbar')
 
             @yield('content')
         </div>
-        <footer class="footer my-6">
+
+        <footer class="footer">
             @yield('footer')
             <p class="text-center text-muted" id="copyright">Copyright © 2022 Lamb Weston. All rights reserved.</p>
         </footer>

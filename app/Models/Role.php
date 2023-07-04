@@ -8,5 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
     use HasFactory;
-    public const CLIENT_ROLE_ID=2;
+    public const ROLE_USER = 0;
+    public const ROLE_ADMIN = 1;
+    const CLIENT_ROLE_ID = 2;
 }

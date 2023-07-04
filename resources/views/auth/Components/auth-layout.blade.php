@@ -17,6 +17,11 @@
             <div class="container">
                 <div class="columns is-centered">
                     <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+                        <div class="level mb-5">
+                            <div class="level-item has-text-centered">
+                                <img class="image" src="https://lwmdev.service-now.com/f1580754dbf8b700a797298a48961940.iix">
+                            </div>
+                        </div>
                         {{--A added form needs to have the class 'box'--}}
                         @yield('content')
                     </div>

@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreFacilitiesRequest;
 use App\Http\Requests\UpdateFacilitiesRequest;
+use App\Models\CatalogTickets;
 use App\Models\Facilities;
+use App\Models\Ticket;
 use GuzzleHttp\Psr7\Uri;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 
 class CatalogController extends Controller
@@ -28,7 +31,7 @@ class CatalogController extends Controller
      */
     public function create()
     {
-        //
+        return view('Catalogs.create');
     }
 
     /**
@@ -37,43 +40,23 @@ class CatalogController extends Controller
      * @param  \App\Http\Requests\StoreFacilitiesRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFacilitiesRequest $request)
+    public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'location' => 'required',
+            'author' => 'required'
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Facilities  $facilities
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Facilities $facilities)
-    {
-        //
-    }
+            CatalogTickets::create([
+                'title' => $request->title,
+                'description' => $request->description,
+                'location' => $request->location,
+                'author' => $request->author,
+            ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Facilities  $facilities
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Facilities $facilities)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateFacilitiesRequest  $request
-     * @param  \App\Models\Facilities  $facilities
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateFacilitiesRequest $request, Facilities $facilities)
-    {
-        //
+        return view('Catalogs.index');
     }
 
     /**
@@ -82,8 +65,31 @@ class CatalogController extends Controller
      * @param  \App\Models\Facilities  $facilities
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Facilities $facilities)
+    public function destroy(Request $request)
     {
-        //
+        $entry = CatalogTickets::find($request->id);
+
+        $entry->delete();
+
+        return redirect(route('ticket.index'));
     }
+
+    public function ajax(Request $request)
+    {
+        $category = $request->category;
+
+        $table = $request->table;
+
+        $entry = DB::table($table)->where('category', $category)->get();
+
+        echo $entry;
+    }
+
+    public function getCatalogTickets(Request $request)
+    {
+        $entry = DB::table('catalog_tickets')->get();
+
+        echo $entry;
+    }
+
 }
